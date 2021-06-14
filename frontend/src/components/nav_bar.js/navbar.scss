@@ -1,0 +1,112 @@
+.nav-bar { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // border: 1px red solid;
+  height: 60px;
+  padding: 15px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+  width: 200px;
+}
+
+.login-button{
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #FFFFFF;
+  background-color: #000000;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #FFFFFF;
+  text-align: center;
+  transition: all 0.2s;
+  padding-top: 20px 24px;
+  border-radius: 30px;
+}
+
+.login-button:hover {
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+.bouncy {
+  animation: bouncy 5s 1 linear;
+  position: relative;
+}
+
+@keyframes bouncy {
+  0% {top: 0em}
+  40% {top: 0em}
+  43% {top: -0.9em}
+  46% {top: 0em}
+  48% {top: -0.4em}
+  50% {top: 0em}
+  100% {top: 0em;}
+}
+
+.icon {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+}
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background-color: #ffffff;
+  bottom: 22px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.icon:hover .tooltip {
+  top: 55px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.github:hover,
+.github:hover .tooltip,
+.github:hover .tooltip::before {
+  background-color: grey;
+  color: #ffffff;
+}

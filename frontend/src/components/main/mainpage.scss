@@ -1,0 +1,21 @@
+.main-splash {
+  position: relative;
+  background-image: url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2808&q=80);
+  height: 50vh;
+  background-repeat: no-repeat;
+  // background-attachment: fixed;
+  background-position: 25% 65%;
+  background-size: cover;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+}
+
+.main-splash::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(36, 37, 42, 0.35);
+}

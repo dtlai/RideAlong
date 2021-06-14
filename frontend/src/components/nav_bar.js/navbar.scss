@@ -1,10 +1,13 @@
+$primary-blue: rgb(56, 179, 253);
+
 .nav-bar { 
   display: flex;
   align-items: center;
   justify-content: space-between;
   // border: 1px red solid;
-  height: 60px;
+  height: 30px;
   padding: 15px;
+  background-color: white;
 }
 
 .nav-links {
@@ -12,25 +15,30 @@
   justify-content: space-between;
   list-style: none;
   align-items: center;
-  width: 200px;
+  width: 500px;
+  a {
+    text-decoration: none;
+    color: $primary-blue;
+    font-weight: 600;
+    font-size: 18px;
+  }
 }
 
 .login-button{
   display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid #FFFFFF;
-  background-color: #000000;
+  border: 0.1em solid white;
+  background-color: $primary-blue;
   margin: 0 0.3em 0.3em 0;
   border-radius: 0.12em;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
   color: #FFFFFF;
   text-align: center;
   transition: all 0.2s;
-  padding-top: 20px 24px;
-  border-radius: 30px;
+  padding: 15px 15px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .login-button:hover {
@@ -107,6 +115,6 @@
 .github:hover,
 .github:hover .tooltip,
 .github:hover .tooltip::before {
-  background-color: grey;
+  background-color: rgb(68, 60, 60);
   color: #ffffff;
 }

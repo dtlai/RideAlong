@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import MainPage from './main/mainpage';
 
 const App = () => (
  <div>
@@ -8,3 +9,5 @@ const App = () => (
    </Switch>
  </div>
 )
+
+export default App;

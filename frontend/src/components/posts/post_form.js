@@ -21,8 +21,18 @@ class PostForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let post = {
-      post: this.state.post
+      user: this.state.user,
+      title: this.state.title,
+      description: this.state.description,
+      carMake: this.state.carMake,
+      startLocation:this.state.startLocation,
+      endLocation: this.state.endLocation,
+      capacity: this.state.capacity,
+      numPassengers: this.state.numPassengers,
+      price: this.state.price,
+      leaveDate: Date.now,
     }
+    console.log(post);
     this.props.createPost(post);
     this.setState({
       title: "",

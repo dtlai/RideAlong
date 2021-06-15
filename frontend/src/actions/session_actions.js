@@ -13,8 +13,9 @@ export const receiveCurrentUser = (currentUser) => ({
 });
 
 // This will be used to redirect the user to the login page upon signup
-export const receiveUserSignIn = () => ({
+export const receiveUserSignIn = (currentUser ) => ({
   type: RECEIVE_USER_SIGN_IN,
+  currentUser
 });
 
 // We dispatch this one to show authentication errors on the frontend
@@ -31,7 +32,7 @@ export const logoutUser = () => ({
 // Upon signup, dispatch the approporiate action depending on which type of response we receieve from the backend
 export const signup = (user) => (dispatch) =>
   APIUtil.signup(user).then(
-    () => dispatch(receiveUserSignIn()),
+    (user) => dispatch(receiveUserSignIn(user)),
     (err) => dispatch(receiveErrors(err.response.data))
   );
 

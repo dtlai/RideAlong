@@ -37,6 +37,7 @@ router.post(
     const { errors, isValid } = validatePostInput(req.body);
 
     if (!isValid) {
+      console.log(errors);
       return res.status(400).json(errors);
     }
 

@@ -25,6 +25,7 @@ class Post extends React.Component {
         <h2>All Posts</h2>
         {this.state.posts.map(post => (
           <PostBox key={post.id} post={post} />
+          
         ))}
       </div>
     )

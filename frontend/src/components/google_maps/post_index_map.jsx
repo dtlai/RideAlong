@@ -1,12 +1,47 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import Geocode from "react-geocode";
-import ReactDOM from 'react-dom';
 
 const mapStyles = {
   width: '60%',
   height: '60%'
 };
+
+const markerInfo = [
+  {
+    driver: {
+      first_name: "David",
+      last_name: "Lai"
+    },
+    seats: 4,
+    location: { 
+      pickup: "Little Tokyo",
+      dropoff: "Santa Monica"
+    }
+   },
+   {
+    driver: {
+      first_name: "Nathan",
+      last_name: "Luu"
+    },
+    seats: 2,
+    location: { 
+      pickup: "Hollywood",
+      dropoff: "San Francisco"
+    }
+   },
+   {
+    driver: {
+      first_name: "Michael",
+      last_name: "Lau"
+    },
+    seats: 1,
+    location: { 
+      pickup : "Koreatown",
+      dropoff: "Disneyland"
+    }
+   }
+];
 
 Geocode.setApiKey("AIzaSyCVOIEoWeHdQazoiFcE5jrwVZconSlR4uY");
 
@@ -16,82 +51,52 @@ export class PostIndexMap extends Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {},
-      coords: {lat: 20, lng: -100}
+      selectedPlace: {
+        info: {
+          driver: {
+            first_name: "",
+            last_name: "",
+          },
+          seats: null,
+          location: {
+            pickup: "",
+            dropoff: ""
+          }
+        }
+      },
+      center: {},
+      markers: []
     }
-
     this.recenterMap = this.recenterMap.bind(this);
-    this.loadMap = this.loadMap.bind(this);
     this.getLatLong = this.getLatLong.bind(this);
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.onClose = this.onClose.bind(this);
   }
 
   componentDidMount() {
-    this.getLatLong("Hollywood");
-    // this.loadMap();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.google !== this.props.google) {
-      this.loadMap();
+    const locate = pos => {
+      this.setState({center: {lat: pos.coords.latitude, lng: pos.coords.longitude}})
     }
-    if (prevState.coords !== this.state.coords) {
-      this.recenterMap();
+    navigator.geolocation.getCurrentPosition(pos => locate(pos))
+    markerInfo.forEach(info => this.getLatLong(info));
+  }
+
+
+  recenterMap(mapProps, map, event) {
+    this.setState({center: event.latLng})
+  }
+
+  getLatLong(markerInfo) {
+    Geocode.fromAddress(markerInfo.location.pickup).then((response) => {
+      const { lat, lng } = response.results[0].geometry.location;
+      let oldMarkers = this.state.markers;
+      markerInfo.location.coords = {lat: lat, lng: lng};
+      oldMarkers = oldMarkers.concat(markerInfo);
+      this.setState({markers: oldMarkers});
+    }, 
+    (error) => {
+      console.error(error);
     }
-  }
-
-  recenterMap() {
-    const map = this.map;
-    const current = this.state.coords;
-    const google = this.props.google;
-    const maps = google.maps;
-
-    if (map) {
-      let center = new maps.LatLng(current.lat, current.lng);
-      map.panTo(center);
-    }
-  }
-
-  loadMap() {
-    if (this.props && this.props.google) {
-      // checks if google is available
-      const { google } = this.props;
-      const maps = google.maps;
-
-      const mapRef = this.refs.map;
-
-      // reference to the actual DOM element
-      const node = ReactDOM.findDOMNode(mapRef);
-
-      let { zoom } = this.props;
-      const { lat, lng } = this.state.coords;
-      const center = new maps.LatLng(lat, lng);
-
-      const mapConfig = Object.assign(
-        {},
-        {
-          center: center,
-          zoom: zoom
-        }
-      );
-
-      // maps.Map() is constructor that instantiates the map
-      this.map = new maps.Map(node, mapConfig);
-    }
-  }
-  
-
-  getLatLong(address) {
-    Geocode.fromAddress(address).then(
-  (response) => {
-    const { lat, lng } = response.results[0].geometry.location;
-    this.setState({coords: {lat: lat, lng: lng}})
-    console.log(this.state.coords)
-  },
-  (error) => {
-    console.error(error);
-  }
 );
   }
 
@@ -112,28 +117,31 @@ export class PostIndexMap extends Component {
   };
 
   render() {
-    console.log(this.state.coords)
     return (
       <Map
+        disableDoubleClickZoom={true}
+        streetViewControl={false}
+        mapTypeControl={false}
+        ref="map"
         google={this.props.google}
         zoom={14}
         style={mapStyles}
-        initialCenter={
-          this.state.coords 
-          // {lat: 103, lng: -118}         
+        center={
+          this.state.center       
         }
+        onDblclick={this.recenterMap}
         >
-        <Marker
-          onClick={this.onMarkerClick}
-          name={'Little Tokyo, Los Angeles'}
-        />
+        { this.state.markers.map((markerInfo, idx) => <Marker position={markerInfo.location.coords} key={`marker-${idx}`} info={markerInfo} onClick={this.onMarkerClick}/>)}
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
           onClose={this.onClose}
         >
           <div>
-            <h4>{this.state.selectedPlace.name}</h4>
+            <h4>Driver: {this.state.selectedPlace.info.driver.first_name} {this.state.selectedPlace.info.driver.last_name}</h4>
+            <h4>Seats Available: {this.state.selectedPlace.info.seats}</h4>
+            <h4>Pickup: {this.state.selectedPlace.info.location.pickup}</h4>
+            <h4>Dropoff: {this.state.selectedPlace.info.location.dropoff}</h4>
           </div>
         </InfoWindow>
       </Map>

@@ -33,7 +33,7 @@ export default function TransitionsModal() {
       >
         <Fade in={open}>
           <div>
-            <SignupFormContainer/>
+            <SignupFormContainer handleClose={handleClose}/>
           </div>
         </Fade>
       </Modal>

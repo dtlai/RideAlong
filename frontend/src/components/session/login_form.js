@@ -43,13 +43,18 @@ class LoginForm extends React.Component {
       password: this.state.password,
     };
 
-    this.props.login(user);
+    this.props.login(user)
+      .then(()=> {
+        if (Object.keys(this.state.errors).length === 0){
+          this.props.handleClose();
+        }
+      })  
   }
 
   // Render the session errors if there are any
   renderErrors() {
     return (
-      <ul>
+      <ul className="errors"> 
         {Object.keys(this.state.errors).map((error, i) => (
           <li key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
@@ -62,11 +67,8 @@ class LoginForm extends React.Component {
       <div className="session-form">
         <form onSubmit={this.handleSubmit}>
           <div>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
             <img src="images/session_car.png" alt="Ride Along Logo" />
+            <br/>
             <span>
               Login
             </span>
@@ -85,7 +87,11 @@ class LoginForm extends React.Component {
               placeholder="Password"
             />
             <br />
-            <input className="session-button" type="submit" value="Submit" />
+            <input 
+            className="session-button" 
+            type="submit" 
+            value="Submit" 
+            />
             {this.renderErrors()}
           </div>
         </form>

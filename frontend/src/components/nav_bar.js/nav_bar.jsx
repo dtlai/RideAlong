@@ -15,12 +15,12 @@ class NavBar extends React.Component {
   }
 
   render() {
-    console.log(this.props.logout);
+    console.log(this.props.loggedIn);
     let sessionButtons = (this.props.loggedIn) ? 
         <button 
         className="session-button"
         onClick={this.logoutUser}
-        >logout</button> : (
+        >Logout</button> : (
         <div className="modals">
           <SignupModal />
           <LoginModal />

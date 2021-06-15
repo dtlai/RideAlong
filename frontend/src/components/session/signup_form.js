@@ -43,19 +43,25 @@ class SignupForm extends React.Component {
       password: this.state.password,
       password2: this.state.password2,
     };
-
-    this.props.signup(user, this.props.history);
+    
+    this.props.signup(user, this.props.history)
+      .then(()=> {
+        if (Object.keys(this.state.errors).length === 0){
+          this.props.handleClose();
+        }
+      })
   }
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="errors">
         {Object.keys(this.state.errors).map((error, i) => (
           <li key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
   }
+
 
   render() {
     return (
@@ -64,11 +70,7 @@ class SignupForm extends React.Component {
           <div>
             <img src="images/session_car.png" alt="Ride Along Logo" />
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            Signup
+            <span>Signup</span>
             <br />
             <input
               type="text"
@@ -112,7 +114,11 @@ class SignupForm extends React.Component {
               placeholder="Confirm Password"
             />
             <br />
-            <input className="session-button" type="submit" value="Submit" />
+            <input 
+            className="session-button" 
+            type="submit" 
+            value="Submit" 
+            />
             {this.renderErrors()}
           </div>
         </form>

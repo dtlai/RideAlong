@@ -81,10 +81,11 @@ $primary-blue: rgb(56, 179, 253);
       width: 100%;
     }
     img {
-      position: absolute;
-      top: 20%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      position: relative;
     }
   }
+}
+
+.errors{
+  background-color: grey;
 }

@@ -46,7 +46,7 @@ class SignupForm extends React.Component {
     
     this.props.signup(user, this.props.history)
       .then(()=> {
-        if (Object.keys(this.state.errors).length === 0){
+        if ((Object.keys(this.state.errors).length === 0) && typeof this.props.handleClose === "function") {
           this.props.handleClose();
         }
       })

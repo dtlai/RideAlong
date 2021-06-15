@@ -11,6 +11,11 @@ import SignupFormContainer from "./session/signup_form_container";
 import PostsContainer from "./posts/posts_container";
 import PostFormContainer from './posts/post_form_container';
 
+// import LoginModal from './session/login_modal'
+// import SignupModal from './session/signup_modal'
+
+import UserPostsContainer from "./user_posts/user_posts_container"
+
 const App = () => (
   <div>
     <Switch>
@@ -19,6 +24,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/posts" component={PostsContainer} />
       <ProtectedRoute exact path="/posts/create" component={PostFormContainer} />
+      <ProtectedRoute exact path="/posts/user" component={UserPostsContainer} />
     </Switch>
   </div>
 );

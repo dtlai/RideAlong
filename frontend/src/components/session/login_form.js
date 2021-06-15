@@ -45,7 +45,7 @@ class LoginForm extends React.Component {
 
     this.props.login(user)
       .then(()=> {
-        if (Object.keys(this.state.errors).length === 0){
+        if ((Object.keys(this.state.errors).length === 0) && typeof this.props.handleClose === "function"){
           this.props.handleClose();
         }
       })  

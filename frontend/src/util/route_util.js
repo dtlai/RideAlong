@@ -11,8 +11,8 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
       !loggedIn ? (
         <Component {...props} />
       ) : (
-        // Redirect to the tweets page if the user is authenticated
-        <Redirect to="/tweets" />
+        // Redirect to the home page if the user is authenticated
+        <Redirect to="/" />
       )
     }
   />

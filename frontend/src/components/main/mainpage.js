@@ -1,6 +1,6 @@
 import React from 'react';
-import NavBar from '../nav_bar.js/NavBar';
 // import { FaGithub } from "react-icons/fa";
+import NavBarContainer from '../nav_bar.js/nav_bar_container';
 
 import './mainpage.scss';
 
@@ -9,7 +9,7 @@ class MainPage extends React.Component {
     return (
       <div className="parent-main">
         <div className="main-splash">
-          <NavBar />
+          <NavBarContainer />
           <div className="title-container">
             <h1 className="title-splash">Get started today!</h1>
           </div>

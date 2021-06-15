@@ -1,6 +1,6 @@
 $primary-blue: rgb(56, 179, 253);
 
-.login-button {
+.session-button {
   display: inline-block;
   border: 0.1em solid white;
   background-color: $primary-blue;
@@ -17,7 +17,7 @@ $primary-blue: rgb(56, 179, 253);
 
 }
 
-.login-button:hover {
+.session-button:hover {
   color: #000000;
   background-color: #FFFFFF;
 }
@@ -75,6 +75,7 @@ $primary-blue: rgb(56, 179, 253);
       margin-top: 10px;
       margin-bottom: 10px;
       padding: 5px;
+      z-index: 0;
     }
     input[type=submit] {
       width: 100%;

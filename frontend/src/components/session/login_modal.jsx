@@ -19,7 +19,7 @@ export default function TransitionsModal() {
 
   return (
     <div>
-      <button className="login-button bouncy" onClick={handleOpen}>
+      <button className="session-button bouncy" onClick={handleOpen}>
         Login
       </button>
       <Modal

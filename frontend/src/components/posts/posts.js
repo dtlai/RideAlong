@@ -40,10 +40,17 @@ class Posts extends React.Component {
         <div>
           <NavBarContainer/>
           <h2>All Posts</h2>
-          {this.state.posts.map(post => (
-            <PostBox key={post.id} post={post} />
-          ))}
           <button onClick={(e) => this.goToCreate()}>Create a Post</button>
+          <div>
+            <div>
+              {this.state.posts.map(post => (
+                <PostBox key={post.id} post={post} />
+              ))}
+            </div>
+            <div>
+              Google Map
+            </div>
+          </div>
         </div>
       )
     }

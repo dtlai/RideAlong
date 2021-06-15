@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { submitPost } from '../../actions/';
+import { createPost } from '../../actions/post_actions';
 import PostForm from './post_form';
 
 const mapStateToProps = state => {
@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    submitPost: data => dispatch(submitPost(data))
+    createPost: data => dispatch(createPost(data))
   };
 };
 

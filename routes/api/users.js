@@ -94,7 +94,12 @@ router.post("/login", (req, res) => {
     // setup payload
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
-        const payload = { id: user.id, email: user.email };
+        const payload = { 
+          id: user.id, 
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName
+        };
 
         jwt.sign(
           payload,
@@ -114,22 +119,5 @@ router.post("/login", (req, res) => {
     });
   });
 });
-
-// return user in auth route
-router.get(
-  "/current",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    res.json({
-      id: req.user.id,
-      username: req.user.username,
-      email: req.user.email,
-    });
-  }
-);
-
-
-router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
-
 
 module.exports = router;

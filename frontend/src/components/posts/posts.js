@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import PostBox from './post_box';
 
 class Post extends React.Component {
   constructor(props) {

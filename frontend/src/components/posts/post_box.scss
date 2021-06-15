@@ -1,5 +1,8 @@
 .post-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  border: 1px solid black;
+  margin: 30px;
+  padding: 25px;
+  box-sizing: border-box;
 }

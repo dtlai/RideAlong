@@ -9,6 +9,7 @@ import { Switch, Route } from "react-router-dom";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import PostsContainer from "./posts/posts_container";
+import PostFormContainer from './posts/post_form_container';
 
 const App = () => (
   <div>
@@ -17,6 +18,7 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/posts" component={PostsContainer} />
+      <Route exact path="/posts/create" component={PostFormContainer} />
     </Switch>
   </div>
 );

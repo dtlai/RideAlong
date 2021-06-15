@@ -35,6 +35,7 @@ class PostForm extends React.Component {
       price: 0,
       leaveDate: Date.now,
     });
+    this.props.history.push("/posts")
   }
 
   update(field) {

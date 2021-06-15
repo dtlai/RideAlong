@@ -9,7 +9,7 @@ export const getPost = postId => {
 };
 
 export const submitPost = data => {
-  return axios.post('/api/posts', data)
+  return axios.post('/api/posts/create', data)
 };
 
 

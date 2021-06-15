@@ -55,9 +55,16 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-form-container">
+      <div className="session-form">
         <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
+          <div>
+            <img src="images/session_car.png" alt="Ride Along Logo" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            Signup
             <br />
             <input
               type="text"
@@ -87,7 +94,7 @@ class SignupForm extends React.Component {
               placeholder="Confirm Password"
             />
             <br />
-            <input type="submit" value="Submit" />
+            <input className="login-button" type="submit" value="Submit" />
             {this.renderErrors()}
           </div>
         </form>

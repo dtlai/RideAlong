@@ -1,5 +1,7 @@
 import React from "react";
 import "./navbar.scss";
+import LoginModal from "../session/login_modal";
+import SignupModal from "../session/signup_modal";
 
 function NavBar () { 
 
@@ -10,10 +12,9 @@ function NavBar () {
 
         <li><a href="#">About Us</a></li>
       </ul>
-      <div>
-      <button className="login-button">Signup</button>
-      <button className="login-button bouncy">Login</button>
-
+      <div className="modals">
+        <SignupModal />
+        <LoginModal />
       </div>
     </div>
   )

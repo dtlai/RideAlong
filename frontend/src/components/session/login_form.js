@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import "./session.scss";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -58,9 +59,18 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="session-form">
         <form onSubmit={this.handleSubmit}>
           <div>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+            <img src="images/session_car.png" alt="Ride Along Logo" />
+            <span>
+              Login
+            </span>
+            <br />
             <input
               type="text"
               value={this.state.email}
@@ -75,7 +85,7 @@ class LoginForm extends React.Component {
               placeholder="Password"
             />
             <br />
-            <input type="submit" value="Submit" />
+            <input className="login-button" type="submit" value="Submit" />
             {this.renderErrors()}
           </div>
         </form>

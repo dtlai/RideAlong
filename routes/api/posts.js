@@ -31,7 +31,7 @@ router.get("/:id", (req, res) => {
 
 // protected route to make posts
 router.post(
-  "/",
+  "/create",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validatePostInput(req.body);

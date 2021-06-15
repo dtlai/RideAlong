@@ -34,5 +34,5 @@ export const fetchPost = postId => dispatch => (
 export const createPost = data => dispatch => (
   submitPost(data)
     .then(post => dispatch(receiveNewPost(post)))
-    .catch(err => dispatch(err))
+    .catch(err => console.log(err))
 );

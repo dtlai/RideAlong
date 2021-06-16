@@ -50,12 +50,20 @@ router.get("/:postId", (req, res) => {
     .then((post) => res.json(post))
     .catch((err) =>
       res.status(404).json({ nopostfound: "No post found with that ID" })
-    );
+  );
 });
 
 router.delete('/:postId', function (req, res) {
-  // let postItem = Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)});
-  // console.log(postItem._id);
+  // Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)})
+  //   // .then((post) => {
+  //   //   if (post.user === )
+  //   // } )
+
+  //   .catch((err) =>
+  //     res.status(404).json({ nopostfound: "No post found with that ID" })
+  // );  
+    
+    // console.log(postItem._id);
   Post.deleteOne({"_id": mongoose.Types.ObjectId(req.params.postId)})
     .then(deletedDocument => {
       if(deletedDocument) {

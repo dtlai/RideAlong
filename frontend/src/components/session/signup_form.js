@@ -71,7 +71,7 @@ class SignupForm extends React.Component {
       <div className="session-form">
         <form onSubmit={this.handleSubmit}>
           <div>
-            <img src="images/session_car.png" alt="Ride Along Logo" />
+            <img src="https://i.imgur.com/6kB2aFR.png" alt="Ride Along Logo" />
             <br />
             <span>Signup</span>
             <br />
@@ -117,11 +117,7 @@ class SignupForm extends React.Component {
               placeholder="Confirm Password"
             />
             <br />
-            <input 
-            className="session-button" 
-            type="submit" 
-            value="Submit" 
-            />
+            <input className="session-button" type="submit" value="Submit" />
             {this.renderErrors()}
           </div>
         </form>

@@ -50,13 +50,15 @@ class NavBar extends React.Component {
     return (
       <div className="nav-bar">
         <ul className="nav-links">
-        <img src="images/boxcar_12.png" alt="Ride Along Logo" />
+          <img src="https://i.imgur.com/6kB2aFR.png" alt="Ride Along Logo" />
 
-          <li><a href="#">About Us</a></li>
+          <li>
+            <a href="#">About Us</a>
+          </li>
         </ul>
         {sessionButtons}
       </div>
-    )
+    );
   }
 }
 

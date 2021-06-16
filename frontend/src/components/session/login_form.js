@@ -70,11 +70,9 @@ class LoginForm extends React.Component {
       <div className="session-form">
         <form onSubmit={this.handleSubmit}>
           <div>
-            <img src="images/session_car.png" alt="Ride Along Logo" />
-            <br/>
-            <span>
-              Login
-            </span>
+            <img src="https://i.imgur.com/6kB2aFR.png" alt="Ride Along Logo" />
+            <br />
+            <span>Login</span>
             <br />
             <input
               type="text"
@@ -90,14 +88,18 @@ class LoginForm extends React.Component {
               placeholder="Password"
             />
             <br />
-            <input 
-            className="session-button" 
-            type="submit" 
-            value="Submit" 
-            />
+            <input className="session-button" type="submit" value="Submit" />
             {this.renderErrors()}
           </div>
         </form>
+        <div className="demo-button">
+          <button
+            className="guest-user-submit"
+            onClick={() => this.props.login(this.demo)}
+          >
+            Guest User
+          </button>
+        </div>
       </div>
     );
   }

@@ -5,12 +5,15 @@ class PostShow extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      showFeedback: false
+      showFeedback: false,
+      rideRequested: false
     };
   }
 
   componentWillMount() {
-    this.props.fetchPost(this.props.match.params.postId);
+    this.props.fetchPost(this.props.match.params.postId).then(()=>
+      this.props.fetchUser(this.props.post.user)
+    )
   }
 
   componentWillReceiveProps(nextProps) {
@@ -23,6 +26,8 @@ class PostShow extends React.Component {
     if (!this.state.showFeedback) {
       return null;
     } else {
+      setTimeout(function(){ this.setState({showFeedback: false}) }, 3000);
+      this.setState({rideRequested: true});
       return(
         <div>
           <h3>Ride Requested!</h3>
@@ -30,14 +35,35 @@ class PostShow extends React.Component {
       )
     }
   }
-\
+
+  requestRide() {
+    if (!this.state.rideRequested) {
+      this.setState({showFeedback: true});
+    } 
+  }
 
   render() {
+    const { title, description, carMake, startLocation, endLocation, capacity, numPassengers, price, createdAt, leaveDate, user } = this.props;
     return(
       <div>
+        <NavBarContainer/>
         {this.showPopup()}
-        <button onClick={}></button>
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <ul>
+          <li>Driver: {user}</li>
+          <li>Trip Date: {leaveDate}</li>
+          <li>Pickup: {startLocation}</li>
+          <li>Dropoff: {endLocation}</li>
+          <li>Car Make: {carMake}</li>
+          <li>Seats Available: {parseInt(capacity)-parseInt(numPassengers)} of {capacity}</li>
+          <li>Cost per Passenger: ${parseFloat(price).toFixed(2)}</li>
+          <li>Posted: {createdAt}</li>
+        </ul>
+        <button type="button" onClick={this.requestRide}>Join Ride</button>
       </div>
     )
   }
 }
+
+export default PostShow;

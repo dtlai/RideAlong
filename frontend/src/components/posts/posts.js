@@ -4,7 +4,7 @@ import NavBarContainer from '../nav_bar/nav_bar_container';
 import PostBox from './post_box';
 import './posts_index.scss';
 import PostIndexMap from '../google_maps/post_index_map';
-
+// var ObjectID = require('mongodb').ObjectID;
 
 class Posts extends React.Component {
   constructor(props) {
@@ -23,8 +23,9 @@ class Posts extends React.Component {
     this.setState({ posts: newState.posts })
   }
 
-  handleClick(){
-    // this.props.deletePost(ObjectID(this.props.postId,{ data: {userId: this.props.currentUser.id}}));
+  handleClick(postId){
+    console.log((postId));
+    this.props.deletePost(postId);
   }
 
   goToCreate(e) {
@@ -52,10 +53,9 @@ class Posts extends React.Component {
               {this.state.posts.map(post => (
                 <div>
                   <PostBox key={post.id} post={post} />
-                  {console.log(post._id.toString())}
+                  {console.log(post._id)}
                   <button 
-                  onClick={this.handleClick}
-                  postId={post._id.toString()}
+                  onClick={() => this.handleClick(post._id)}
                   >Delete Post</button>
                 </div>
               ))}

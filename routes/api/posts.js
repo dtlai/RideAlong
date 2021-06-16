@@ -59,24 +59,8 @@ router.get("/:postId", (req, res) => {
 });
 
 router.delete('/:postId', function (req, res) {
-  Post.
-    findOne({"_id" : mongoose.Types.ObjectId(req.data.postId)}).
-    populate("user").
-    exec(function (err, post) {
-      if (err) return handleError(err);
-      let allowed = ["firstName", "lastName", "username"];
-      post.user = _.pick(post.user, allowed);
-      if(post.user._id === req.data.postId){
-        console.log('true')
-      }else{
-        console.log('false')
-      }
-
-      return res.json(post);
-    })
-    
-    // console.log(postItem._id);
-  Post.deleteOne({"_id": mongoose.Types.ObjectId(req.params.postId)})
+  console.log(req.params);
+  Post.deleteOne({"_id": (req.params.postId)})
     .then(deletedDocument => {
       if(deletedDocument) {
         console.log(`Successfully deleted document that had the form: ${deletedDocument}.`);

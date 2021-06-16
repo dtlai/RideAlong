@@ -14,22 +14,6 @@ router.get("/", (req, res) => {
     .catch((err) => res.status(404).json({ nopostsfound: "No posts found" }));
 });
 
-// router.get("/user/:user_id", (req, res) => {
-//   Post.find({ user: req.params.user_id })
-//     .then((posts) => res.json(posts))
-//     .catch((err) =>
-//       res.status(404).json({ nopostsfound: "No posts found from that user" })
-//     );
-// });
-
-router.get("/:postId", (req, res) => {
-  Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)}) 
-    .then((post) => res.json(post))
-    .catch((err) =>
-      res.status(404).json({ nopostfound: "No post found with that ID" })
-    );
-});
-
 // protected route to make posts
 router.post(
   "/create",
@@ -61,15 +45,30 @@ router.post(
   }
 );
 
-router.delete('/delete/:id', function (req, res) {
-  var id = req.params.id;
-  var collection = db.get().collection('post');
-
-  collection.deleteOne({ _id: new mongo.ObjectId(id) }, function (err, results) {
-  });
-
-  res.json({ success: id })
+router.get("/:postId", (req, res) => {
+  Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)}) 
+    .then((post) => res.json(post))
+    .catch((err) =>
+      res.status(404).json({ nopostfound: "No post found with that ID" })
+    );
 });
+
+router.delete('/:postId', function (req, res) {
+  // let postItem = Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)});
+  // console.log(postItem._id);
+  Post.deleteOne({"_id": mongoose.Types.ObjectId(req.params.postId)})
+    .then(deletedDocument => {
+      if(deletedDocument) {
+        console.log(`Successfully deleted document that had the form: ${deletedDocument}.`);
+      } else {
+        console.log("No document matches the provided query.");
+      }
+      return deletedDocument;
+    })  
+    .catch(err => console.error(`Failed to find and delete document: ${err}`))
+  }
+);
+
 
 
 

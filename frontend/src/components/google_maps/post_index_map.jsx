@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import Geocode from "react-geocode";
-const googleMapsAPI = require("../../config/keys_dev").googleMapsAPI;
+const googleMapsAPI = require("../../config/keys").googleMapsAPI;
 
 const mapStyles = {
   width: '60%',

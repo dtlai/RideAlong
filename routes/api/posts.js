@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
+const _ = require('lodash');
 
 const Post = require("../../models/Post");
 const validatePostInput = require("../../validation/posts");
@@ -44,21 +45,44 @@ router.post(
   }
 );
 
+function filterKeys(currentObject, allowed) {
+  let new_Object = {};
+  console.log(currentObject['firstName'])
+  // console.log(Object.keys(currentObject).
+  //     filter(key => allowed.includes(key)).
+  //     reduce((new_Object, key) => {
+  //     new_Object[key] = currentObject[key];
+  //     return new_Object;
+  //   }, {}));
+
+  return (
+    Object.keys(currentObject).
+      filter(key => allowed.includes(key)).
+      reduce((new_Object, key) => {
+      new_Object[key] = currentObject[key];
+      return new_Object;
+    }, {})
+  );
+
+}
+
 router.get("/:postId", (req, res) => {
   // Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)}) 
-  //   .then((post) => res.json(post))
-  //   .catch((err) =>
-  //     res.status(404).json({ nopostfound: "No post found with that ID" })
+    // .then((post) => res.json(post))
+    // .catch((err) =>
+    //   res.status(404).json({ nopostfound: "No post found with that ID" })
   // );
   Post.
-    findOne({startLocation: "SF"}).
+    findOne({"_id" : mongoose.Types.ObjectId(req.params.postId)}).
     populate("user").
     exec(function (err, post) {
       if (err) return handleError(err);
-      console.log('The first name is %s', post.user.firstName);
-      console.log('The last name is %s', post.user.lastName);
-      // prints "The author is Ian Fleming"
-});
+      let allowed = ["firstName", "lastName", "username"];
+      const filteredObj = _.pick(post.user, allowed)
+      post.user = filteredObj;
+      return res.json(post);
+    })
+
 });
 
 router.delete('/:postId', function (req, res) {
@@ -89,3 +113,5 @@ router.delete('/:postId', function (req, res) {
 
 
 module.exports = router;
+
+

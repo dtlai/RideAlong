@@ -11,7 +11,9 @@ class PostShow extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchPost(this.props.match.params.postId);
+    this.props.fetchPost(this.props.match.params.postId).then(()=>
+      this.props.fetchUser(this.props.post.user)
+    )
   }
 
   componentWillReceiveProps(nextProps) {
@@ -41,7 +43,7 @@ class PostShow extends React.Component {
   }
 
   render() {
-    const { title, description, carMake, startLocation, endLocation, capacity, numPassengers, price, createdAt, leaveDate } = this.props;
+    const { title, description, carMake, startLocation, endLocation, capacity, numPassengers, price, createdAt, leaveDate, user } = this.props;
     return(
       <div>
         <NavBarContainer/>
@@ -49,6 +51,7 @@ class PostShow extends React.Component {
         <h2>{title}</h2>
         <p>{description}</p>
         <ul>
+          <li>Driver: {user}</li>
           <li>Trip Date: {leaveDate}</li>
           <li>Pickup: {startLocation}</li>
           <li>Dropoff: {endLocation}</li>

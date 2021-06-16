@@ -46,11 +46,20 @@ router.post(
 );
 
 router.get("/:postId", (req, res) => {
-  Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)}) 
-    .then((post) => res.json(post))
-    .catch((err) =>
-      res.status(404).json({ nopostfound: "No post found with that ID" })
-  );
+  // Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)}) 
+  //   .then((post) => res.json(post))
+  //   .catch((err) =>
+  //     res.status(404).json({ nopostfound: "No post found with that ID" })
+  // );
+  Post.
+    findOne({startLocation: "SF"}).
+    populate("user").
+    exec(function (err, post) {
+      if (err) return handleError(err);
+      console.log('The first name is %s', post.user.firstName);
+      console.log('The last name is %s', post.user.lastName);
+      // prints "The author is Ian Fleming"
+});
 });
 
 router.delete('/:postId', function (req, res) {

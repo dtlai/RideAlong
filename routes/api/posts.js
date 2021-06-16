@@ -74,12 +74,14 @@ router.get("/:postId", (req, res) => {
   // );
   Post.
     findOne({"_id" : mongoose.Types.ObjectId(req.params.postId)}).
-    populate("user").
+    populate("driver").
+    // populate("passengers").
     exec(function (err, post) {
       if (err) return handleError(err);
-      let allowed = ["firstName", "lastName", "username"];
+      console.log(post.driver)
+      let allowed = ["firstName", "lastName", "username", "requests"];
       // const filteredObj = _.pick(post.user, allowed)
-      post.user = _.pick(post.user, allowed);
+      post.driver = _.pick(post.driver, allowed);
       return res.json(post);
     })
 

@@ -2,10 +2,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
-  user: {
+  driver: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  passengers: [{
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  }],
   title: {
     type: String,
     required: true,

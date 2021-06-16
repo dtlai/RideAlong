@@ -78,8 +78,8 @@ router.get("/:postId", (req, res) => {
     exec(function (err, post) {
       if (err) return handleError(err);
       let allowed = ["firstName", "lastName", "username"];
-      const filteredObj = _.pick(post.user, allowed)
-      post.user = filteredObj;
+      // const filteredObj = _.pick(post.user, allowed)
+      post.user = _.pick(post.user, allowed);
       return res.json(post);
     })
 

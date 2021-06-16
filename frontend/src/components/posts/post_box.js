@@ -14,7 +14,7 @@ class PostBox extends React.Component {
         </div>
         <div className="post-capacity-container">
           <span>Seats: {post.capacity} </span>
-          <span>Seats left: {post.capacity - post.numPassengers}</span>
+          <span>Seats left: {parseInt(post.capacity) - parseInt(post.numPassengers)}</span>
         </div>
         <div className="post-user-container">
           Driver: {post.user}

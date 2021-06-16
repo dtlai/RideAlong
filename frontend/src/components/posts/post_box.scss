@@ -5,7 +5,6 @@ $primary-blue: rgb(56, 179, 253);
 .post-container {
   display: flex;
   flex-direction: column;
-  // border: 1px solid #666666;
   margin: 30px;
   padding: 25px;
   box-sizing: border-box;
@@ -36,4 +35,9 @@ $primary-blue: rgb(56, 179, 253);
 .post-capacity-container {
   display: flex;
   justify-content: space-between;
+}
+
+.post-container:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
 }

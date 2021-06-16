@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBarContainer from '../nav_bar.js/nav_bar_container';
+import NavBarContainer from '../nav_bar/nav_bar_container';
 
 class PostShow extends React.Component {
   constructor(props) {

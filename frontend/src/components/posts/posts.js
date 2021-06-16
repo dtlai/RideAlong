@@ -15,7 +15,7 @@ class Posts extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchPosts();
   }
 
@@ -23,9 +23,10 @@ class Posts extends React.Component {
     this.setState({ posts: newState.posts })
   }
 
+
   handleClick(postId){
-    console.log((postId));
-    this.props.deletePost(postId);
+    this.props.deletePost(postId)
+      .then(this.props.fetchPosts());
   }
 
   goToCreate(e) {

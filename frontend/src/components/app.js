@@ -16,7 +16,7 @@ import PostItemContainer from './posts/post_item_container';
 // import LoginModal from './session/login_modal'
 // import SignupModal from './session/signup_modal'
 
-// import UserPostsContainer from "./user_posts/user_posts_container"
+import UserPostsContainer from "./user_posts/user_posts_container"
 
 const App = () => (
   <div>
@@ -24,11 +24,11 @@ const App = () => (
       <Route exact path="/" component={MainPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route exact path="/posts/:postId" component={PostItemContainer} />
+      {/* <Route exact path="/posts/:postId" component={PostItemContainer} /> */}
       <Route exact path="/posts" component={PostsContainer} />
       <Route exact path="/post/:postId" component={PostShowContainer} />
       <ProtectedRoute exact path="/posts/create" component={PostFormContainer} />
-      {/* <ProtectedRoute exact path="/posts/user" component={UserPostsContainer} /> */}
+      <ProtectedRoute exact path="/posts/user" component={UserPostsContainer} />
     </Switch>
   </div>
 );

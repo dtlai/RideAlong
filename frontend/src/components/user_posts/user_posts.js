@@ -10,7 +10,7 @@ class UserPosts extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchPost(this.props.match.params.posts.user.id);
+    this.props.fetchPosts();
   }
 
   componentWillReceiveProps(newState) {

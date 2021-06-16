@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PostShow from './post_show';
-import { fetchPost, fetchUser } from '../../actions/post_actions';
+import { fetchPost } from '../../actions/post_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapState = (state, { match }) => {
@@ -13,7 +13,7 @@ const mapState = (state, { match }) => {
 
 const mapDispatch = dispatch => ({
   fetchPost: postId => dispatch(fetchPost(postId)),
-  fetchUser: userId => dispatch(fetchUser(userId))
+  // fetchUser: userId => dispatch(fetchUser(userId))
 });
 
 export default withRouter(connect(mapState, mapDispatch)(PostShow));

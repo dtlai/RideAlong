@@ -7,6 +7,7 @@ const Post = require("../../models/Post");
 const validatePostInput = require("../../validation/posts");
 
 router.get("/", (req, res) => {
+  console.log('got')
   Post.find()
     .sort({ date: -1 })
     .then((posts) => res.json(posts))
@@ -21,8 +22,8 @@ router.get("/", (req, res) => {
 //     );
 // });
 
-router.get("/:id", (req, res) => {
-  Post.findById(req.params.id)
+router.get("/:postId", (req, res) => {
+  Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)}) 
     .then((post) => res.json(post))
     .catch((err) =>
       res.status(404).json({ nopostfound: "No post found with that ID" })
@@ -59,6 +60,16 @@ router.post(
     newPost.save().then((post) => res.json(post));
   }
 );
+
+router.delete('/delete/:id', function (req, res) {
+  var id = req.params.id;
+  var collection = db.get().collection('post');
+
+  collection.deleteOne({ _id: new mongo.ObjectId(id) }, function (err, results) {
+  });
+
+  res.json({ success: id })
+});
 
 
 

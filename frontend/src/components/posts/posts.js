@@ -4,6 +4,7 @@ import NavBarContainer from '../nav_bar.js/nav_bar_container';
 import PostBox from './post_box';
 import './posts_index.scss';
 
+
 class Posts extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ class Posts extends React.Component {
     }
     console.log(this.state)
     console.log(this.props.posts)
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount() {
@@ -20,6 +22,10 @@ class Posts extends React.Component {
 
   componentWillReceiveProps(newState) {
     this.setState({ posts: newState.posts })
+  }
+
+  handleClick(){
+    // this.props.deletePost(ObjectID(this.props.postId));
   }
 
   goToCreate(e) {
@@ -45,7 +51,14 @@ class Posts extends React.Component {
           <div className="post-index-main-content">
             <div className="posts-index-container">
               {this.state.posts.map(post => (
-                <PostBox key={post.id} post={post} />
+                <div>
+                  <PostBox key={post.id} post={post} />
+                  {console.log(post._id.toString())}
+                  <button 
+                  onClick={this.handleClick}
+                  postId={post._id.toString()}
+                  >Delete Post</button>
+                </div>
               ))}
             </div>
             <div className="maps-container">

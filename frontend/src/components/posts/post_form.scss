@@ -5,14 +5,15 @@ $primary-blue: rgb(56, 179, 253);
 .create-post-container {
   display: flex;
   margin: 0 auto;
-  height: 55%;
+  height: 600px;
   border: 1px solid #bbbac0;
   border-radius: 4px;
-  width: 35%;
+  width: 800px;
   background-color: #fff;
   margin-top: 100px;
   font-family: $pt-sans;
   div {
+    height: 80%;
     margin: 20px;
     input {
       padding: 10px;

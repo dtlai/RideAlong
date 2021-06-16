@@ -12,6 +12,17 @@ const posts = require("./routes/api/posts");
 // importing body parser to parse JSON
 const bodyParser = require("body-parser");
 
+// importing path from Express
+const path = require('path');
+
+// load static build folder in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+}
+
 // importing passport
 const passport = require("passport");
 // passport middleware

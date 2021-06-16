@@ -5,7 +5,7 @@ $primary-blue: rgb(56, 179, 253);
   align-items: center;
   justify-content: space-between;
   height: 30px;
-  padding: 15px;
+  padding: 25px;
   background-color: white;
 }
 
@@ -117,4 +117,36 @@ $primary-blue: rgb(56, 179, 253);
   border-radius: 5px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 
+}
+
+.user-session-container {
+  width: 100px;
+  height: 60px;
+  img {
+    object-fit: contain;
+    max-width: 60px;
+    max-height: 60px;
+  }
+}
+
+.user-session-content {
+  display: none;
+  position: absolute;
+  // background-color: $primary-blue;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.user-session-container:hover .user-session-content {
+  display: block;
+  background-color: white;
+  .session-button {
+    background-color: $primary-blue;
+    color: white;
+  }
+  .session-button:hover {
+    background-color: white;
+    color: $primary-blue;
+  }
 }

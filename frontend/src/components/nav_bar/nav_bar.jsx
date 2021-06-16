@@ -69,7 +69,7 @@ class NavBar extends React.Component {
       <div className="nav-bar">
         <ul className="nav-links">
           <div className="logo-home-link-container">
-            <Link to="/" classsName="logo-home-link">
+            <Link to="/" className="logo-home-link">
               <img
                 src="https://i.imgur.com/6kB2aFR.png"
                 alt="Ride Along Logo"

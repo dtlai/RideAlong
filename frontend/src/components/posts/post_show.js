@@ -40,8 +40,19 @@ class PostShow extends React.Component {
     } 
   }
 
+  formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" }
+    return new Date(dateString).toLocaleDateString(undefined, options)
+  }
+
+  formatTime = (dateString) => {
+    const options = { hour12: true, hour: "numeric", minute: "numeric" }
+    return new Date(dateString).toLocaleTimeString("en-US", options)
+  }
+
   render() {
-    const { title, description, carMake, startLocation, endLocation, capacity, numPassengers, price, createdAt, leaveDate, user } = this.props;
+    const { title, description, carMake, startLocation, endLocation, capacity, numPassengers, price, createdAt, leaveDate, user } = this.props.post;
+    const { firstName, lastName, username } = this.props.post.user;
     return(
       <div>
         <NavBarContainer/>
@@ -49,14 +60,15 @@ class PostShow extends React.Component {
         <h2>{title}</h2>
         <p>{description}</p>
         <ul>
-          <li>Driver: {user}</li>
-          <li>Trip Date: {leaveDate}</li>
+          <li>Driver: {firstName} {lastName}</li>
+          <li>Profile: {username}</li>
+          <li>Date/Time: {this.formatDate(leaveDate)}, {this.formatTime(leaveDate)}</li>
           <li>Pickup: {startLocation}</li>
           <li>Dropoff: {endLocation}</li>
           <li>Car Make: {carMake}</li>
           <li>Seats Available: {parseInt(capacity)-parseInt(numPassengers)} of {capacity}</li>
           <li>Cost per Passenger: ${parseFloat(price).toFixed(2)}</li>
-          <li>Posted: {createdAt}</li>
+          <li>Posted: {this.formatDate(createdAt)}, {this.formatTime(createdAt)}</li>
         </ul>
         <button type="button" onClick={this.requestRide}>Join Ride</button>
       </div>

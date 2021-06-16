@@ -1,39 +1,8 @@
 .post-container {
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
   margin: 30px;
   padding: 25px;
   box-sizing: border-box;
-  border-radius: 4px;
-  background-color: $primary-blue;
-  color: #ffffff;
-  font-family: $pt-sans;
-  font-size: 18px;
-  div {
-    margin: 8px;
-  }
-}
-
-.post-title-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.post-title {
-  font-weight: 700;
-  font-size: 24px;
-}
-
-.post-locations-container {
-  display: flex;
-}
-
-.post-capacity-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.post-container:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  cursor: pointer;
 }

@@ -24,7 +24,7 @@ class Posts extends React.Component {
   }
 
   handleClick(){
-    // this.props.deletePost(ObjectID(this.props.postId));
+    // this.props.deletePost(ObjectID(this.props.postId,{ data: {userId: this.props.currentUser.id}}));
   }
 
   goToCreate(e) {

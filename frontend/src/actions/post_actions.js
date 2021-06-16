@@ -43,8 +43,8 @@ export const createPost = data => dispatch => (
     .catch(err => dispatch(err))
 );
 
-export const deletePost = postId => dispatch => (
-  deleteCurrentPost(postId)
-    .then(() => dispatch(receivePost(postId)))
+export const deletePost = (postId, data) => dispatch => (
+  deleteCurrentPost(postId, data)
+    .then(() => dispatch(removePost(postId)))
     .catch(err => console.log(err))
 )

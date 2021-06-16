@@ -7,7 +7,6 @@ const Post = require("../../models/Post");
 const validatePostInput = require("../../validation/posts");
 
 router.get("/", (req, res) => {
-  console.log('got')
   Post.find()
     .sort({ date: -1 })
     .then((posts) => res.json(posts))
@@ -46,8 +45,17 @@ router.post(
 );
 
 router.get("/:postId", (req, res) => {
-  Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)}) 
-    .then((post) => res.json(post))
+  Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)})
+    .then((post) => {
+      // User.find({"_id": mongoose.Types.ObjectId(post.user)})
+      //   .exec((err, user) =>  {
+      //     if (err){
+      //       return console.log(err);
+      //     }
+      //     console.log(user)
+      //   })
+      return res.json(post);
+    })
     .catch((err) =>
       res.status(404).json({ nopostfound: "No post found with that ID" })
   );

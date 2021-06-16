@@ -1,49 +1,50 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import Geocode from "react-geocode";
+const googleMapsAPI = require("../../config/keys").googleMapsAPI;
 
 const mapStyles = {
   width: '60%',
   height: '60%'
 };
 
-const markerInfo = [
-  {
-    driver: {
-      first_name: "David",
-      last_name: "Lai"
-    },
-    seats: 4,
-    location: { 
-      pickup: "Little Tokyo",
-      dropoff: "Santa Monica"
-    }
-   },
-   {
-    driver: {
-      first_name: "Nathan",
-      last_name: "Luu"
-    },
-    seats: 2,
-    location: { 
-      pickup: "Hollywood",
-      dropoff: "San Francisco"
-    }
-   },
-   {
-    driver: {
-      first_name: "Michael",
-      last_name: "Lau"
-    },
-    seats: 1,
-    location: { 
-      pickup : "Koreatown",
-      dropoff: "Disneyland"
-    }
-   }
-];
+// const markerInfo = [
+//   {
+//     driver: {
+//       first_name: "David",
+//       last_name: "Lai"
+//     },
+//     seats: 4,
+//     location: { 
+//       pickup: "Little Tokyo",
+//       dropoff: "Santa Monica"
+//     }
+//    },
+//    {
+//     driver: {
+//       first_name: "Nathan",
+//       last_name: "Luu"
+//     },
+//     seats: 2,
+//     location: { 
+//       pickup: "Hollywood",
+//       dropoff: "San Francisco"
+//     }
+//    },
+//    {
+//     driver: {
+//       first_name: "Michael",
+//       last_name: "Lau"
+//     },
+//     seats: 1,
+//     location: { 
+//       pickup : "Koreatown",
+//       dropoff: "Disneyland"
+//     }
+//    }
+// ];
 
-Geocode.setApiKey("AIzaSyCVOIEoWeHdQazoiFcE5jrwVZconSlR4uY");
+Geocode.setApiKey(googleMapsAPI);
 
 export class PostIndexMap extends Component {
   constructor(props) {
@@ -53,10 +54,7 @@ export class PostIndexMap extends Component {
       activeMarker: {},
       selectedPlace: {
         info: {
-          driver: {
-            first_name: "",
-            last_name: "",
-          },
+          driver: "",
           seats: null,
           location: {
             pickup: "",
@@ -78,9 +76,16 @@ export class PostIndexMap extends Component {
       this.setState({center: {lat: pos.coords.latitude, lng: pos.coords.longitude}})
     }
     navigator.geolocation.getCurrentPosition(pos => locate(pos))
+    let markerInfo = this.props.posts.map(post => ({
+    driver: post.user,
+    seats: post.capacity - post.numPassengers,
+    location: { 
+      pickup: post.startLocation,
+      dropoff: post.endLocation
+    }
+   }));
     markerInfo.forEach(info => this.getLatLong(info));
   }
-
 
   recenterMap(mapProps, map, event) {
     this.setState({center: event.latLng})
@@ -150,5 +155,5 @@ export class PostIndexMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCVOIEoWeHdQazoiFcE5jrwVZconSlR4uY'
+  apiKey: googleMapsAPI
 })(PostIndexMap);

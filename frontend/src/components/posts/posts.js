@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import PostBox from './post_box';
 import './posts_index.scss';
+import PostIndexMap from '../google_maps/post_index_map';
 
 class Posts extends React.Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class Posts extends React.Component {
               ))}
             </div>
             <div className="maps-container">
-              Google Map
+              <PostIndexMap posts={this.state.posts} />
             </div>
           </div>
         </div>

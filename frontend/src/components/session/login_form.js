@@ -12,6 +12,11 @@ class LoginForm extends React.Component {
       errors: {},
     };
 
+    this.demo = {
+      email: "demo@email.com",
+      password: "demopass",
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
@@ -45,7 +50,10 @@ class LoginForm extends React.Component {
 
     this.props.login(user)
       .then(()=> {
-        if (Object.keys(this.state.errors).length === 0){
+        if (
+          Object.keys(this.state.errors).length === 0 &&
+          typeof this.props.handleClose === "function"
+        ) {
           this.props.handleClose();
         }
       })  
@@ -67,11 +75,9 @@ class LoginForm extends React.Component {
       <div className="session-form">
         <form onSubmit={this.handleSubmit}>
           <div>
-            <img src="images/session_car.png" alt="Ride Along Logo" />
-            <br/>
-            <span>
-              Login
-            </span>
+            <img src="https://i.imgur.com/6kB2aFR.png" alt="Ride Along Logo" />
+            <br />
+            <span>Login</span>
             <br />
             <input
               type="text"
@@ -87,14 +93,18 @@ class LoginForm extends React.Component {
               placeholder="Password"
             />
             <br />
-            <input 
-            className="session-button" 
-            type="submit" 
-            value="Submit" 
-            />
+            <input className="session-button" type="submit" value="Submit" />
             {this.renderErrors()}
           </div>
         </form>
+        <div className="demo-button">
+          <button
+            className="guest-user-submit"
+            onClick={() => this.props.login(this.demo)}
+          >
+            Guest User
+          </button>
+        </div>
       </div>
     );
   }

@@ -12,8 +12,6 @@ class Posts extends React.Component {
     this.state = {
       posts: []
     }
-    console.log(this.state)
-    console.log(this.props.posts)
     this.handleClick = this.handleClick.bind(this);
   }
 

@@ -10,33 +10,41 @@ class NavBar extends React.Component {
     this.logoutUser = this.logoutUser.bind(this);
     this.loginContainer = this.loginContainer.bind(this);
     this.logoutContainer = this.logoutContainer.bind(this);
-    this.state.dropdown = false;
+    this.setDropdown = this.setDropdown.bind(this);
+    this.state = {
+      dropdown: false
+    };
   }
 
   logoutUser(e) {
     e.preventDefault();
     this.props.logout();
   }
+  setDropdown () {
+      this.setState({
+        dropdown: !this.state.dropdown
+      })
+  }
 
   loginContainer () {
     let firstName = this.props.currentUser.firstName;
     let lastName = this.props.currentUser.lastName;
-
-    const setDropdown = () => {
-      this.state.dropdown = true;
-    }
+    
     return (
       <div>
         <div className="user-session-container">
-          <img src="https://i.imgur.com/8Zs3Vg4.jpg" alt="" />
-          <button onClick={setDropdown()} className="dropbtn">V</button>
-          <div className="user-session-content">
-            <div>{firstName}</div>
-            <div>{lastName}</div>
-            <button className="session-button" onClick={this.logoutUser}>
-              Logout
-            </button>
-          </div>
+          <button onClick={this.setDropdown} className="dropbtn">
+            <img src="https://i.imgur.com/8Zs3Vg4.jpg" alt="noimage" />
+          </button>
+          {this.state.dropdown ? (
+            <div className="user-session-content">
+              <div>{firstName}</div>
+              <div>{lastName}</div>
+              <button className="session-button" onClick={this.logoutUser}>
+                Logout
+              </button>
+            </div>
+          ) : null}
         </div>
       </div>
     );

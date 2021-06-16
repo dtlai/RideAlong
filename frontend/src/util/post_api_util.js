@@ -12,6 +12,6 @@ export const submitPost = data => {
   return axios.post('/api/posts/create', data)
 };
 
-export const deleteCurrentPost = postId => {
+export const deleteCurrentPost = (postId) => {
   return axios.delete(`/api/posts/${postId}`);
 }

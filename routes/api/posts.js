@@ -45,40 +45,13 @@ router.post(
   }
 );
 
-function filterKeys(currentObject, allowed) {
-  let new_Object = {};
-  console.log(currentObject['firstName'])
-  // console.log(Object.keys(currentObject).
-  //     filter(key => allowed.includes(key)).
-  //     reduce((new_Object, key) => {
-  //     new_Object[key] = currentObject[key];
-  //     return new_Object;
-  //   }, {}));
-
-  return (
-    Object.keys(currentObject).
-      filter(key => allowed.includes(key)).
-      reduce((new_Object, key) => {
-      new_Object[key] = currentObject[key];
-      return new_Object;
-    }, {})
-  );
-
-}
-
 router.get("/:postId", (req, res) => {
-  // Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)}) 
-    // .then((post) => res.json(post))
-    // .catch((err) =>
-    //   res.status(404).json({ nopostfound: "No post found with that ID" })
-  // );
   Post.
     findOne({"_id" : mongoose.Types.ObjectId(req.params.postId)}).
     populate("user").
     exec(function (err, post) {
       if (err) return handleError(err);
       let allowed = ["firstName", "lastName", "username"];
-      // const filteredObj = _.pick(post.user, allowed)
       post.user = _.pick(post.user, allowed);
       return res.json(post);
     })
@@ -86,17 +59,8 @@ router.get("/:postId", (req, res) => {
 });
 
 router.delete('/:postId', function (req, res) {
-  // Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)})
-  //   // .then((post) => {
-  //   //   if (post.user === )
-  //   // } )
-
-  //   .catch((err) =>
-  //     res.status(404).json({ nopostfound: "No post found with that ID" })
-  // );  
-    
-    // console.log(postItem._id);
-  Post.deleteOne({"_id": mongoose.Types.ObjectId(req.params.postId)})
+  console.log(req.params);
+  Post.deleteOne({"_id": (req.params.postId)})
     .then(deletedDocument => {
       if(deletedDocument) {
         console.log(`Successfully deleted document that had the form: ${deletedDocument}.`);

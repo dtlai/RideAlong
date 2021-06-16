@@ -1,7 +1,9 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import NavBarContainer from '../nav_bar.js/nav_bar_container';
+import NavBarContainer from '../nav_bar/nav_bar_container';
 import PostBox from './post_box';
+import './posts_index.scss';
+import PostIndexMap from '../google_maps/post_index_map';
 
 class Posts extends React.Component {
   constructor(props) {
@@ -41,14 +43,14 @@ class Posts extends React.Component {
           <NavBarContainer/>
           <h2>All Posts</h2>
           <button onClick={(e) => this.goToCreate()}>Create a Post</button>
-          <div>
-            <div>
+          <div className="post-index-main-content">
+            <div className="posts-index-container">
               {this.state.posts.map(post => (
                 <PostBox key={post.id} post={post} />
               ))}
             </div>
-            <div>
-              Google Map
+            <div className="maps-container">
+              <PostIndexMap posts={this.state.posts} />
             </div>
           </div>
         </div>

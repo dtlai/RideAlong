@@ -6,13 +6,18 @@ class PostBox extends React.Component {
     let {post} = this.props
     return (
       <div className="post-container">
-        <div className="title-container">
-          <h3>Title:&nbsp;{post.title}</h3>
+        <div className="post-title-container">
+          <span className="post-title">{post.title}</span>
+          <span>{startDate}</span>
         </div>
-        <div className="user-container">
+        <div className="post-capacity-container">
+          <span>Seats: {post.capacity} </span>
+          <span>Seats left: {parseInt(post.capacity) - parseInt(post.numPassengers)}</span>
+        </div>
+        <div className="post-user-container">
           User:&nbsp;{post.user}
         </div>
-        <div className="locations-container">
+        <div className="post-locations-container">
           <h3>From:&nbsp;{post.startLocation}</h3>
           <h3>To:&nbsp;{post.endLocation}</h3>
         </div>

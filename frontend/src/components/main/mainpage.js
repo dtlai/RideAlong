@@ -1,6 +1,6 @@
 import React from 'react';
 // import { FaGithub } from "react-icons/fa";
-import NavBarContainer from '../nav_bar.js/nav_bar_container';
+import NavBarContainer from '../nav_bar/nav_bar_container';
 
 import './mainpage.scss';
 

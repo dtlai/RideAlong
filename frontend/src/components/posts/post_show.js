@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBarContainer from '../nav_bar.js/nav_bar_container';
+import NavBarContainer from '../nav_bar/nav_bar_container';
 
 class PostShow extends React.Component {
   constructor(props) {
@@ -11,9 +11,7 @@ class PostShow extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchPost(this.props.match.params.postId).then(()=>
-      this.props.fetchUser(this.props.post.user)
-    )
+    this.props.fetchPost(this.props.postId)
   }
 
   componentWillReceiveProps(nextProps) {

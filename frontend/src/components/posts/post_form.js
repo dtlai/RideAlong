@@ -1,4 +1,6 @@
 import React from 'react';
+import './post_form.scss';
+import NavBarContainer from '../nav_bar/nav_bar_container';
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -13,7 +15,7 @@ class PostForm extends React.Component {
       capacity: 0,
       numPassengers: 1,
       price: 0,
-      leaveDate: Date.now,
+      leaveDate: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }  
@@ -30,7 +32,7 @@ class PostForm extends React.Component {
       capacity: this.state.capacity,
       numPassengers: this.state.numPassengers,
       price: this.state.price,
-      leaveDate: Date.now,
+      leaveDate: this.state.leaveDate,
     }
     console.log(post);
     this.props.createPost(post);
@@ -43,7 +45,7 @@ class PostForm extends React.Component {
       capacity: 0,
       numPassengers: 1,
       price: 0,
-      leaveDate: Date.now,
+      leaveDate: "",
     });
     this.props.history.push("/posts")
   }
@@ -56,74 +58,83 @@ class PostForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="post-page">
+        < NavBarContainer />
+        <div className="create-post-container">
+          <span className="side-img"><h3>Create a Trip!</h3></span>
           <div>
-            <input type="text"
-              value={this.state.title}
-              onChange={this.update('title')}  
-              placeholder="Title"
-            />
+            <form onSubmit={this.handleSubmit}>
+              <div>
+                <input type="text"
+                  value={this.state.title}
+                  onChange={this.update('title')}  
+                  placeholder="Title"
+                />
+              </div>
+              <div>
+                <input type="textarea"
+                  value={this.state.description}
+                  onChange={this.update('description')}  
+                  placeholder="Description here..."
+                />
+              </div>
+              <div>
+                <input type="text"
+                  value={this.state.carMake}
+                  onChange={this.update('carMake')}
+                  placeholder="Model of your car" 
+                />
+              </div>
+              <div>
+                <input type="text"
+                  value={this.state.startLocation}
+                  onChange={this.update('startLocation')} 
+                  placeholder="Start Location"
+                />
+              </div>
+              <div>
+                <input type="text"
+                  value={this.state.endLocation}
+                  onChange={this.update('endLocation')}
+                  placeholder="Destination"
+                />
+              </div>
+              <div>
+                Capacity
+                <select onChange={this.update('capacity')}>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </select>
+                Passengers
+                <select onChange={this.update('numPassengers')}>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </select>
+              </div>
+              <div>
+                <input type="number"
+                  value={this.state.price}
+                  onChange={this.update('price')}
+                  placeholder="How much for Gas?"
+                />
+              </div>
+              <div>When are you leaving?
+                <input type="datetime-local" onChange={this.update('leaveDate')} value={this.state.leaveDate}/>
+              </div>
+              <div>
+                <input className="post-submit-button" type="submit" value="Submit Post"></input>
+              </div>
+            </form>
           </div>
-          <div>
-            <input type="textarea"
-              value={this.state.description}
-              onChange={this.update('description')}  
-              placeholder="Description here..."
-            />
-          </div>
-          <div>
-            <input type="text"
-              value={this.state.carMake}
-              onChange={this.update('carMake')}
-              placeholder="Model of your car" 
-            />
-          </div>
-          <div>
-            <input type="text"
-              value={this.state.startLocation}
-              onChange={this.update('startLocation')} 
-              placeholder="Start Location"
-            />
-          </div>
-          <div>
-            <input type="text"
-              value={this.state.endLocation}
-              onChange={this.update('endLocation')}
-              placeholder="Destination"
-            />
-          </div>
-          <div>
-            Capacity
-            <select>
-              <option value="1" onChange={this.update('capacity')}>1</option>
-              <option value="2" onChange={this.update('capacity')}>2</option>
-              <option value="3" onChange={this.update('capacity')}>3</option>
-              <option value="4" onChange={this.update('capacity')}>4</option>
-              <option value="5" onChange={this.update('capacity')}>5</option>
-              <option value="6" onChange={this.update('capacity')}>6</option>
-            </select>
-          </div>
-          <div>
-            Passengers
-            <select>
-              <option value="1" onChange={this.update('numPassengers')}>1</option>
-              <option value="2" onChange={this.update('numPassengers')}>2</option>
-              <option value="3" onChange={this.update('numPassengers')}>3</option>
-              <option value="4" onChange={this.update('numPassengers')}>4</option>
-              <option value="5" onChange={this.update('numPassengers')}>5</option>
-              <option value="6" onChange={this.update('numPassengers')}>6</option>
-            </select>
-          </div>
-          <div>
-            <input type="number"
-              value={this.state.price}
-              onChange={this.update('price')}
-              placeholder="Price"
-            />
-          </div>
-          <input type="submit" value="Create Post"></input>
-        </form>
+        </div>
       </div>
     )
   }

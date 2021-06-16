@@ -1,6 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import NavBarContainer from '../nav_bar.js/nav_bar_container';
+import NavBarContainer from '../nav_bar/nav_bar_container';
 import PostBox from './post_box';
 import './posts_index.scss';
 import PostIndexMap from '../google_maps/post_index_map';
@@ -12,8 +12,6 @@ class Posts extends React.Component {
     this.state = {
       posts: []
     }
-    console.log(this.state)
-    console.log(this.props.posts)
     this.handleClick = this.handleClick.bind(this);
   }
 

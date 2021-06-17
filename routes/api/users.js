@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const mongoose = require("mongoose");
 
 // JSON web token
 const jwt = require("jsonwebtoken");
@@ -30,7 +31,7 @@ router.get("/:userId", (req, res) => {
     populate("posts").
     populate("requests").
     exec(function (err, user) {
-      if (err) return handleError(err);
+      if (err) return res.status(400).json({"error": "Oops an error has occurred"});
       return res.json(user);
     })
 

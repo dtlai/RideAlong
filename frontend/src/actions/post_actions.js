@@ -1,6 +1,7 @@
-import { getPost, getPosts, submitPost, deleteCurrentPost } from '../util/post_api_util';
+import { getPost, getPosts, submitPost, deleteCurrentPost, addRequest } from '../util/post_api_util';
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
+export const RECEIVE_REQUEST = "RECEIVE_REQUEST";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_NEW_POST = "RECEIVE_NEW_POST";
@@ -13,6 +14,12 @@ export const receivePosts = posts => ({
 export const receivePost = post => ({
   type: RECEIVE_POST,
   post
+});
+
+export const receiveRequest = (post, user) => ({
+  type: RECEIVE_REQUEST,
+  post,
+  user
 });
 
 export const receiveNewPost = post => ({
@@ -48,3 +55,10 @@ export const deletePost = (postId) => dispatch => (
     .then(() => dispatch(removePost(postId)))
     .catch(err => console.log(err))
 )
+
+export const makeRequest = postId => dispatch => (
+  addRequest(postId)
+    .then(payload => dispatch(receiveRequest(payload.data)))
+    .catch(err => console.log(err))
+);
+

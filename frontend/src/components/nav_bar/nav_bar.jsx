@@ -94,7 +94,7 @@ class NavBar extends React.Component {
             <Link to="/posts">
               <div className="nav-bar-item">
                 <FaCarSide size="1.2em"/>
-                <span>Posts</span>
+                <span>Trips</span>
               </div>
             </Link>
           </li>     

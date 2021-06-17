@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 $pt-sans: 'PT Sans', sans-serif;
 $primary-blue: rgb(56, 179, 253);
+$primary-gray: #8080801c;
 
 .main-splash {
   position: relative;
@@ -12,6 +13,10 @@ $primary-blue: rgb(56, 179, 253);
   background-size: cover;
   // border: 1px solid #eeeeee;
   border-radius: 4px;
+}
+
+.parent-main {
+  background-color: $primary-gray;
 }
 
 // .main-splash::before {

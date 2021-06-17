@@ -1,3 +1,5 @@
+$primary-gray: #8080801c;
+
 .post-index-main-content {
   display: flex;
 }
@@ -11,4 +13,8 @@
 
 .maps-container {
   width: 50%;
+}
+
+.posts-container {
+  background-color: $primary-gray;
 }

@@ -50,7 +50,7 @@ class Posts extends React.Component {
       )
     } else {
       return (
-        <div>
+        <div className="posts-container">
           <NavBarContainer />
           <h2>All Posts</h2>
           <button onClick={(e) => this.goToCreate()}>Create a Post</button>

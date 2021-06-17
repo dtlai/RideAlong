@@ -83,27 +83,8 @@ class NavBar extends React.Component {
 
         <div className="nav-links">
           <li>
-            <Link to="/">
-              <div className="nav-bar-item">
-              <MdHome size="1.2em"/>
-              <span>Home</span>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="/posts">
-              <div className="nav-bar-item">
-                <FaCarSide size="1.2em"/>
-                <span>Posts</span>
-              </div>
-            </Link>
-          </li>     
-          <li>
-            <Link to="/">
-              <div className="nav-bar-item">
-                <MdGroup size="1.2em"/>
-                <span>About Us</span>
-              </div>
+            <Link to="/about" className="link-to-about">
+              About Us
             </Link>
           </li>
         {sessionButtons}

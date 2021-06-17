@@ -78,7 +78,9 @@ class NavBar extends React.Component {
           </div>
 
           <li>
-            <a href="#">About Us</a>
+            <Link to="/about" className="link-to-about">
+              About Us
+            </Link>
           </li>
         </ul>
         {sessionButtons}

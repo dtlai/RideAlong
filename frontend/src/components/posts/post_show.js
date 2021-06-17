@@ -19,6 +19,7 @@ class PostShow extends React.Component {
 
   componentWillMount() {
     this.props.fetchPost(this.props.postId).then(()=>console.log(this.props))
+    // this.props.fetchUser(this.props.userId).then(()=>console.log(this.props))
   }
 
   componentWillReceiveProps(nextProps) {

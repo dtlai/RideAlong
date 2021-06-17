@@ -3,8 +3,8 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
 const _ = require('lodash');
-
 const Post = require("../../models/Post");
+const User = require("../../models/User");
 const validatePostInput = require("../../validation/posts");
 
 router.get("/", (req, res) => {
@@ -41,7 +41,13 @@ router.post(
       user: req.user.id,
     });
 
-    newPost.save().then((post) => res.json(post));
+    let savedPost = null;
+    newPost.save().then(post=> {
+      savedPost = post;
+      req.user.posts.push(post)
+      console.log(req.user)
+      return req.user.save();
+    }).then((user) => res.json(savedPost));
   }
 );
 
@@ -74,14 +80,13 @@ router.get("/:postId", (req, res) => {
   // );
   Post.
     findOne({"_id" : mongoose.Types.ObjectId(req.params.postId)}).
-    populate("driver").
-    // populate("passengers").
+    populate("user").
+    populate("passengers").
     exec(function (err, post) {
       if (err) return handleError(err);
-      console.log(post.driver)
-      let allowed = ["firstName", "lastName", "username", "requests"];
+      let allowed = ["firstName", "lastName", "username", "requests", "posts"];
       // const filteredObj = _.pick(post.user, allowed)
-      post.driver = _.pick(post.driver, allowed);
+      post.user = _.pick(post.user, allowed);
       return res.json(post);
     })
 

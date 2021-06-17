@@ -41,8 +41,28 @@ class PostShow extends React.Component {
   }
 
   requestRide() {
-    if (this.props.currentUser) {
-      this.props.makeRequest(this.props.postId).then(()=>this.setState({showFeedback: true}));
+    // console.log(this.props.postId)
+    console.log(this.props.post)
+    const updatedPost = {
+      user: this.props.post.user,
+      passengers: this.props.post.passengers,
+      title: this.props.post.title,
+      description: this.props.post.description,
+      carMake: this.props.post.carMake,
+      startLocation:this.props.post.startLocation,
+      endLocation: this.props.post.endLocation,
+      capacity: this.props.post.capacity,
+      numPassengers: this.props.post.numPassengers + 1,
+      price: this.props.post.price,
+      createdAt: this.props.post.createdAt,
+      leaveDate: this.props.post.leaveDate,
+      postId: this.props.postId
+    }
+    if (Object.keys(this.props.currentUser).length !== 0) {
+      this.props.makeRequest(this.props.postId)
+      .then(() => this.props.updatePost(updatedPost))
+      .then(() => this.props.fetchPost(this.props.postId))
+      .then(() => this.setState({showFeedback: true}));
     } else {
       this.props.history.push("/login")
     }
@@ -59,9 +79,9 @@ class PostShow extends React.Component {
   }
 
   alreadyRequested() {
-    // console.log(this.props.post.passengers.some(passenger => passenger._id === this.props.currentUser.id))
-    // console.log(this.props.post)
-    // console.log(this.props.currentUser.id)
+    console.log(this.props.post.passengers.some(passenger => passenger._id === this.props.currentUser.id))
+    console.log(this.props.post)
+    console.log(this.props.currentUser.id)
     if (!this.props.currentUser) return false;
     return(this.props.post.passengers.some(passenger => passenger._id === this.props.currentUser.id))
   }

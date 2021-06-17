@@ -1,4 +1,4 @@
-import {RECEIVE_NEW_POST, RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST} from '../actions/post_actions';
+import {RECEIVE_NEW_POST, RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST, RECEIVE_REQUEST} from '../actions/post_actions';
 
 const PostsReducer = (state = {all:{}, user: {}, new: undefined}, action) => {
   Object.freeze(state);
@@ -15,6 +15,9 @@ const PostsReducer = (state = {all:{}, user: {}, new: undefined}, action) => {
       return newState;
     case REMOVE_POST:
       delete newState[action.postId];
+      return newState;
+    case RECEIVE_REQUEST:
+      newState.post = action.post.post;
       return newState;
     default:
       return state;

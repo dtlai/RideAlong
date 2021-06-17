@@ -6,6 +6,7 @@ const _ = require('lodash');
 const Post = require("../../models/Post");
 const User = require("../../models/User");
 const validatePostInput = require("../../validation/posts");
+const { request } = require("express");
 
 router.get("/", (req, res) => {
   Post.find()
@@ -13,6 +14,37 @@ router.get("/", (req, res) => {
     .then((posts) => res.json(posts))
     .catch((err) => res.status(404).json({ nopostsfound: "No posts found" }));
 });
+
+// Updates the post's array of passengers and the user's array of requests
+router.put("/:postId/request", 
+  passport.authenticate("jwt", { session: false }), 
+  (req, res) => {
+    let savedPost = null;
+    let savedUser = null;
+    Post.
+      findOne({"_id" : mongoose.Types.ObjectId(req.params.postId)})
+      .then(post => {
+        savedPost = post;
+        if (post.passengers.includes(req.user._id)) {
+          return req.user;
+        }
+        req.user.requests.push(post);
+        return req.user.save();
+      })
+      .then(user => {
+        savedUser = user;
+        if (savedPost.passengers.includes(req.user._id)) {
+          return savedPost;
+        }
+        savedPost.passengers.push(user);
+        return savedPost.save();
+      })
+      .then(post => res.json({post: post, user: savedUser}))
+      .catch(err => {
+        res.status(400).end()}
+      );
+});
+
 
 // protected route to make posts
 router.post(
@@ -45,7 +77,6 @@ router.post(
     newPost.save().then(post=> {
       savedPost = post;
       req.user.posts.push(post)
-      console.log(req.user)
       return req.user.save();
     }).then((user) => res.json(savedPost));
   }

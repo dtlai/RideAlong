@@ -15,3 +15,7 @@ export const submitPost = data => {
 export const deleteCurrentPost = (postId) => {
   return axios.delete(`/api/posts/${postId}`);
 }
+
+export const addRequest = postId => {
+  return axios.put(`/api/posts/${postId}/request`)
+};

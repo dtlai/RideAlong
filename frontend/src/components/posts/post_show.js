@@ -6,27 +6,26 @@ class PostShow extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      seats: null,
-      showFeedback: false,
-      rideRequested: false
+      showFeedback: false
     };
 
     this.showPopup = this.showPopup.bind(this);
-    this.requestButton = this.requestButton.bind(this);
-    this.handleSelection = this.handleSelection.bind(this);
     this.requestRide = this.requestRide.bind(this);
+    this.alreadyRequested = this.alreadyRequested.bind(this);
   }
 
   componentWillMount() {
-    this.props.fetchPost(this.props.postId).then(()=>console.log(this.props))
-    // this.props.fetchUser(this.props.userId).then(()=>console.log(this.props))
+    this.props.fetchPost(this.props.postId).then(post => console.log(post));
   }
 
-  componentWillReceiveProps(nextProps) {
-    if(this.props.match.params.postId !== nextProps.match.params.postId) {
-        this.props.fetchPost(nextProps.match.params.postId);
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if(this.props.match.params.postId !== nextProps.match.params.postId) {
+  //       this.props.fetchPost(nextProps.match.params.postId);
+  //   }
+  //   if (nextProps.post) {
+  //       this.props.fetchUser(nextProps.post.user);
+  //   }
+  // }
 
   showPopup() {
     if (!this.state.showFeedback) {
@@ -41,19 +40,12 @@ class PostShow extends React.Component {
     }
   }
 
-  requestButton() {
-    if (!this.state.rideRequested) {
-      this.setState({showFeedback: true});
-      this.setState({rideRequested: true});
-    } 
-  }
-
   requestRide() {
-
-  }
-
-  handleSelection(e) {
-    this.setState({seats: e.target.value})
+    if (this.props.currentUser) {
+      this.props.makeRequest(this.props.postId).then(()=>this.setState({showFeedback: true}));
+    } else {
+      this.props.history.push("/login")
+    }
   }
 
   formatDate = (dateString) => {
@@ -64,6 +56,14 @@ class PostShow extends React.Component {
   formatTime = (dateString) => {
     const options = { hour12: true, hour: "numeric", minute: "numeric" }
     return new Date(dateString).toLocaleTimeString("en-US", options)
+  }
+
+  alreadyRequested() {
+    // console.log(this.props.post.passengers.some(passenger => passenger._id === this.props.currentUser.id))
+    // console.log(this.props.post)
+    // console.log(this.props.currentUser.id)
+    if (!this.props.currentUser) return false;
+    return(this.props.post.passengers.some(passenger => passenger._id === this.props.currentUser.id))
   }
 
   render() {
@@ -87,14 +87,7 @@ class PostShow extends React.Component {
             <li>Cost per Passenger: ${price.toFixed(2)}</li>
             <li>Posted: {this.formatDate(createdAt)}, {this.formatTime(createdAt)}</li>
           </ul>
-          <form onSubmit={this.requestRide}>
-            <label>Number of Seats:
-              <select onChange={this.handleSelection}>
-                {Array.from({length: (capacity - numPassengers)}, (v, k) => k + 1).map(seat => <option value={seat.toString()}>{seat}</option>)}
-              </select>
-            </label>
-            <button disabled={this.state.rideRequested} onClick={this.requestButton}>Join Ride</button>
-          </form>
+            <button disabled={this.alreadyRequested()} onClick={this.requestRide}>{this.alreadyRequested() ? "Requested" : "Join Ride"}</button>
           <GoogleMaps posts={[this.props.post]}/>
         </div>
       )

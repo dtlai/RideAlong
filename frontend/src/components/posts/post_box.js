@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 class PostBox extends React.Component {
   render() {
     let {post} = this.props
-    console.log(post)
     let startDate = post.createdAt.slice(0, 10);
     let dateLeave = post.leaveDate.slice(0, 10);
     return (

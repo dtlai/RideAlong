@@ -15,12 +15,16 @@ $primary-blue: rgb(56, 179, 253);
   list-style: none;
   align-items: center;
   width: 500px;
-  .link-to-about {
-    text-decoration: none;
-    color: $primary-blue;
+
+  a {
     font-weight: 600;
     font-size: 18px;
+    color: $primary-blue;
   }
+}
+
+.nav-bar-item:hover {
+  color: rgb(43, 140, 201);
 }
 
 .nav-bar-item {
@@ -28,6 +32,8 @@ $primary-blue: rgb(56, 179, 253);
   align-items: center;
   flex-direction: column;
   width: 100px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .icon {

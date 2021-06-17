@@ -1,12 +1,12 @@
 import {connect} from 'react-redux';
-import { fetchPosts } from '../../actions/post_actions'
+import { fetchUser } from '../../actions/user_actions'
 import UserProf from './user_prof';
 
 const mapStateToProps = (state) => {
   return {
-    posts: Object.values(state.posts.all),
     currentUser: state.session.user,
+    posts: state.users.posts,
   };
 };
 
-export default connect(mapStateToProps, { fetchPosts })(UserProf);
+export default connect(mapStateToProps, { fetchUser })(UserProf);

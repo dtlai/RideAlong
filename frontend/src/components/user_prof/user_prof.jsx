@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import NavBarContainer from "../nav_bar/nav_bar_container";
-import PostBox from '../posts/post_box'
+import PostBox from "../posts/post_box";
 
 class UserProf extends React.Component {
   constructor(props) {
@@ -11,8 +11,9 @@ class UserProf extends React.Component {
     };
   }
 
-  componentDidMount () {
-      this.props.fetchPosts()
+  componentDidMount() {
+    console.log(this.props.currentUser.id)
+    this.props.fetchUser(this.props.currentUser.id);
   }
 
   render() {
@@ -21,19 +22,21 @@ class UserProf extends React.Component {
         <NavBarContainer />
         <div className="prof-page-container">
           <h1>Here are all my rides!</h1>
-          {this.state.posts.map((post) => {
-            if (this.props.currentUser.id === post.user) {
-                return (
-                    <div>
-                        <PostBox key={post.id} post={post} />
-                    </div>
-                )
-            }
-        })}
+          {(this.props.posts) ? (
+            this.props.posts.map((post) => {
+              return (
+                <div>
+                  <PostBox key={post.id} post={post} />
+                </div>
+              );
+            })
+          ): "No rides"}
+          
         </div>
       </>
     );
   }
 }
+
 
 export default UserProf;

@@ -71,7 +71,7 @@ class SignupForm extends React.Component {
       <div className="session-form">
         <form onSubmit={this.handleSubmit}>
           <div>
-            <img src="https://i.imgur.com/6kB2aFR.png" alt="Ride Along Logo" />
+            <img src="https://i.imgur.com/vscAchT.png" alt="Ride Along Logo" />
             <br />
             <span>Signup</span>
             <br />

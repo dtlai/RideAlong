@@ -68,13 +68,12 @@ class NavBar extends React.Component {
         this.loginContainer() : this.logoutContainer();
 
     return (
-  
       <div className="nav-bar">
-        <ul >
+        <ul>
           <div className="logo-home-link-container">
             <Link to="/" className="logo-home-link">
               <img
-                src="https://i.imgur.com/6kB2aFR.png"
+                src="https://i.imgur.com/vscAchT.png"
                 alt="Ride Along Logo"
               />
             </Link>
@@ -85,30 +84,29 @@ class NavBar extends React.Component {
           <li>
             <Link to="/">
               <div className="nav-bar-item">
-              <MdHome size="1.2em"/>
-              <span>Home</span>
+                <MdHome size="1.2em" />
+                <span>Home</span>
               </div>
             </Link>
           </li>
           <li>
             <Link to="/posts">
               <div className="nav-bar-item">
-                <FaCarSide size="1.2em"/>
+                <FaCarSide size="1.2em" />
                 <span>Posts</span>
               </div>
             </Link>
-          </li>     
+          </li>
           <li>
             <Link to="/about">
               <div className="nav-bar-item">
-                <MdGroup size="1.2em"/>
+                <MdGroup size="1.2em" />
                 <span>About Us</span>
               </div>
             </Link>
           </li>
-        {sessionButtons}
+          {sessionButtons}
         </div>
-
       </div>
     );
   }

@@ -32,7 +32,7 @@ class Postcard extends React.Component {
   }
 
   sendToPost() {
-    this.props.history.push(`/post/${this.props.post._id}`)
+    this.props.history.push(`/posts/${this.props.post._id}`)
   }
 
   render() {

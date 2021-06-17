@@ -41,26 +41,47 @@ class PostShow extends React.Component {
   }
 
   render() {
-    const { title, description, carMake, startLocation, endLocation, capacity, numPassengers, price, createdAt, leaveDate, user } = this.props;
-    return(
-      <div>
-        <NavBarContainer/>
-        {this.showPopup()}
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <ul>
-          <li>Driver: {user}</li>
-          <li>Trip Date: {leaveDate}</li>
-          <li>Pickup: {startLocation}</li>
-          <li>Dropoff: {endLocation}</li>
-          <li>Car Make: {carMake}</li>
-          <li>Seats Available: {parseInt(capacity)-parseInt(numPassengers)} of {capacity}</li>
-          <li>Cost per Passenger: ${parseFloat(price).toFixed(2)}</li>
-          <li>Posted: {createdAt}</li>
-        </ul>
-        <button type="button" onClick={this.requestRide}>Join Ride</button>
-      </div>
-    )
+    if (this.props.post) {
+      const {
+        title,
+        description,
+        carMake,
+        startLocation,
+        endLocation,
+        capacity,
+        numPassengers,
+        price,
+        createdAt,
+        leaveDate,
+        user,
+      } = this.props;
+      return (
+        <div>
+          <NavBarContainer />
+          {this.showPopup()}
+          <h2>{title}</h2>
+          <p>{description}</p>
+          <ul>
+            <li>Driver: {user}</li>
+            <li>Trip Date: {leaveDate}</li>
+            <li>Pickup: {startLocation}</li>
+            <li>Dropoff: {endLocation}</li>
+            <li>Car Make: {carMake}</li>
+            <li>
+              Seats Available: {parseInt(capacity) - parseInt(numPassengers)} of{" "}
+              {capacity}
+            </li>
+            <li>Cost per Passenger: ${parseFloat(price).toFixed(2)}</li>
+            <li>Posted: {createdAt}</li>
+          </ul>
+          <button type="button" onClick={this.requestRide}>
+            Join Ride
+          </button>
+        </div>
+      );
+    } else {
+      return <div>Loading...</div>;
+    }
   }
 }
 

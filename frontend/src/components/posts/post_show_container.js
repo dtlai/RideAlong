@@ -4,7 +4,8 @@ import { fetchPost } from '../../actions/post_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapState = (state, { match }) => ({
-  postId: parseInt(match.params.postId)
+  post: state.posts.post,
+  postId: match.params.postId
 });
 
 const mapDispatch = dispatch => ({

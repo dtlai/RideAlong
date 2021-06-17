@@ -18,13 +18,15 @@ class PostShow extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchPost(this.props.postId).then(()=>console.log(this.props))
-    // this.props.fetchUser(this.props.userId).then(()=>console.log(this.props))
+    this.props.fetchPost(this.props.postId);
   }
 
   componentWillReceiveProps(nextProps) {
     if(this.props.match.params.postId !== nextProps.match.params.postId) {
         this.props.fetchPost(nextProps.match.params.postId);
+    }
+    if (nextProps.post) {
+        this.props.fetchUser(nextProps.post.user._id).then(()=>console.log(this.props))
     }
   }
 
@@ -87,14 +89,7 @@ class PostShow extends React.Component {
             <li>Cost per Passenger: ${price.toFixed(2)}</li>
             <li>Posted: {this.formatDate(createdAt)}, {this.formatTime(createdAt)}</li>
           </ul>
-          <form onSubmit={this.requestRide}>
-            <label>Number of Seats:
-              <select onChange={this.handleSelection}>
-                {Array.from({length: (capacity - numPassengers)}, (v, k) => k + 1).map(seat => <option value={seat.toString()}>{seat}</option>)}
-              </select>
-            </label>
             <button disabled={this.state.rideRequested} onClick={this.requestButton}>Join Ride</button>
-          </form>
           <GoogleMaps posts={[this.props.post]}/>
         </div>
       )

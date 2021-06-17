@@ -57,8 +57,8 @@ router.get("/:postId", (req, res) => {
     populate("user").
     populate("passengers").
     exec(function (err, post) {
-      if (err) return handleError(err);
-      let allowed = ["firstName", "lastName", "username", "requests", "posts"];
+      if (err) return res.status(400).json({"error": "Oops an error has occurred"});
+      let allowed = ["_id", "firstName", "lastName", "username", "requests", "posts"];
       // const filteredObj = _.pick(post.user, allowed)
       post.user = _.pick(post.user, allowed);
       return res.json(post);

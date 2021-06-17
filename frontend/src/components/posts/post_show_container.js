@@ -6,8 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapState = (state, { match }) => ({
   post: state.posts.post,
-  postId: match.params.postId,
-  userId: state.session.user.id
+  postId: match.params.postId
 });
 
 const mapDispatch = dispatch => ({

@@ -3,6 +3,9 @@ import "./navbar.scss";
 import LoginModal from "../session/login_modal";
 import SignupModal from "../session/signup_modal";
 import { Link } from 'react-router-dom';
+import { MdGroup, MdHome } from "react-icons/md";
+import { FaCarSide } from "react-icons/fa";
+
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -76,9 +79,14 @@ class NavBar extends React.Component {
               />
             </Link>
           </div>
-
           <li>
-            <a href="#">About Us</a>
+            <Link to="/"><MdHome size="1.2em"/>Home</Link>
+          </li>
+          <li>
+            <Link to="/posts"><FaCarSide size="1.2em"/>Posts</Link>
+          </li>     
+          <li>
+            <a href="#"><MdGroup size="1.2em"/> About Us</a>
           </li>
         </ul>
         {sessionButtons}

@@ -24,7 +24,7 @@ class Posts extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevState.posts !== this.state.posts) {
+    if(JSON.stringify(prevState.posts) !== JSON.stringify(this.state.posts)) {
       this.props.fetchPosts();
     }
   }

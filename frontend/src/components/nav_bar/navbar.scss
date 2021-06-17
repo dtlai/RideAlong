@@ -23,7 +23,12 @@ $primary-blue: rgb(56, 179, 253);
   }
 }
 
-
+.nav-bar-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100px;
+}
 
 .icon {
   position: relative;

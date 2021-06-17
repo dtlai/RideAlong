@@ -70,7 +70,7 @@ class NavBar extends React.Component {
     return (
   
       <div className="nav-bar">
-        <ul className="nav-links">
+        <ul >
           <div className="logo-home-link-container">
             <Link to="/" className="logo-home-link">
               <img
@@ -79,17 +79,36 @@ class NavBar extends React.Component {
               />
             </Link>
           </div>
+        </ul>
+
+        <div className="nav-links">
           <li>
-            <Link to="/"><MdHome size="1.2em"/>Home</Link>
+            <Link to="/">
+              <div className="nav-bar-item">
+              <MdHome size="1.2em"/>
+              <span>Home</span>
+              </div>
+            </Link>
           </li>
           <li>
-            <Link to="/posts"><FaCarSide size="1.2em"/>Posts</Link>
+            <Link to="/posts">
+              <div className="nav-bar-item">
+                <FaCarSide size="1.2em"/>
+                <span>Posts</span>
+              </div>
+            </Link>
           </li>     
           <li>
-            <a href="#"><MdGroup size="1.2em"/> About Us</a>
+            <Link to="/">
+              <div className="nav-bar-item">
+                <MdGroup size="1.2em"/>
+                <span>About Us</span>
+              </div>
+            </Link>
           </li>
-        </ul>
         {sessionButtons}
+        </div>
+
       </div>
     );
   }

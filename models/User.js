@@ -26,11 +26,11 @@ const UserSchema = new Schema(
     },
     posts: [{
       type: Schema.Types.ObjectId,
-      ref: "Post"
+      ref: "post"
     }],
     requests: [{
       type: Schema.Types.ObjectId,
-      ref: "Post"
+      ref: "post"
     }],
   },
   {

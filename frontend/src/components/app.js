@@ -1,8 +1,7 @@
 import React from 'react';
 
-import MainPage from './main/mainpage';
 import './app.scss';
-
+import MainPageContainer from './main/mainpage_container';
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { Switch, Route } from "react-router-dom";
 // import NavBarContainer from "./nav/navbar_container";
@@ -16,7 +15,7 @@ import PostItemContainer from './posts/post_item_container';
 const App = () => (
   <div>
     <Switch>
-      <Route exact path="/" component={MainPage} />
+      <Route exact path="/" component={MainPageContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/posts/:postId" component={PostItemContainer} />

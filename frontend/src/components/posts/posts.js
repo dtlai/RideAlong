@@ -24,7 +24,7 @@ class Posts extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevState.posts !== this.state.posts) {
+    if(JSON.stringify(prevState.posts) !== JSON.stringify(this.state.posts)) {
       this.props.fetchPosts();
     }
   }
@@ -51,17 +51,22 @@ class Posts extends React.Component {
     } else {
       return (
         <div>
-          <NavBarContainer/>
+          <NavBarContainer />
           <h2>All Posts</h2>
           <button onClick={(e) => this.goToCreate()}>Create a Post</button>
           <div className="post-index-main-content">
             <div className="posts-index-container">
-              {this.state.posts.map(post => (
+              {this.state.posts.map((post) => (
                 <div>
                   <PostBox key={post.id} post={post} />
-                  <button 
-                  onClick={() => this.handleClick(post._id)}
-                  >Delete Post</button>
+                  <button
+                    disabled={
+                      (!this.props.currentUser) || (this.props.currentUser.id !== post.user)
+                    }
+                    onClick={() => this.handleClick(post._id)}
+                  >
+                    Delete Post
+                  </button>
                 </div>
               ))}
             </div>
@@ -70,7 +75,7 @@ class Posts extends React.Component {
             </div>
           </div>
         </div>
-      )
+      );
     }
   }
 }

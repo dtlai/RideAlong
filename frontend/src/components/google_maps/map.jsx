@@ -4,8 +4,14 @@ import Geocode from "react-geocode";
 const googleMapsAPI = require("../../config/keys").googleMapsAPI;
 
 const mapStyles = {
-  width: '60%',
-  height: '60%'
+  width: '100%',
+  height: '100%'
+};
+const containerStyle = {
+  position: 'absolute', 
+  width: '45%', 
+  height:'80%',
+  marginRight: '40px'
 };
 
 // const markerInfo = [
@@ -82,8 +88,8 @@ export class GoogleMaps extends Component {
     location: { 
       pickup: post.startLocation,
       dropoff: post.endLocation
-    }
-   }));
+      }
+    }));
     markerInfo.forEach(info => this.getLatLong(info));
   }
 
@@ -131,6 +137,7 @@ export class GoogleMaps extends Component {
         google={this.props.google}
         zoom={14}
         style={mapStyles}
+        containerStyle={containerStyle}
         center={
           this.state.center       
         }

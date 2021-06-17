@@ -3,9 +3,6 @@
 $pt-sans: 'PT Sans',sans-serif;
 
 
-* {
-  font-family: $pt-sans;
-}
 
 html,
 body,
@@ -92,7 +89,6 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 
@@ -136,4 +132,8 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+* {
+  font-family: $pt-sans;
 }

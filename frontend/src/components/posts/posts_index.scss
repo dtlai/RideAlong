@@ -4,6 +4,9 @@
 
 .posts-index-container {
   width: 50%;
+  overflow-y: auto;
+  height: 80vh;
+  margin-left: 40px;
 }
 
 .maps-container {

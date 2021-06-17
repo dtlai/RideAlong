@@ -3,6 +3,9 @@ import "./navbar.scss";
 import LoginModal from "../session/login_modal";
 import SignupModal from "../session/signup_modal";
 import { Link } from 'react-router-dom';
+import { MdGroup, MdHome } from "react-icons/md";
+import { FaCarSide } from "react-icons/fa";
+
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -67,7 +70,7 @@ class NavBar extends React.Component {
     return (
   
       <div className="nav-bar">
-        <ul className="nav-links">
+        <ul >
           <div className="logo-home-link-container">
             <Link to="/" className="logo-home-link">
               <img
@@ -76,12 +79,36 @@ class NavBar extends React.Component {
               />
             </Link>
           </div>
-
-          <li>
-            <a href="#">About Us</a>
-          </li>
         </ul>
+
+        <div className="nav-links">
+          <li>
+            <Link to="/">
+              <div className="nav-bar-item">
+              <MdHome size="1.2em"/>
+              <span>Home</span>
+              </div>
+            </Link>
+          </li>
+          <li>
+            <Link to="/posts">
+              <div className="nav-bar-item">
+                <FaCarSide size="1.2em"/>
+                <span>Posts</span>
+              </div>
+            </Link>
+          </li>     
+          <li>
+            <Link to="/about">
+              <div className="nav-bar-item">
+                <MdGroup size="1.2em"/>
+                <span>About Us</span>
+              </div>
+            </Link>
+          </li>
         {sessionButtons}
+        </div>
+
       </div>
     );
   }

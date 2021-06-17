@@ -9,11 +9,13 @@ class UserProf extends React.Component {
     this.state = {
       posts: [],
     };
+    console.log(this.props.currentUser)
   }
 
-  componentDidMount() {
-    console.log(this.props.currentUser.id)
-    this.props.fetchUser(this.props.currentUser.id);
+  componentWillMount() {
+    this.props.fetchUser(this.props.currentUser.id)
+      // .then((user) => this.setState({posts: user.posts}))
+
   }
 
   render() {

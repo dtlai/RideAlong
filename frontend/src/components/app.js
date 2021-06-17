@@ -10,7 +10,7 @@ import SignupFormContainer from "./session/signup_form_container";
 import PostsContainer from "./posts/posts_container";
 import PostFormContainer from './posts/post_form_container';
 import PostShowContainer from './posts/post_show_container';
-
+// import PostItemContainer from './posts/post_item_container';
 
 const App = () => (
   <div>

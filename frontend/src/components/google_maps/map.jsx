@@ -46,7 +46,7 @@ const mapStyles = {
 
 Geocode.setApiKey(googleMapsAPI);
 
-export class PostIndexMap extends Component {
+export class GoogleMaps extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -156,4 +156,4 @@ export class PostIndexMap extends Component {
 
 export default GoogleApiWrapper({
   apiKey: googleMapsAPI
-})(PostIndexMap);
+})(GoogleMaps);

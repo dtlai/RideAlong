@@ -59,10 +59,6 @@ class MainPage extends React.Component {
         </div>
         <footer>
           Copyright &copy; 2021 RideAlong
-          <div className="icon github">
-            <div className="tooltip">Github</div>
-            {/* <FaGithub size={20} color={'black'}/> */}
-          </div>
         </footer>
       </div>
     )

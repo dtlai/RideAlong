@@ -23,6 +23,11 @@ class Posts extends React.Component {
     this.setState({ posts: newState.posts })
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.posts !== this.state.posts) {
+      this.props.fetchPosts();
+    }
+  }
 
   handleClick(postId){
     this.props.deletePost(postId)
@@ -54,7 +59,6 @@ class Posts extends React.Component {
               {this.state.posts.map(post => (
                 <div>
                   <PostBox key={post.id} post={post} />
-                  {console.log(post._id)}
                   <button 
                   onClick={() => this.handleClick(post._id)}
                   >Delete Post</button>

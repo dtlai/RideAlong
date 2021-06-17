@@ -12,6 +12,10 @@ export const submitPost = data => {
   return axios.post('/api/posts/create', data)
 };
 
+export const editPost = (post) => {
+  return axios.put(`/api/posts/edit`, post)
+};
+
 export const deleteCurrentPost = (postId) => {
   return axios.delete(`/api/posts/${postId}`);
 }

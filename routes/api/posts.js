@@ -15,6 +15,29 @@ router.get("/", (req, res) => {
     .catch((err) => res.status(404).json({ nopostsfound: "No posts found" }));
 });
 
+router.put("/edit", 
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Post.
+    findOne({"_id" : mongoose.Types.ObjectId(req.body.postId)})
+    .then(post => {
+      post.title = req.body.title;
+      post.description = req.body.description;
+      post.startLocation = req.body.startLocation;
+      post.endLocation = req.body.endLocation;
+      post.capacity = req.body.capacity;
+      post.numPassengers = req.body.numPassengers;
+      post.createdAt = req.body.createdAt;
+      post.leaveDate = req.body.leaveDate;
+      post.price = req.body.price;
+      post.carMake = req.body.carMake;
+      post.user = req.user.id;
+      return post.save();
+    })
+    .then(post => res.json(post));
+  }
+);
+
 // Updates the post's array of passengers and the user's array of requests
 router.put("/:postId/request", 
   passport.authenticate("jwt", { session: false }), 
@@ -44,7 +67,6 @@ router.put("/:postId/request",
         res.status(400).end()}
       );
 });
-
 
 // protected route to make posts
 router.post(

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+$pt-sans: 'PT Sans', sans-serif;
+$primary-blue: rgb(56, 179, 253);
+
 .main-splash {
   position: relative;
   background-image: url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2808&q=80);
@@ -8,7 +12,6 @@
   background-size: cover;
   // border: 1px solid #eeeeee;
   border-radius: 4px;
-
 }
 
 // .main-splash::before {
@@ -28,6 +31,11 @@
   background-color: white;
   display: inline-block;
   border-radius: 30px;
+  h3 {
+    font-size: 24px;
+    font-family: $pt-sans;
+    font-weight: 700;
+  }
 }
 
 .title-container {
@@ -35,4 +43,31 @@
   flex-direction: row-reverse;
   margin-right: 150px;
   margin-top: 150px;
+}
+
+.get-started-button {
+  background-color: $primary-blue;
+  padding: 10px;
+  color: #fff;
+  font-family: $pt-sans;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  margin-top: 25px;
+}
+
+.get-started-button:hover {
+  cursor: pointer;
+}
+
+.post-cards-container {
+  display: grid;
+  margin: 0 auto;
+  width: 60%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr; 
+  column-gap: 35px;
+  row-gap: 35px;
+  margin-top: 35px;
 }

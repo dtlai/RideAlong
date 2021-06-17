@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import PostBox from './post_box';
 import './posts_index.scss';
-import PostIndexMap from '../google_maps/post_index_map';
+import GoogleMaps from '../google_maps/map';
 
 
 class Posts extends React.Component {
@@ -15,7 +15,7 @@ class Posts extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchPosts();
   }
 
@@ -23,8 +23,15 @@ class Posts extends React.Component {
     this.setState({ posts: newState.posts })
   }
 
-  handleClick(){
-    // this.props.deletePost(ObjectID(this.props.postId));
+  componentDidUpdate(prevProps, prevState) {
+    if(JSON.stringify(prevState.posts) !== JSON.stringify(this.state.posts)) {
+      this.props.fetchPosts();
+    }
+  }
+
+  handleClick(postId){
+    this.props.deletePost(postId)
+      .then(this.props.fetchPosts());
   }
 
   goToCreate(e) {
@@ -44,28 +51,31 @@ class Posts extends React.Component {
     } else {
       return (
         <div>
-          <NavBarContainer/>
+          <NavBarContainer />
           <h2>All Posts</h2>
           <button onClick={(e) => this.goToCreate()}>Create a Post</button>
           <div className="post-index-main-content">
             <div className="posts-index-container">
-              {this.state.posts.map(post => (
+              {this.state.posts.map((post) => (
                 <div>
                   <PostBox key={post.id} post={post} />
-                  {console.log(post._id.toString())}
-                  <button 
-                  onClick={this.handleClick}
-                  postId={post._id.toString()}
-                  >Delete Post</button>
+                  <button
+                    disabled={
+                      (!this.props.currentUser) || (this.props.currentUser.id !== post.user)
+                    }
+                    onClick={() => this.handleClick(post._id)}
+                  >
+                    Delete Post
+                  </button>
                 </div>
               ))}
             </div>
             <div className="maps-container">
-              <PostIndexMap posts={this.state.posts} />
+              <GoogleMaps posts={this.state.posts} />
             </div>
           </div>
         </div>
-      )
+      );
     }
   }
 }

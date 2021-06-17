@@ -24,6 +24,18 @@ router.get(
   }
 );
 
+router.get("/:userId", (req, res) => {
+  User.
+    findOne({"_id" : mongoose.Types.ObjectId(req.params.userId)}).
+    populate("posts").
+    populate("requests").
+    exec(function (err, user) {
+      if (err) return handleError(err);
+      return res.json(user);
+    })
+
+});
+
 // route to sign up page (final)
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -57,7 +69,7 @@ router.post("/register", (req, res) => {
               jwt.sign(
                 payload,
                 keys.secretOrKey,
-                { expiresIn: 3600 },
+                // { expiresIn: 3600 },
                 (err, token) => {
                   res.json({
                     success: true,

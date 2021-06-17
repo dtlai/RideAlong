@@ -11,16 +11,21 @@ $primary-blue: rgb(56, 179, 253);
   color: #FFFFFF;
   text-align: center;
   transition: all 0.2s;
-  padding: 15px 15px;
+  padding: 12px 12px;
   border-radius: 5px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .session-button:hover {
   color: #000000;
   background-color: #FFFFFF;
 }
+
+
 
 .bouncy {
   animation: bouncy 5s 1 linear;

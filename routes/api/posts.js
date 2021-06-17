@@ -2,12 +2,12 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const passport = require("passport");
-
+const _ = require('lodash');
 const Post = require("../../models/Post");
+const User = require("../../models/User");
 const validatePostInput = require("../../validation/posts");
 
 router.get("/", (req, res) => {
-  console.log('got')
   Post.find()
     .sort({ date: -1 })
     .then((posts) => res.json(posts))
@@ -41,39 +41,34 @@ router.post(
       user: req.user.id,
     });
 
-    newPost.save().then((post) => res.json(post));
+    let savedPost = null;
+    newPost.save().then(post=> {
+      savedPost = post;
+      req.user.posts.push(post)
+      console.log(req.user)
+      return req.user.save();
+    }).then((user) => res.json(savedPost));
   }
 );
 
 router.get("/:postId", (req, res) => {
-  // Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)}) 
-  //   .then((post) => res.json(post))
-  //   .catch((err) =>
-  //     res.status(404).json({ nopostfound: "No post found with that ID" })
-  // );
   Post.
-    findOne({startLocation: "SF"}).
+    findOne({"_id" : mongoose.Types.ObjectId(req.params.postId)}).
     populate("user").
+    populate("passengers").
     exec(function (err, post) {
       if (err) return handleError(err);
-      console.log('The first name is %s', post.user.firstName);
-      console.log('The last name is %s', post.user.lastName);
-      // prints "The author is Ian Fleming"
-});
+      let allowed = ["firstName", "lastName", "username", "requests", "posts"];
+      // const filteredObj = _.pick(post.user, allowed)
+      post.user = _.pick(post.user, allowed);
+      return res.json(post);
+    })
+
 });
 
 router.delete('/:postId', function (req, res) {
-  // Post.find({"_id" : mongoose.Types.ObjectId(req.params.postId)})
-  //   // .then((post) => {
-  //   //   if (post.user === )
-  //   // } )
-
-  //   .catch((err) =>
-  //     res.status(404).json({ nopostfound: "No post found with that ID" })
-  // );  
-    
-    // console.log(postItem._id);
-  Post.deleteOne({"_id": mongoose.Types.ObjectId(req.params.postId)})
+  console.log(req.params);
+  Post.deleteOne({"_id": (req.params.postId)})
     .then(deletedDocument => {
       if(deletedDocument) {
         console.log(`Successfully deleted document that had the form: ${deletedDocument}.`);
@@ -90,3 +85,5 @@ router.delete('/:postId', function (req, res) {
 
 
 module.exports = router;
+
+

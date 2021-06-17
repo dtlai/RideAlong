@@ -99,7 +99,7 @@ class NavBar extends React.Component {
             </Link>
           </li>     
           <li>
-            <Link to="/">
+            <Link to="/about">
               <div className="nav-bar-item">
                 <MdGroup size="1.2em"/>
                 <span>About Us</span>

@@ -14,6 +14,13 @@ router.get("/", (req, res) => {
     .catch((err) => res.status(404).json({ nopostsfound: "No posts found" }));
 });
 
+router.get("/search", (req, res) => {
+  Post.find(req.data)
+    .sort({ date: -1 })
+    .then((posts) => res.json(posts))
+    .catch((err) => res.status(404).json({ nopostsfound: "No posts found" }));
+});
+
 // protected route to make posts
 router.post(
   "/create",

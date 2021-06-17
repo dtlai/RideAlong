@@ -15,3 +15,7 @@ export const submitPost = data => {
 export const deleteCurrentPost = (postId) => {
   return axios.delete(`/api/posts/${postId}`);
 }
+
+export const searchPosts = (data) => {
+  return axios.get('/api/posts/search', data)
+}

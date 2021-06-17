@@ -11,6 +11,8 @@ class MainPage extends React.Component {
     this.state = {
       posts: []
     }
+    this.onSubmit = this.onSubmit.bind(this);
+    this.sendToPosts = this.sendToPosts.bind(this);
   }
 
   componentWillMount() {
@@ -27,6 +29,10 @@ class MainPage extends React.Component {
 
   onSubmit() {
     this.props.history.push('/posts/create')
+  }
+
+  sendToPosts() {
+    this.props.history.push('/posts')
   }
 
   render() {
@@ -46,7 +52,10 @@ class MainPage extends React.Component {
         <div className="post-cards-container">
           {this.state.posts.map(post => (
             <Postcard key={post.id} post={post}/>
-          ))}
+          )).slice(0, 6)}
+          <div>
+            <button onClick={this.sendToPosts} className="view-more-button">View more posts</button>
+          </div>
         </div>
         <footer>
           Copyright &copy; 2021 RideAlong

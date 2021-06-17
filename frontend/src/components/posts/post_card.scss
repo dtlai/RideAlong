@@ -8,6 +8,7 @@ $primary-blue: rgb(56, 179, 253);
   border-radius: 4px;
   font-family: $pt-sans;
   color: #fff;
+  max-width: 450px;
 }
 
 .postcard-box:hover {
@@ -16,7 +17,7 @@ $primary-blue: rgb(56, 179, 253);
 }
 
 .card-content {
-  margin: 8px;
+  margin: 12px;
 }
 
 .card-img {
@@ -30,4 +31,22 @@ $primary-blue: rgb(56, 179, 253);
 .postcard-description {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.postcard-title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.view-more-button {
+  padding: 12px;
+  background-color: $primary-blue;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.view-more-button:hover {
+  cursor: pointer;
 }

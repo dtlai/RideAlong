@@ -44,7 +44,7 @@ class Postcard extends React.Component {
 
           </div>
           <div className="card-content">
-            <div>
+            <div className="postcard-title">
               {post.title}
             </div>
             <div className="postcard-description">

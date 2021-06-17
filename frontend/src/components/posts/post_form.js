@@ -59,7 +59,7 @@ class PostForm extends React.Component {
   render() {
     return (
       <div className="post-page">
-        < NavBarContainer />
+        <NavBarContainer />
         <div className="create-post-container">
           <span className="side-img"><h3>Create a Trip!</h3></span>
           <div>

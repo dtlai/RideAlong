@@ -10,7 +10,7 @@ import SignupFormContainer from "./session/signup_form_container";
 import PostsContainer from "./posts/posts_container";
 import PostFormContainer from './posts/post_form_container';
 import PostShowContainer from './posts/post_show_container';
-import PostItemContainer from './posts/post_item_container';
+// import PostItemContainer from './posts/post_item_container';
 
 const App = () => (
   <div>
@@ -19,8 +19,8 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/posts" component={PostsContainer} />
-      <Route exact path="/post/:postId" component={PostShowContainer} />
       <ProtectedRoute exact path="/posts/create" component={PostFormContainer} />
+      <Route exact path="/posts/:postId" component={PostShowContainer} />
     </Switch>
   </div>
 );

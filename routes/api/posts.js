@@ -15,10 +15,16 @@ router.get("/", (req, res) => {
 });
 
 router.get("/search", (req, res) => {
-  Post.find(req.data)
-    .sort({ date: -1 })
-    .then((posts) => res.json(posts))
-    .catch((err) => res.status(404).json({ nopostsfound: "No posts found" }));
+  Post.find(req.query, function (err, docs) {
+      if (err){
+          console.log(err);
+      }
+      else{
+          console.log("Second function call : ", docs);
+      }
+  })
+  .then((posts) => res.json(posts));
+  
 });
 
 // protected route to make posts

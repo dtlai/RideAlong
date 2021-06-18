@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+$pt-sans: 'PT Sans',sans-serif;
+$primary-blue: rgb(56, 179, 253);
+
+.request-container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: $primary-blue;
+  color: #ffffff;
+  font-size: 18px;
+
+  div {
+    margin: 8px;
+  }
+}
+
+.request-title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.request-title {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.request-locations-container {
+  display: flex;
+}
+
+.request-capacity-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.request-container:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}

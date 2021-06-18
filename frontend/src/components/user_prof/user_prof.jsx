@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import NavBarContainer from "../nav_bar/nav_bar_container";
 import PostBox from "../posts/post_box";
+import RequestBox from "../requests/request_box"
 import './user_prof.scss'
 
 class UserProf extends React.Component {
@@ -10,7 +11,7 @@ class UserProf extends React.Component {
     this.state = {
       user: null,
       posts: [],
-      // requests: [],
+      requests: [],
     };
     console.log(this.props.currentUser)
   }
@@ -21,10 +22,8 @@ class UserProf extends React.Component {
       .then(() => this.setState({
         user: this.props.user,
         posts: this.props.posts,
-        // requests: this.props.requests,
+        requests: this.props.requests,
       }))
-
-
   }
 
   render() {
@@ -44,7 +43,7 @@ class UserProf extends React.Component {
             <p>{this.state.user.username}</p>
           </div>
           <div className="user-rides">
-            <h1>Here are all my rides!</h1>
+            <h1>Here are all my trips!</h1>
             <div className="prof-posts-container">
               {this.state.posts
                 ? this.state.posts.map((post) => {
@@ -54,17 +53,23 @@ class UserProf extends React.Component {
                       </div>
                     );
                   })
-                : "No rides"}
+                : "No trips"}
             </div>
           </div>
-          {/* <div className="user-requests">
-              {this.state.requests ? 
-              this.state.requests.map((request) => {
-                return (
-                  <div>{request}</div>
-                )
-              }) : "No Request"}
-          </div> */}
+          <div className="user-requests">
+            <h1>Here are all my requests!</h1>
+            <div className="prof-requests-container">
+              {this.state.requests
+                ? this.state.requests.map((request) => {
+                    return (
+                      <div className="prof-requests">
+                        <RequestBox key={request.id} request={request} />
+                      </div>
+                    );
+                  })
+                : "No requests"}
+            </div>
+          </div>
         </div>
       </>
     );

@@ -53,6 +53,13 @@ class SignupForm extends React.Component {
           this.props.handleClose();
         }
       })
+      .then(() => {
+        let user_login = {
+          email: this.state.email,
+          password: this.state.password
+        }
+        this.props.login(user_login)
+      })
   }
 
   renderErrors() {

@@ -68,7 +68,7 @@ class Posts extends React.Component {
                     <PostBox key={post.id} post={post} />
                     <button
                       disabled={
-                        (!this.props.currentUser) || (this.props.currentUser.id !== post.user)
+                        (!this.props.currentUser) || (this.props.currentUser.id !== post.user._id)
                       }
                       onClick={() => this.handleClick(post._id)}
                       className="delete-button"

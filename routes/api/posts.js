@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
     .exec(function (err, posts) {
       if (err) return res.status(400).json({"error": "Oops an error has occurred"});
       posts.map(post => {
-        let allowed = ["firstName", "lastName"];
+        let allowed = ["firstName", "lastName", "_id"];
         post.user = _.pick(post.user, allowed);
       })
       return res.json(posts);

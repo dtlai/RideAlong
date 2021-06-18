@@ -10,6 +10,7 @@ class UserProf extends React.Component {
     this.state = {
       user: null,
       posts: [],
+      // requests: [],
     };
     console.log(this.props.currentUser)
   }
@@ -20,7 +21,7 @@ class UserProf extends React.Component {
       .then(() => this.setState({
         user: this.props.user,
         posts: this.props.posts,
-
+        // requests: this.props.requests,
       }))
 
 
@@ -58,8 +59,11 @@ class UserProf extends React.Component {
           </div>
           {/* <div className="user-requests">
               {this.state.requests ? 
-              this.state.requests.map((request) =>)
-            }
+              this.state.requests.map((request) => {
+                return (
+                  <div>{request}</div>
+                )
+              }) : "No Request"}
           </div> */}
         </div>
       </>

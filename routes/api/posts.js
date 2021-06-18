@@ -51,8 +51,10 @@ router.put("/:postId/request",
   (req, res) => {
     let savedPost = null;
     let savedUser = null;
-    Post.
-      findOne({"_id" : mongoose.Types.ObjectId(req.params.postId)})
+    Post
+      .findOne({"_id" : mongoose.Types.ObjectId(req.params.postId)})
+      .populate("user")
+      .exec()
       .then(post => {
         savedPost = post;
         if (post.passengers.includes(req.user._id)) {
@@ -69,7 +71,11 @@ router.put("/:postId/request",
         savedPost.passengers.push(user);
         return savedPost.save();
       })
-      .then(post => res.json({post: post, user: savedUser}))
+      .then(post => {
+        let allowed = ["firstName", "lastName"];
+        post.user = _.pick(post.user, allowed);
+        return res.json({post: post, user: savedUser})
+      })
       .catch(err => {
         res.status(400).end()}
       );

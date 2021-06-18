@@ -82,8 +82,10 @@ class LoginForm extends React.Component {
               <h3>Login</h3>
               <p>New to RideAlong? <Link to="/signup" style={{color: "blue"}}>Sign up</Link></p>
             </span>
+            {this.renderErrors()}
             <div className="input-fields-container">
               <input
+                required
                 type="text"
                 value={this.state.email}
                 onChange={this.update("email")}
@@ -91,6 +93,7 @@ class LoginForm extends React.Component {
                 className="email-input"
               />
               <input
+                required
                 type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
@@ -98,7 +101,6 @@ class LoginForm extends React.Component {
               />
             </div>
             <button className="session-button">Submit</button>
-            {this.renderErrors()}
           </div>
         </form>
         <div className="demo-button-container">

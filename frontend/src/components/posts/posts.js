@@ -60,13 +60,14 @@ class Posts extends React.Component {
                 <button id='create-post-button' onClick={(e) => this.goToCreate()}>Plan a Trip</button>
               </div>
               {this.state.posts.map((post) => (
-                <div className="post-item">
+                <div className="post-container">
                   <PostBox key={post.id} post={post} />
                   <button
                     disabled={
                       (!this.props.currentUser) || (this.props.currentUser.id !== post.user)
                     }
                     onClick={() => this.handleClick(post._id)}
+                    className="delete-button"
                   >
                     Delete Post
                   </button>

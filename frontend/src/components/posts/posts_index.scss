@@ -7,14 +7,12 @@ $primary-pink: #f39e9e;
 }
 
 .posts-index-container {
-  width: 50%;
+  width: 40%;
   overflow-y: auto;
-  height: 80vh;
+  height: 90vh;
 }
 
-.maps-container {
-  width: 50%;
-}
+
 
 .posts-container {
   background-color: $primary-gray;
@@ -68,5 +66,49 @@ $primary-pink: #f39e9e;
   background-color: #FFFFFF;
 }
 
-.post-item {
+.post-container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: $primary-blue;
+  color: #ffffff;
+  font-size: 18px;
+
+  div {
+    margin: 8px;
+  }
+}
+
+.delete-button {
+    display: inline-block;
+    background-color: rgb(247, 0, 0);
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.2s;
+    padding: 10px 10px;
+    // box-shadow: 0 10px 10px rgba(56, 179, 253, 0.1);
+    cursor: pointer;
+    width: 30%;
+    font-weight: bold;
+    font-size: 18px;
+    border: 1px solid black;
+}
+
+.delete-button:hover {
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+.delete-button:disabled,
+.delete-button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  padding: 10px 10px;
+
 }

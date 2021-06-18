@@ -12,6 +12,7 @@ bold {
   display: flex;
   flex-direction: column;
   font-family: $pt-sans;
+  padding-bottom: 33em;
   h2, h3, h4 {
     font-size: 3em;
     text-align: center;
@@ -54,7 +55,7 @@ bold {
       border: 1px solid lightgray;
       box-shadow: 0.1em 0.1em 1em lightgray;
       border-radius: 0.5em;
-      max-height: 11em;
+      max-height: 9em;
       position: -webkit-sticky;
       position: sticky;
       top: 1em;

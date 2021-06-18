@@ -41,4 +41,4 @@ class UserProf extends React.Component {
 }
 
 
-export default UserProf;
+export default withRouter(UserProf);

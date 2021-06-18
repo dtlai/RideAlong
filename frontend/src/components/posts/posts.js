@@ -52,18 +52,22 @@ class Posts extends React.Component {
       return (
         <div className="posts-container">
           <NavBarContainer />
-          <h2>All Posts</h2>
-          <button onClick={(e) => this.goToCreate()}>Create a Post</button>
           <div className="post-index-main-content">
             <div className="posts-index-container">
+              <div className="posts-info-container">
+                <h2>All Trips</h2>
+                <h3>Looking to become a driver?</h3>
+                <button id='create-post-button' onClick={(e) => this.goToCreate()}>Plan a Trip</button>
+              </div>
               {this.state.posts.map((post) => (
-                <div>
+                <div className="post-container">
                   <PostBox key={post.id} post={post} />
                   <button
                     disabled={
                       (!this.props.currentUser) || (this.props.currentUser.id !== post.user)
                     }
                     onClick={() => this.handleClick(post._id)}
+                    className="delete-button"
                   >
                     Delete Post
                   </button>

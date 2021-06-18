@@ -8,7 +8,7 @@ class PostBox extends React.Component {
     let startDate = post.createdAt.slice(0, 10);
     let dateLeave = post.leaveDate.slice(0, 10);
     return (
-      <div onClick={() => this.props.history.push(`/posts/${post._id}`)} className="post-container">
+      <div onClick={() => this.props.history.push(`/posts/${post._id}`)} >
         <div className="post-title-container">
           <span className="post-title">{post.title}</span>
           <span>{startDate}</span>

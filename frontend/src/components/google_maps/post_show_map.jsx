@@ -150,7 +150,7 @@ export class ShowMap extends Component {
         mapTypeControl={false}
         ref="map"
         google={this.props.google}
-        zoom={11}
+        zoom={12}
         style={mapStyles}
         containerStyle={containerStyle}
         center={

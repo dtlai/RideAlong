@@ -114,7 +114,7 @@ class PostShow extends React.Component {
           </div>
           <ul className="post-show-details">
             <li className="post-show-driver">
-              Your driver is <bold>{firstName} {lastName}.</bold> 
+              Your driver is <bold>{firstName} {lastName}</bold> 
               <span className="post-show-driver-profile"><CgProfile size="2em" background-color="white" color="rgb(56, 179, 253)"/> {username}</span>
               </li>
             <li className="post-show-detail-item">

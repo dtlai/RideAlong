@@ -50,6 +50,7 @@ class PostForm extends React.Component {
     this.props.history.push("/posts")
   }
 
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -68,7 +69,7 @@ class PostForm extends React.Component {
                 <input type="text"
                   value={this.state.title}
                   onChange={this.update('title')}  
-                  placeholder="Title"
+                  placeholder="Title (Must be between 5 and 50 characters)"
                 />
               </div>
               <div>

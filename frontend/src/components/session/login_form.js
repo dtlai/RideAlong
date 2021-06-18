@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import "./session.scss";
+import {Link} from 'react-router-dom';
+
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -73,33 +75,37 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="session-form">
-        <form onSubmit={this.handleSubmit}>
-          <div>
+        <form onSubmit={this.handleSubmit} className="login-form-container">
+          <div className="login-form">
             <img src="https://i.imgur.com/vscAchT.png" alt="Ride Along Logo" />
-            <br />
-            <span>Login</span>
-            <br />
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
-            <br />
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
-            <br />
-            <input className="session-button" type="submit" value="Submit" />
+            <span className="login-header">
+              <h3>Login</h3>
+              <p>New to RideAlong? <Link to="/signup" style={{color: "blue"}}>Sign up</Link></p>
+            </span>
             {this.renderErrors()}
+            <div className="input-fields-container">
+              <input
+                required
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Email"
+                className="email-input"
+              />
+              <input
+                required
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Password"
+              />
+            </div>
+            <button className="session-button">Submit</button>
           </div>
         </form>
         <div className="demo-button-container">
           <button
-            className="guest-user-submit"
+            className="session-button"
             onClick={() => this.props.login(this.demo)}
           >
             Guest User

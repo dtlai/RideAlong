@@ -18,7 +18,7 @@ class PostBox extends React.Component {
           <span>Seats left: {parseInt(post.capacity) - parseInt(post.numPassengers)}</span>
         </div>
         <div className="post-user-container">
-          Driver: {post.user}
+          Driver: {post.user.firstName} {post.user.lastName}
         </div>
         <div className="post-locations-container">
           <span>Leaving {post.startLocation} to {post.endLocation} on {dateLeave}</span>

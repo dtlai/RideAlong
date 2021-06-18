@@ -24,9 +24,12 @@ class Posts extends React.Component {
   }
 
   // componentDidUpdate(prevProps, prevState) {
-  //   if(JSON.stringify(prevState.posts) !== JSON.stringify(this.state.posts)) {
-  //     this.props.fetchPosts();
-  //   }
+    // console.log(prevState.posts)
+    // console.log(this.state.posts)
+    // if(JSON.stringify(prevState.posts) !== JSON.stringify(this.state.posts)) {
+    //   this.props.fetchPosts();
+
+    // }
   // }
 
   handleClick(postId){

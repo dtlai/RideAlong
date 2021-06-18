@@ -52,7 +52,7 @@ const containerStyle = {
 
 Geocode.setApiKey(googleMapsAPI);
 
-export class GoogleMaps extends Component {
+export class CurrentMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -135,7 +135,7 @@ export class GoogleMaps extends Component {
         mapTypeControl={false}
         ref="map"
         google={this.props.google}
-        zoom={14}
+        zoom={11}
         style={mapStyles}
         containerStyle={containerStyle}
         center={
@@ -163,4 +163,4 @@ export class GoogleMaps extends Component {
 
 export default GoogleApiWrapper({
   apiKey: googleMapsAPI
-})(GoogleMaps);
+})(CurrentMap);

@@ -71,10 +71,22 @@ class SignupForm extends React.Component {
       <div className="session-form">
         <form onSubmit={this.handleSubmit}>
           <div className="signup-container">
-            <img src="https://i.imgur.com/vscAchT.png" alt="Ride Along Logo" />
+            <div className="logo-home-link-container">
+              <Link to="/" className="logo-home-link">
+                <img
+                  src="https://i.imgur.com/vscAchT.png"
+                  alt="Ride Along Logo"
+                />
+              </Link>
+            </div>
             <span className="login-header">
-              <h3>Sign Up</h3>
-              <p>Already have an account? <Link to="/login" style={{color: "blue"}}>Log In</Link></p>
+              <h3>Sign Up for RideAlong</h3>
+              <p>
+                Already have an account?{" "}
+                <Link to="/login" style={{ color: "blue" }}>
+                  Log In
+                </Link>
+              </p>
             </span>
             {this.renderErrors()}
             <div className="name-container">

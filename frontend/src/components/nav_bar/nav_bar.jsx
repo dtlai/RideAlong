@@ -41,8 +41,10 @@ class NavBar extends React.Component {
           </button>
           {this.state.dropdown ? (
             <div className="user-session-content">
-              <div>{firstName}</div>
-              <div>{lastName}</div>
+              <div>
+                {firstName} &nbsp;
+                {lastName}
+              </div>
               <Link to="/profile">My Profile</Link>
               <button className="session-button" onClick={this.logoutUser}>
                 Logout

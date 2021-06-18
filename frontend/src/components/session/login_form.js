@@ -77,29 +77,42 @@ class LoginForm extends React.Component {
       <div className="session-form">
         <form onSubmit={this.handleSubmit} className="login-form-container">
           <div className="login-form">
-            <img src="https://i.imgur.com/vscAchT.png" alt="Ride Along Logo" />
+            <div className="logo-home-link-container">
+              <Link to="/" className="logo-home-link">
+                <img
+                  src="https://i.imgur.com/vscAchT.png"
+                  alt="Ride Along Logo"
+                />
+              </Link>
+            </div>
             <span className="login-header">
-              <h3>Login</h3>
-              <p>New to RideAlong? <Link to="/signup" style={{color: "blue"}}>Sign up</Link></p>
+              <h3>Log in to RideAlong</h3>
+              <p>
+                New to RideAlong?{" "}
+                <Link to="/signup" style={{ color: "blue" }}>
+                  Sign up
+                </Link>
+              </p>
             </span>
             {this.renderErrors()}
-            <div className="input-fields-container">
-              <input
-                required
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                placeholder="Email"
-                className="email-input"
-              />
-              <input
-                required
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                placeholder="Password"
-              />
-            </div>
+            {/* <div className="input-fields-container"> */}
+            <input
+              required
+              type="text"
+              value={this.state.email}
+              onChange={this.update("email")}
+              placeholder="Email"
+              className="email-input"
+            />
+            <input
+              required
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              placeholder="Password"
+              className="password-input"
+            />
+            {/* </div> */}
             <button className="session-button">Submit</button>
           </div>
         </form>

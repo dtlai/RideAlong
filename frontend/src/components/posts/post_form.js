@@ -16,9 +16,14 @@ class PostForm extends React.Component {
       numPassengers: 1,
       price: 0,
       leaveDate: "",
+      // errors: {}
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-  }  
+  } 
+
+  // componentWillUnmount() {
+  //   this.setState({ errors: {} });
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -34,8 +39,7 @@ class PostForm extends React.Component {
       price: this.state.price,
       leaveDate: this.state.leaveDate,
     }
-    console.log(post);
-    this.props.createPost(post);
+    this.props.createPost(post)
     this.setState({
       title: "",
       description: "",
@@ -48,8 +52,10 @@ class PostForm extends React.Component {
       leaveDate: "",
     });
     this.props.history.push("/posts")
+    // if (!this.state.errors){
+    //   this.props.history.push("/posts")
+    // }
   }
-
 
   update(field) {
     return e => this.setState({
@@ -57,10 +63,21 @@ class PostForm extends React.Component {
     });
   }
 
+  renderErrors() {
+    return (
+      <ul className="errors"> 
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     return (
-      <div className="post-page">
+      <>
         < NavBarContainer />
+      <div className="post-page">
         <div className="create-post-container">
           <span className="side-img"><h3>Plan a Trip!</h3></span>
           <div>
@@ -70,6 +87,7 @@ class PostForm extends React.Component {
                   value={this.state.title}
                   onChange={this.update('title')}  
                   placeholder="Title (Must be between 5 and 50 characters)"
+                  required
                 />
               </div>
               <div>
@@ -77,13 +95,15 @@ class PostForm extends React.Component {
                   value={this.state.description}
                   onChange={this.update('description')}  
                   placeholder="Description here..."
+                  required
                 />
               </div>
               <div>
                 <input type="text"
                   value={this.state.carMake}
                   onChange={this.update('carMake')}
-                  placeholder="Model of your car" 
+                  placeholder="Model of your car"
+                  required 
                 />
               </div>
               <div>
@@ -91,6 +111,7 @@ class PostForm extends React.Component {
                   value={this.state.startLocation}
                   onChange={this.update('startLocation')} 
                   placeholder="Start Location"
+                  required
                 />
               </div>
               <div>
@@ -98,11 +119,12 @@ class PostForm extends React.Component {
                   value={this.state.endLocation}
                   onChange={this.update('endLocation')}
                   placeholder="Destination"
+                  required
                 />
               </div>
-              <div>
+              <div className="capacity-container">
                 Capacity
-                <select onChange={this.update('capacity')}>
+                <select onChange={this.update('capacity')} required className="capacity-input">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -111,7 +133,7 @@ class PostForm extends React.Component {
                   <option value="6">6</option>
                 </select>
                 Passengers
-                <select onChange={this.update('numPassengers')}>
+                <select onChange={this.update('numPassengers')} required className="passenger-input">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -121,14 +143,19 @@ class PostForm extends React.Component {
                 </select>
               </div>
               <div>
+                How much for Gas?
                 <input type="number"
                   value={this.state.price}
                   onChange={this.update('price')}
-                  placeholder="How much for Gas?"
+                  required
                 />
               </div>
               <div>When are you leaving?
-                <input type="datetime-local" onChange={this.update('leaveDate')} value={this.state.leaveDate}/>
+                <input type="datetime-local"
+                  className="date-input"
+                  onChange={this.update('leaveDate')}
+                  value={this.state.leaveDate}
+                  required/>
               </div>
               <div>
                 <input className="post-submit-button" type="submit" value="Submit Post"></input>
@@ -137,6 +164,7 @@ class PostForm extends React.Component {
           </div>
         </div>
       </div>
+      </>
     )
   }
 }

@@ -85,7 +85,7 @@ export class ShowMap extends Component {
     // navigator.geolocation.getCurrentPosition(pos => locate(pos))
     const post = this.props.post;
     let markerInfo = {
-    driver: post.user,
+    driver: post.user.firstName + " " + post.user.lastName,
     seats: post.capacity - post.numPassengers,
     location: { 
       pickup: post.startLocation,
@@ -97,15 +97,14 @@ export class ShowMap extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.post._id !== this.props.post._id) {
-      console.log(this.state.markers)
-          const post = this.props.post;
-    let markerInfo = {
-    driver: post.user,
-    seats: post.capacity - post.numPassengers,
-    location: { 
-      pickup: post.startLocation,
-      dropoff: post.endLocation
-      }
+      const post = this.props.post;
+      let markerInfo = {
+      driver: post.user.firstName + " " + post.user.lastName,
+      seats: post.capacity - post.numPassengers,
+      location: { 
+        pickup: post.startLocation,
+        dropoff: post.endLocation
+        }
     };
     this.getLatLong(markerInfo);
     }
@@ -165,8 +164,8 @@ export class ShowMap extends Component {
           visible={this.state.showingInfoWindow}
           onClose={this.onClose}
         >
-          <div>
-            <h4>Driver: {this.state.selectedPlace.info.driver.first_name} {this.state.selectedPlace.info.driver.last_name}</h4>
+          <div className="post-show-marker-box">
+            <h4>Driver: {this.state.selectedPlace.info.driver} {this.state.selectedPlace.info.driver.last_name}</h4>
             <h4>Seats Available: {this.state.selectedPlace.info.seats}</h4>
             <h4>Pickup: {this.state.selectedPlace.info.location.pickup}</h4>
             <h4>Dropoff: {this.state.selectedPlace.info.location.dropoff}</h4>

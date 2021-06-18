@@ -23,11 +23,11 @@ class Posts extends React.Component {
     this.setState({ posts: newState.posts })
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if(JSON.stringify(prevState.posts) !== JSON.stringify(this.state.posts)) {
-      this.props.fetchPosts();
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if(JSON.stringify(prevState.posts) !== JSON.stringify(this.state.posts)) {
+  //     this.props.fetchPosts();
+  //   }
+  // }
 
   handleClick(postId){
     this.props.deletePost(postId)

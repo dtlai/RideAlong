@@ -11,8 +11,15 @@ const { request } = require("express");
 router.get("/", (req, res) => {
   Post.find()
     .sort({ date: -1 })
-    .then((posts) => res.json(posts))
-    .catch((err) => res.status(404).json({ nopostsfound: "No posts found" }));
+    .populate("user")
+    .exec(function (err, posts) {
+      if (err) return res.status(400).json({"error": "Oops an error has occurred"});
+      posts.map(post => {
+        let allowed = ["firstName", "lastName"];
+        post.user = _.pick(post.user, allowed);
+      })
+      return res.json(posts);
+  })
 });
 
 router.put("/edit", 
@@ -31,7 +38,7 @@ router.put("/edit",
       post.leaveDate = req.body.leaveDate;
       post.price = req.body.price;
       post.carMake = req.body.carMake;
-      post.user = req.user.id;
+      post.user = req.body.user;
       return post.save();
     })
     .then(post => res.json(post));

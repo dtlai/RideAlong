@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import Geocode from "react-geocode";
+import { Link } from 'react-router-dom';
 const googleMapsAPI = require("../../config/keys").googleMapsAPI;
 
 const mapStyles = {
@@ -135,27 +136,27 @@ export class CurrentMap extends Component {
         mapTypeControl={false}
         ref="map"
         google={this.props.google}
-        zoom={11}
+        zoom={12}
         style={mapStyles}
         containerStyle={containerStyle}
-        center={
-          this.state.center       
-        }
+        initialCenter={{lat: 37.7529, lng: -122.4474}}
         onDblclick={this.recenterMap}
         >
         { this.state.markers.map((markerInfo, idx) => <Marker position={markerInfo.location.coords} key={`marker-${idx}`} info={markerInfo} onClick={this.onMarkerClick}/>)}
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-          onClose={this.onClose}
-        >
-          <div>
-            <h4>Driver: {this.state.selectedPlace.info.driver.first_name} {this.state.selectedPlace.info.driver.last_name}</h4>
-            <h4>Seats Available: {this.state.selectedPlace.info.seats}</h4>
-            <h4>Pickup: {this.state.selectedPlace.info.location.pickup}</h4>
-            <h4>Dropoff: {this.state.selectedPlace.info.location.dropoff}</h4>
-          </div>
-        </InfoWindow>
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+            onClose={this.onClose}
+          >
+            <div>
+              <h4>Driver: {this.state.selectedPlace.info.driver}</h4>
+              <h4>Seats Available: {this.state.selectedPlace.info.seats}</h4>
+              <h4>Pickup: {this.state.selectedPlace.info.location.pickup}</h4>
+              <h4>Dropoff: {this.state.selectedPlace.info.location.dropoff}</h4>
+              <a href={`/posts/${this.state.activeMarker._id}`}></a>
+              {/* <a to={`/posts/${this.state.activeMarker._id}`}/> */}
+            </div>
+          </InfoWindow>
       </Map>
     );
   }

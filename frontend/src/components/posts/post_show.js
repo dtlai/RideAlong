@@ -19,7 +19,7 @@ class PostShow extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchPost(this.props.postId).then(post => console.log(post));
+    this.props.fetchPost(this.props.postId).then(()=>window.scrollTo(0, 0));
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -100,7 +100,7 @@ class PostShow extends React.Component {
           <h2>{title}</h2>
           <div className="post-show-info">
             <div className="post-show-description">
-              <h3>{startLocation} &nbsp; <ImArrowRight fill="lightskyblue" stroke="gray" stroke-width="1px"/> &nbsp; {endLocation}</h3>
+              <h3>{startLocation} &nbsp; <ImArrowRight fill="lightskyblue" stroke="gray" strokeWidth="1px"/> &nbsp; {endLocation}</h3>
               <h4>{this.formatDate(leaveDate)} ~ {this.formatTime(leaveDate)}</h4>
               <p>{description}</p>
             </div>

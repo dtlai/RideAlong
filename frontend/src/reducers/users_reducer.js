@@ -4,7 +4,6 @@ import {RECEIVE_REQUEST} from '../actions/post_actions';
 const UsersReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
-  debugger
   switch(action.type) {
     case RECEIVE_USER:
       return Object.assign(newState, action.user.data);

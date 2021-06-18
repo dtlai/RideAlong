@@ -27,7 +27,7 @@ class UserProf extends React.Component {
           {(this.props.posts) ? (
             this.props.posts.map((post) => {
               return (
-                <div>
+                <div className="prof-posts">
                   <PostBox key={post.id} post={post} />
                 </div>
               );

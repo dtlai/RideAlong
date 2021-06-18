@@ -1,8 +1,9 @@
 $primary-blue: rgb(56, 179, 253);
+$primary-gray: #8080801c;
 
 .session-button {
   display: inline-block;
-  border: 0.1em solid white;
+  border: 0.1em solid $primary-gray;
   background-color: $primary-blue;
   margin: 0 0.3em 0.3em 0;
   border-radius: 0.12em;

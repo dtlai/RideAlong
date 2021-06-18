@@ -52,7 +52,7 @@ const containerStyle = {
 
 Geocode.setApiKey(googleMapsAPI);
 
-export class GoogleMaps extends Component {
+export class ShowMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -78,19 +78,24 @@ export class GoogleMaps extends Component {
   }
 
   componentDidMount() {
-    const locate = pos => {
-      this.setState({center: {lat: pos.coords.latitude, lng: pos.coords.longitude}})
-    }
-    navigator.geolocation.getCurrentPosition(pos => locate(pos))
-    let markerInfo = this.props.posts.map(post => ({
+    // const locate = pos => {
+    //   this.setState({center: {lat: pos.coords.latitude, lng: pos.coords.longitude}})
+    // }
+    // navigator.geolocation.getCurrentPosition(pos => locate(pos))
+    const post = this.props.post;
+    let markerInfo = {
     driver: post.user,
     seats: post.capacity - post.numPassengers,
     location: { 
       pickup: post.startLocation,
       dropoff: post.endLocation
       }
-    }));
-    markerInfo.forEach(info => this.getLatLong(info));
+    };
+    this.getLatLong(markerInfo);
+  }
+
+  componentWillReceiveProps(props) {
+    this.props.fetchPost(this.props.post.id);
   }
 
   recenterMap(mapProps, map, event) {
@@ -100,10 +105,8 @@ export class GoogleMaps extends Component {
   getLatLong(markerInfo) {
     Geocode.fromAddress(markerInfo.location.pickup).then((response) => {
       const { lat, lng } = response.results[0].geometry.location;
-      let oldMarkers = this.state.markers;
       markerInfo.location.coords = {lat: lat, lng: lng};
-      oldMarkers = oldMarkers.concat(markerInfo);
-      this.setState({markers: oldMarkers});
+      this.setState({markers: [markerInfo], center: markerInfo.location.coords});
     }, 
     (error) => {
       console.error(error);
@@ -163,4 +166,4 @@ export class GoogleMaps extends Component {
 
 export default GoogleApiWrapper({
   apiKey: googleMapsAPI
-})(GoogleMaps);
+})(ShowMap);

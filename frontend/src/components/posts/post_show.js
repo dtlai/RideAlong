@@ -1,6 +1,8 @@
 import React from 'react';
 import NavBarContainer from '../nav_bar/nav_bar_container';
-import GoogleMaps from '../google_maps/map';
+import ShowMap from '../google_maps/post_show_map';
+import './post_show.scss';
+import { CgProfile } from 'react-icons/cg';
 
 class PostShow extends React.Component {
   constructor(props) {
@@ -91,14 +93,15 @@ class PostShow extends React.Component {
       const { title, description, carMake, startLocation, endLocation, capacity, numPassengers, price, createdAt, leaveDate } = this.props.post;
       const { firstName, lastName, username } = this.props.post.user;
       return(
-        <div>
+        <div className="post-show">
           <NavBarContainer/>
           {this.showPopup()}
           <h2>{title}</h2>
           <p>{description}</p>
+          <hr></hr>
           <ul>
             <li>Driver: {firstName} {lastName}</li>
-            <li>Profile: {username}</li>
+            <li>Profile: <CgProfile color="rgb(56, 179, 253)"/> {username}</li>
             <li>Date & Time: {this.formatDate(leaveDate)}, {this.formatTime(leaveDate)}</li>
             <li>Pickup: {startLocation}</li>
             <li>Dropoff: {endLocation}</li>
@@ -108,7 +111,7 @@ class PostShow extends React.Component {
             <li>Posted: {this.formatDate(createdAt)}, {this.formatTime(createdAt)}</li>
           </ul>
             <button disabled={this.alreadyRequested()} onClick={this.requestRide}>{this.alreadyRequested() ? "Requested" : "Join Ride"}</button>
-          <GoogleMaps posts={[this.props.post]}/>
+          <ShowMap post={this.props.post} fetchPost={this.props.fetchPost}/>
         </div>
       )
     } else {

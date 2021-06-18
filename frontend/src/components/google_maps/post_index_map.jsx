@@ -61,6 +61,7 @@ export class CurrentMap extends Component {
       activeMarker: {},
       selectedPlace: {
         info: {
+          id: "",
           driver: "",
           seats: null,
           location: {
@@ -84,12 +85,13 @@ export class CurrentMap extends Component {
     }
     navigator.geolocation.getCurrentPosition(pos => locate(pos))
     let markerInfo = this.props.posts.map(post => ({
-    driver: post.user,
-    seats: post.capacity - post.numPassengers,
-    location: { 
-      pickup: post.startLocation,
-      dropoff: post.endLocation
-      }
+      id: post._id,
+      driver: post.user.firstName + " " + post.user.lastName,
+      seats: post.capacity - post.numPassengers,
+      location: { 
+        pickup: post.startLocation,
+        dropoff: post.endLocation
+        }
     }));
     markerInfo.forEach(info => this.getLatLong(info));
   }
@@ -120,6 +122,7 @@ export class CurrentMap extends Component {
   });
 
   onClose = props => {
+    console.log(this.state)
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
@@ -148,14 +151,12 @@ export class CurrentMap extends Component {
             visible={this.state.showingInfoWindow}
             onClose={this.onClose}
           >
-            <div>
-              <h4>Driver: {this.state.selectedPlace.info.driver}</h4>
-              <h4>Seats Available: {this.state.selectedPlace.info.seats}</h4>
-              <h4>Pickup: {this.state.selectedPlace.info.location.pickup}</h4>
-              <h4>Dropoff: {this.state.selectedPlace.info.location.dropoff}</h4>
-              <a href={`/posts/${this.state.activeMarker._id}`}></a>
-              {/* <a to={`/posts/${this.state.activeMarker._id}`}/> */}
-            </div>
+          <a href={`/#/posts/${this.state.selectedPlace.info.id}`}>
+            <h4>Driver: {this.state.selectedPlace.info.driver}</h4>
+            <h4>Seats Available: {this.state.selectedPlace.info.seats}</h4>
+            <h4>Pickup: {this.state.selectedPlace.info.location.pickup}</h4>
+            <h4>Dropoff: {this.state.selectedPlace.info.location.dropoff}</h4>
+          </a>
           </InfoWindow>
       </Map>
     );

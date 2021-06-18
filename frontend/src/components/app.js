@@ -17,12 +17,12 @@ import UserProfContainer from './user_prof/user_prof_container'
 const App = () => (
   <div>
     <Switch>
-      <Route exact path="/" component={MainPageContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/profile" component={UserProfContainer} />
       <Route exact path="/posts" component={PostsContainer} />
       <Route exact path="/about" component={AboutUs} />
+      <Route exact path="/" component={MainPageContainer} />
       <ProtectedRoute
         exact
         path="/posts/create"

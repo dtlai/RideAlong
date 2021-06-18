@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../nav_bar/nav_bar";
+import NavBarContainer from "../nav_bar/nav_bar_container";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import "./about_us.scss"
 
@@ -7,7 +7,7 @@ class AboutUs extends React.Component {
   render() {
     return (
       <>
-        <NavBar />
+        <NavBarContainer />
         <div className="about-us-page">
           <div className="slide-in">
             <div className="about-us-container">

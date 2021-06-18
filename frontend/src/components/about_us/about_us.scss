@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 $pt-sans: 'PT Sans', sans-serif;
 $primary-blue: rgb(56, 179, 253);
+$primary-gray: #8080801c;
+
+.about-us-page {
+    background-color: $primary-gray;
+}
 
 .slide-in {
     position: relative;
@@ -8,6 +13,7 @@ $primary-blue: rgb(56, 179, 253);
     -moz-animation: slideIn 2s forwards;
     animation: slideIn 2s forwards;
 }
+
 
 @-webkit-keyframes slideIn {
     0% {

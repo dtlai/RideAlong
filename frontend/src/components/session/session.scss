@@ -58,7 +58,7 @@ $primary-gray: #8080801c;
   text-align: center;
   div {
     input {
-      margin-top: 10px;
+      margin-top: 5px;
       margin-bottom: 10px;
       padding: 10px;
       z-index: 0;
@@ -115,30 +115,42 @@ $primary-gray: #8080801c;
   flex-direction: column;
 }
 
-.input-fields-container {
-  input {
-    padding: 10px;
-    border: 1px solid #bbbac0;
-    border-radius: 6px;
-  }
-}
+// .input-fields-container {
+//   input {
+//     padding: 10px;
+//     border: 1px solid #bbbac0;
+//     border-radius: 6px;
+//   }
+// }
 
 .email-input {
-  margin-right: 8px;
+  // margin-right: 8px;
+  padding: 10px;
+  border: 1px solid #bbbac0;
+  border-radius: 6px;
+}
+
+.password-input {
+  padding: 10px;
+  border: 1px solid #bbbac0;
+  border-radius: 6px;
 }
 
 .login-header {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 6px;
   h3 {
+    margin-top: 5px;
     font-size: 24px;
     font-family: $pt-sans;
     font-weight: 700;
     margin-right: 8px;
   }
   p {
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: 5px;
     font-size: 12px;
   }
 }

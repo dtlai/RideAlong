@@ -27,30 +27,30 @@ class PostForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let post = {
-      user: this.state.user,
-      title: this.state.title,
-      description: this.state.description,
-      carMake: this.state.carMake,
-      startLocation:this.state.startLocation,
-      endLocation: this.state.endLocation,
-      capacity: this.state.capacity,
-      numPassengers: this.state.numPassengers,
-      price: this.state.price,
-      leaveDate: this.state.leaveDate,
-    }
-    this.props.createPost(post)
-    this.setState({
-      title: "",
-      description: "",
-      carMake: "",
-      startLocation: "",
-      endLocation: "",
-      capacity: 0,
-      numPassengers: 1,
-      price: 0,
-      leaveDate: "",
-    });
+    // let post = {
+    //   user: this.state.user,
+    //   title: this.state.title,
+    //   description: this.state.description,
+    //   carMake: this.state.carMake,
+    //   startLocation:this.state.startLocation,
+    //   endLocation: this.state.endLocation,
+    //   capacity: this.state.capacity,
+    //   numPassengers: this.state.numPassengers,
+    //   price: this.state.price,
+    //   leaveDate: this.state.leaveDate,
+    // }
+    this.props.createPost(this.state)
+    // this.setState({
+    //   title: "",
+    //   description: "",
+    //   carMake: "",
+    //   startLocation: "",
+    //   endLocation: "",
+    //   capacity: 0,
+    //   numPassengers: 1,
+    //   price: 0,
+    //   leaveDate: "",
+    // });
     this.props.history.push("/posts")
     // if (!this.state.errors){
     //   this.props.history.push("/posts")

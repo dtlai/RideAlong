@@ -9,6 +9,7 @@ class AboutUs extends React.Component {
       <>
         <NavBarContainer />
         <div className="about-us-page">
+          <h1>Meet the team!</h1>
           <div className="slide-in">
             <div className="about-us-container">
               <div className="about-member-container">

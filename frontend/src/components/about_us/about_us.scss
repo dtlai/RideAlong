@@ -2,9 +2,18 @@
 $pt-sans: 'PT Sans', sans-serif;
 $primary-blue: rgb(56, 179, 253);
 $primary-gray: #8080801c;
+$primary-pink: #f39e9e;
 
 .about-us-page {
-    background-color: $primary-gray;
+    background: rgb(243,158,158);
+    background: linear-gradient(90deg, rgba(243,158,158,1) 36%, rgba(56,179,253,1) 97%);
+    padding-bottom: 50px;
+    h1 {
+        text-align: center;
+        font-size: 30px;
+        padding-top: 15px;
+        color: white;
+    }
 }
 
 .slide-in {
@@ -58,17 +67,22 @@ $primary-gray: #8080801c;
 
 .about-member-container {
     background-color: $primary-blue;
-    border: 1px solid #bbbac0;
-    border-radius: 4px;
+    border-style: none;
+    box-shadow: 0.1em 0.1em 2em gray;
+    border-radius: 8px;
     font-family: $pt-sans;
     color: #fff;
-    max-width: 450px;
-    max-height: 166px;
+    width: 500px;
+    height: 200px;
     display: flex;
     img {
-        width: 150px;
+        border-style: none;
+        border-radius: 8px 0 0 8px;
+        width: 200px;
+        height: 200px;
     }
     .about-member{
+        padding: 10px;
         width: 100%;
         h3 {
             display: flex;
@@ -83,7 +97,7 @@ $primary-gray: #8080801c;
         .about-links {
             display: flex;
             justify-content: flex-end;
-
+            width: 100%;
         }
     }
 }

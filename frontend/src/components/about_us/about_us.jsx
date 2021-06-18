@@ -1,82 +1,93 @@
 import React from "react";
-import NavBar from "../nav_bar/nav_bar";
+import NavBarContainer from "../nav_bar/nav_bar_container";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import "./about_us.scss"
+import "./about_us.scss";
 
 class AboutUs extends React.Component {
   render() {
     return (
       <>
-        <NavBar />
+        <NavBarContainer />
         <div className="about-us-page">
           <div className="slide-in">
             <div className="about-us-container">
-              <div className="about-member">
+              <div className="about-member-container">
                 <img src="https://i.imgur.com/eERTURq.jpg" alt="nopic" />
-                <p>David Lai</p>
-                <div className="about-david-linkedin">
-                  <a
-                    href="https://www.linkedin.com/in/davidlai9/"
-                    target="_blank"
-                  >
-                    <FaLinkedin size={40} />
-                  </a>
-                </div>
-                <div className="about-david-github">
-                  <a href="https://github.com/dtlai" target="_blank">
-                    <FaGithub size={40} />
-                  </a>
+                <div className="about-member">
+                  <h3>David Lai</h3>                  <p>Likes: Debugging</p>
+                  <p>Dislikes: Bugs</p>
+                  <div className="about-links">
+                    <a
+                      href="https://www.linkedin.com/in/davidlai9/"
+                    >
+                      <FaLinkedin size={40} />
+                    </a>
+                  </div>
+                  <div className="about-links">
+                    <a href="https://github.com/dtlai">
+                      <FaGithub size={40} />
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div className="about-member">
+              <div className="about-member-container">
                 <img src="https://i.imgur.com/e1bOMcZ.jpg" alt="nopic" />
-                <p>Nathan Luu</p>
-                <div className="about-nate-linkedin">
-                  <a
-                    href="https://www.linkedin.com/in/nathan-luu/"
-                    target="_blank"
-                  >
-                    <FaLinkedin size={40} />
-                  </a>
-                </div>
-                <div className="about-nate-github">
-                  <a href="https://github.com/nateluu28" target="_blank">
-                    <FaGithub size={40} />
-                  </a>
+                <div className="about-member">
+                  <h3>Nathan Luu</h3>
+                  <p>Likes: Korean BBQ</p>
+                  <p>Dislikes: Ahgassi Gopchang</p>
+                  <div className="about-links">
+                    <a
+                      href="https://www.linkedin.com/in/nathan-luu/"
+                    >
+                      <FaLinkedin size={40} />
+                    </a>
+                  </div>
+                  <div className="about-links">
+                    <a href="https://github.com/nateluu28" >
+                      <FaGithub size={40} />
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div className="about-member">
+              <div className="about-member-container">
                 <img src="https://i.imgur.com/imgjsHC.jpg" alt="nopic" />
-                <p>Linda Xiao</p>
-                <div className="about-linda-linkedin">
-                  <a
-                    href="https://www.linkedin.com/in/lindaxiao/"
-                    target="_blank"
-                  >
-                    <FaLinkedin size={40} />
-                  </a>
-                </div>
-                <div className="about-linda-github">
-                  <a href="https://github.com/Lindax28" target="_blank">
-                    <FaGithub size={40} />
-                  </a>
+                <div className="about-member">
+                  <h3>Linda Xiao</h3>
+                  <p>Likes: Dogs</p>
+                  <p>Dislikes: Dogs who wake up early</p>
+                  <div className="about-links">
+                    <a
+                      href="https://www.linkedin.com/in/lindaxiao/"
+                    >
+                      <FaLinkedin size={40} />
+                    </a>
+                  </div>
+                  <div className="about-links">
+                    <a href="https://github.com/Lindax28">
+                      <FaGithub size={40} />
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div className="about-member">
+              <div className="about-member-container">
                 <img src="https://i.imgur.com/wn8QQ9o.jpg" alt="nopic" />
-                <p>Michael Lau</p>
-                <div className="about-michael-linkedin">
-                  <a
-                    href="https://www.linkedin.com/in/michael-lau-38407119b/"
-                    target="_blank"
-                  >
-                    <FaLinkedin size={40} />
-                  </a>
-                </div>
-                <div className="about-michael-github">
-                  <a href="https://github.com/michaellau4" target="_blank">
-                    <FaGithub size={40} />
-                  </a>
+                <div className="about-member">
+                  <h3>Michael Lau</h3>
+                  <p>Likes: New Valorant skins</p>
+                  <p>Dislikes: Old Valorant skins</p>
+                  <div className="about-links">
+                    <a
+                      href="https://www.linkedin.com/in/michael-lau-38407119b/"
+                    >
+                      <FaLinkedin size={40} />
+                    </a>
+                  </div>
+                  <div className="about-links">
+                    <a href="https://github.com/michaellau4" >
+                      <FaGithub size={40} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

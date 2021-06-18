@@ -30,46 +30,57 @@ class UserProf extends React.Component {
     if (!this.state.user) {
       return null
     }
+    
     return (
       <>
         <NavBarContainer />
         <div className="prof-page-container">
-          <div className="prof-user-info">
-            <p>{this.state.user.firstName}</p>
-            <p>{this.state.user.lastName}</p>
-          </div>
-          <div className="more-prof-user-info">
-            <p>{this.state.user.email}</p>
-            <p>{this.state.user.username}</p>
-          </div>
-          <div className="user-rides">
-            <h1>Here are all my trips!</h1>
-            <div className="prof-posts-container">
-              {this.state.posts
-                ? this.state.posts.map((post) => {
-                    return (
-                      <div className="prof-posts">
-                        <PostBox key={post.id} post={post} />
-                      </div>
-                    );
-                  })
-                : "No trips"}
+          <div className="user-info">
+            <div className="prof-user-info">
+              <h1>{this.state.user.firstName} {this.state.user.lastName}</h1>
+            </div>
+            <div className="more-prof-user-info">
+              <h2>{this.state.user.email}</h2>
+              <h2>{this.state.user.username}</h2>
             </div>
           </div>
-          <div className="user-requests">
-            <h1>Here are all my requests!</h1>
-            <div className="prof-requests-container">
-              {this.state.requests
-                ? this.state.requests.map((request) => {
-                    return (
-                      <div className="prof-requests">
-                        <RequestBox key={request.id} request={request} />
-                      </div>
-                    );
-                  })
-                : "No requests"}
+
+          <div className="ride-container">
+
+
+            <div className="user-rides">
+              <h1>My trips</h1>
+              <div className="prof-posts-container">
+                {this.state.posts
+                  ? this.state.posts.map((post) => {
+                      return (
+                        <div className="prof-posts">
+                          <PostBox key={post.id} post={post} />
+                        </div>
+                      );
+                    })
+                  : "No trips"}
+              </div>
             </div>
+
+
+            <div className="user-requests">
+              <h1>My requests</h1>
+              <div className="prof-requests-container">
+                {this.state.requests
+                  ? this.state.requests.map((request) => {
+                      return (
+                        <div className="prof-requests">
+                          <RequestBox key={request.id} request={request} />
+                        </div>
+                      );
+                    })
+                  : "No requests"}
+              </div>
+            </div>
+
           </div>
+
         </div>
       </>
     );

@@ -9,9 +9,9 @@ const mapStyles = {
 };
 const containerStyle = {
   position: 'absolute', 
-  width: '60%', 
+  width: '65%', 
   height:'50%',
-  marginLeft: '11rem',
+  marginLeft: '20rem',
   background: 'gray'
 };
 

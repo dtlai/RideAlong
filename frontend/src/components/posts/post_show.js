@@ -15,6 +15,7 @@ class PostShow extends React.Component {
     this.showPopup = this.showPopup.bind(this);
     this.requestRide = this.requestRide.bind(this);
     this.alreadyRequested = this.alreadyRequested.bind(this);
+    this.alreadyFull = this.alreadyFull.bind(this);
   }
 
   componentWillMount() {
@@ -44,8 +45,6 @@ class PostShow extends React.Component {
   }
 
   requestRide() {
-    // console.log(this.props.postId)
-    console.log(this.props.post)
     const updatedPost = {
       user: this.props.post.user,
       passengers: this.props.post.passengers,
@@ -86,6 +85,10 @@ class PostShow extends React.Component {
     return(this.props.post.passengers.some(passenger => passenger._id === this.props.currentUser.id))
   }
 
+  alreadyFull() {
+    return (this.props.post.capacity - this.props.post.numPassengers <= 0)
+  }
+
   render() {
     if (this.props.post) {
       const { title, description, carMake, startLocation, endLocation, capacity, numPassengers, price, createdAt, leaveDate } = this.props.post;
@@ -106,13 +109,13 @@ class PostShow extends React.Component {
               <li>From {startLocation} to {endLocation}</li>
               <li></li>
               <li><bold>{capacity-numPassengers}</bold> of <bold>{capacity}</bold> seats available</li>
-              <button disabled={this.alreadyRequested()} onClick={this.requestRide}>{this.alreadyRequested() ? "Requested" : "Join Ride"}</button>
+              <button disabled={this.alreadyRequested() || this.alreadyFull()} onClick={this.requestRide}>{this.alreadyRequested() ? "Requested" : (this.alreadyFull() ? "Full" : "Join Ride")}</button>
             </ul>
           </div>
           <ul className="post-show-details">
             <li className="post-show-driver">
-              Your driver is <bold>{firstName.charAt(0).toUpperCase() + firstName.slice(1)} {lastName.charAt(0).toUpperCase()}.</bold> 
-              <span className="post-show-driver-profile"><CgProfile background-color="white" color="rgb(56, 179, 253)"/> {username}</span>
+              Your driver is <bold>{firstName} {lastName}.</bold> 
+              <span className="post-show-driver-profile"><CgProfile size="2em" background-color="white" color="rgb(56, 179, 253)"/> {username}</span>
               </li>
             <li className="post-show-detail-item">
               You will be riding in a 

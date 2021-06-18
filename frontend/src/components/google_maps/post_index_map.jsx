@@ -135,7 +135,7 @@ export class CurrentMap extends Component {
         mapTypeControl={false}
         ref="map"
         google={this.props.google}
-        zoom={14}
+        zoom={11}
         style={mapStyles}
         containerStyle={containerStyle}
         center={

@@ -9,9 +9,10 @@ const mapStyles = {
 };
 const containerStyle = {
   position: 'absolute', 
-  width: '45%', 
-  height:'80%',
-  marginRight: '40px'
+  width: '60%', 
+  height:'50%',
+  marginLeft: '11rem',
+  background: 'gray'
 };
 
 // const markerInfo = [
@@ -94,8 +95,20 @@ export class ShowMap extends Component {
     this.getLatLong(markerInfo);
   }
 
-  componentWillReceiveProps(props) {
-    this.props.fetchPost(this.props.post.id);
+  componentDidUpdate(prevProps) {
+    if (prevProps.post._id !== this.props.post._id) {
+      console.log(this.state.markers)
+          const post = this.props.post;
+    let markerInfo = {
+    driver: post.user,
+    seats: post.capacity - post.numPassengers,
+    location: { 
+      pickup: post.startLocation,
+      dropoff: post.endLocation
+      }
+    };
+    this.getLatLong(markerInfo);
+    }
   }
 
   recenterMap(mapProps, map, event) {
@@ -138,7 +151,7 @@ export class ShowMap extends Component {
         mapTypeControl={false}
         ref="map"
         google={this.props.google}
-        zoom={14}
+        zoom={11}
         style={mapStyles}
         containerStyle={containerStyle}
         center={

@@ -3,6 +3,7 @@ import NavBarContainer from '../nav_bar/nav_bar_container';
 import ShowMap from '../google_maps/post_show_map';
 import './post_show.scss';
 import { CgProfile } from 'react-icons/cg';
+import { ImArrowRight } from 'react-icons/im';
 
 class PostShow extends React.Component {
   constructor(props) {
@@ -81,9 +82,6 @@ class PostShow extends React.Component {
   }
 
   alreadyRequested() {
-    console.log(this.props.post.passengers.some(passenger => passenger._id === this.props.currentUser.id))
-    console.log(this.props.post)
-    console.log(this.props.currentUser.id)
     if (!this.props.currentUser) return false;
     return(this.props.post.passengers.some(passenger => passenger._id === this.props.currentUser.id))
   }
@@ -97,21 +95,40 @@ class PostShow extends React.Component {
           <NavBarContainer/>
           {this.showPopup()}
           <h2>{title}</h2>
-          <p>{description}</p>
-          <hr></hr>
-          <ul>
-            <li>Driver: {firstName} {lastName}</li>
-            <li>Profile: <CgProfile color="rgb(56, 179, 253)"/> {username}</li>
-            <li>Date & Time: {this.formatDate(leaveDate)}, {this.formatTime(leaveDate)}</li>
-            <li>Pickup: {startLocation}</li>
-            <li>Dropoff: {endLocation}</li>
-            <li>Car: {carMake}</li>
-            <li>Seats Available: {capacity-numPassengers} of {capacity}</li>
-            <li>Cost per Passenger: ${price.toFixed(2)}</li>
-            <li>Posted: {this.formatDate(createdAt)}, {this.formatTime(createdAt)}</li>
+          <div className="post-show-info">
+            <div className="post-show-description">
+              <h3>{startLocation} &nbsp; <ImArrowRight fill="lightskyblue" stroke="gray" stroke-width="1px"/> &nbsp; {endLocation}</h3>
+              <h4>{this.formatDate(leaveDate)} ~ {this.formatTime(leaveDate)}</h4>
+              <p>{description}</p>
+            </div>
+            <ul className="post-show-box">
+              <li><bold>${price.toFixed(2)}</bold> / passenger</li>
+              <li>From {startLocation} to {endLocation}</li>
+              <li></li>
+              <li><bold>{capacity-numPassengers}</bold> of <bold>{capacity}</bold> seats available</li>
+              <button disabled={this.alreadyRequested()} onClick={this.requestRide}>{this.alreadyRequested() ? "Requested" : "Join Ride"}</button>
+            </ul>
+          </div>
+          <ul className="post-show-details">
+            <li className="post-show-driver">
+              Your driver is <bold>{firstName.charAt(0).toUpperCase() + firstName.slice(1)} {lastName.charAt(0).toUpperCase()}.</bold> 
+              <span className="post-show-driver-profile"><CgProfile background-color="white" color="rgb(56, 179, 253)"/> {username}</span>
+              </li>
+            <li className="post-show-detail-item">
+              You will be riding in a 
+              <bold>{carMake}</bold>
+            </li>
+            <li className="post-show-detail-item">
+              Seats Available 
+              <bold>{capacity-numPassengers} of {capacity}</bold>
+            </li>
+            <li className="post-show-detail-item">
+              Cost per Passenger
+              <bold>${price.toFixed(2)}</bold>
+            </li>
+            <li>This trip was posted on {this.formatDate(createdAt)} at {this.formatTime(createdAt)}</li>
           </ul>
-            <button disabled={this.alreadyRequested()} onClick={this.requestRide}>{this.alreadyRequested() ? "Requested" : "Join Ride"}</button>
-          <ShowMap post={this.props.post} fetchPost={this.props.fetchPost}/>
+          <ShowMap className="post-show-map" post={this.props.post} key={this.props.post}/>
         </div>
       )
     } else {

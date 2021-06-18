@@ -14,17 +14,17 @@ class AboutUs extends React.Component {
               <div className="about-member-container">
                 <img src="https://i.imgur.com/eERTURq.jpg" alt="nopic" />
                 <div className="about-member">
-                  <p>David Lai</p>
+                  <h3>David Lai</h3>                  <p>Likes: Debugging</p>
+                  <p>Dislikes: Bugs</p>
                   <div className="about-links">
                     <a
                       href="https://www.linkedin.com/in/davidlai9/"
-                      target="_blank"
                     >
                       <FaLinkedin size={40} />
                     </a>
                   </div>
                   <div className="about-links">
-                    <a href="https://github.com/dtlai" target="_blank">
+                    <a href="https://github.com/dtlai">
                       <FaGithub size={40} />
                     </a>
                   </div>
@@ -33,17 +33,18 @@ class AboutUs extends React.Component {
               <div className="about-member-container">
                 <img src="https://i.imgur.com/e1bOMcZ.jpg" alt="nopic" />
                 <div className="about-member">
-                  <p>Nathan Luu</p>
+                  <h3>Nathan Luu</h3>
+                  <p>Likes: Korean BBQ</p>
+                  <p>Dislikes: Ahgassi Gopchang</p>
                   <div className="about-links">
                     <a
                       href="https://www.linkedin.com/in/nathan-luu/"
-                      target="_blank"
                     >
                       <FaLinkedin size={40} />
                     </a>
                   </div>
                   <div className="about-links">
-                    <a href="https://github.com/nateluu28" target="_blank">
+                    <a href="https://github.com/nateluu28" >
                       <FaGithub size={40} />
                     </a>
                   </div>
@@ -52,17 +53,18 @@ class AboutUs extends React.Component {
               <div className="about-member-container">
                 <img src="https://i.imgur.com/imgjsHC.jpg" alt="nopic" />
                 <div className="about-member">
-                  <p>Linda Xiao</p>
+                  <h3>Linda Xiao</h3>
+                  <p>Likes: Dogs</p>
+                  <p>Dislikes: Dogs who wake up early</p>
                   <div className="about-links">
                     <a
                       href="https://www.linkedin.com/in/lindaxiao/"
-                      target="_blank"
                     >
                       <FaLinkedin size={40} />
                     </a>
                   </div>
                   <div className="about-links">
-                    <a href="https://github.com/Lindax28" target="_blank">
+                    <a href="https://github.com/Lindax28">
                       <FaGithub size={40} />
                     </a>
                   </div>
@@ -71,17 +73,18 @@ class AboutUs extends React.Component {
               <div className="about-member-container">
                 <img src="https://i.imgur.com/wn8QQ9o.jpg" alt="nopic" />
                 <div className="about-member">
-                  <p>Michael Lau</p>
+                  <h3>Michael Lau</h3>
+                  <p>Likes: New Valorant skins</p>
+                  <p>Dislikes: Old Valorant skins</p>
                   <div className="about-links">
                     <a
                       href="https://www.linkedin.com/in/michael-lau-38407119b/"
-                      target="_blank"
                     >
                       <FaLinkedin size={40} />
                     </a>
                   </div>
                   <div className="about-links">
-                    <a href="https://github.com/michaellau4" target="_blank">
+                    <a href="https://github.com/michaellau4" >
                       <FaGithub size={40} />
                     </a>
                   </div>

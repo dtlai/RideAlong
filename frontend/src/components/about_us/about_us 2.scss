@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+$pt-sans: 'PT Sans', sans-serif;
+$primary-blue: rgb(56, 179, 253);
+
+.slide-in {
+    position: relative;
+    -webkit-animation: slideIn 2s forwards;
+    -moz-animation: slideIn 2s forwards;
+    animation: slideIn 2s forwards;
+}
+
+@-webkit-keyframes slideIn {
+    0% {
+        transform: translateX(-1000px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@-moz-keyframes slideIn {
+    0% {
+        transform: translateX(-1000px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-1000px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.about-us-container {
+    display: grid;
+    width: 60%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 35px;
+    column-gap: 35px;
+    grid-row-gap: 35px;
+    row-gap: 35px;
+    margin: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-member {
+    background-color: $primary-blue;
+    border: 1px solid #bbbac0;
+    border-radius: 4px;
+    font-family: $pt-sans;
+    color: #fff;
+    max-width: 450px;
+        img {
+            width: 150px;
+
+        }
+}
+

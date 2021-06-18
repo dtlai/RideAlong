@@ -24,9 +24,9 @@ class NavBar extends React.Component {
     this.props.logout();
   }
   setDropdown () {
-      this.setState({
-        dropdown: !this.state.dropdown
-      })
+    this.setState({
+      dropdown: !this.state.dropdown
+    })
   }
 
   loginContainer () {
@@ -41,14 +41,17 @@ class NavBar extends React.Component {
           </button>
           {this.state.dropdown ? (
             <div className="user-session-content">
-              <div>
-                {firstName} &nbsp;
-                {lastName}
+              <div className="user-name-container">
+                {firstName}&nbsp;{lastName}
               </div>
-              <Link to="/profile">My Profile</Link>
-              <button className="session-button" onClick={this.logoutUser}>
-                Logout
-              </button>
+              <div className="profile-link-container">
+                <Link to="/profile">My Profile</Link>
+              </div>
+              <div>
+                <button className="session-button" onClick={this.logoutUser}>
+                  Logout
+                </button>
+              </div>
             </div>
           ) : null}
         </div>

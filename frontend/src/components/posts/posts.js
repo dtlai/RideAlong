@@ -59,20 +59,22 @@ class Posts extends React.Component {
                 <h3>Looking to become a driver?</h3>
                 <button id='create-post-button' onClick={(e) => this.goToCreate()}>Plan a Trip</button>
               </div>
-              {this.state.posts.map((post) => (
-                <div className="post-container">
-                  <PostBox key={post.id} post={post} />
-                  <button
-                    disabled={
-                      (!this.props.currentUser) || (this.props.currentUser.id !== post.user)
-                    }
-                    onClick={() => this.handleClick(post._id)}
-                    className="delete-button"
-                  >
-                    Delete Post
-                  </button>
-                </div>
-              ))}
+              <div className="post-all-container">
+                {this.state.posts.map((post) => (
+                  <div className="post-container">
+                    <PostBox key={post.id} post={post} />
+                    <button
+                      disabled={
+                        (!this.props.currentUser) || (this.props.currentUser.id !== post.user)
+                      }
+                      onClick={() => this.handleClick(post._id)}
+                      className="delete-button"
+                    >
+                      Delete Post
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="maps-container">
               <CurrentMap posts={this.state.posts} />

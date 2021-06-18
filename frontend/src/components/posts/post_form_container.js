@@ -5,7 +5,7 @@ import PostForm from './post_form';
 const mapStateToProps = state => {
   return {
     currentUser: state.session.user,
-    newPost: state.posts.new
+    newPost: state.posts.new,
   };
 };
 

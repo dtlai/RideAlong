@@ -10,7 +10,6 @@ $primary-blue: rgb(56, 179, 253);
   border-radius: 4px;
   width: 800px;
   background-color: #fff;
-  margin-top: 100px;
   font-family: $pt-sans;
   div {
     height: 80%;
@@ -45,5 +44,32 @@ $primary-blue: rgb(56, 179, 253);
 
 .post-page {
   background-color: $primary-blue;
-  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 99vh;
+}
+
+.post-submit-button:hover {
+  cursor: pointer;
+}
+
+.post-submit-button {
+  background-color: $primary-blue;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.capacity-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.capacity-input {
+  width: 25%;
+}
+
+.passenger-input {
+  width: 25%;
 }

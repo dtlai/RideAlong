@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
     currentUser: state.session.user,
     user: state.users,
     posts: state.users.posts,
-    // requests: state.users.requests,
+    requests: state.users.requests,
   };
 };
 

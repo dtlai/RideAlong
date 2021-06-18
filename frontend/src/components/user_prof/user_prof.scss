@@ -33,12 +33,35 @@ $primary-gray: #8080801c;
     }
 }
 
-.prof-posts {
+.prof-posts-container {
     font-size: 20px;
     margin-left: 5%;
+    margin-top: 20px;
+}
+.prof-requests-container {
+    font-size: 20px;
+    margin-left: 5%;
+    margin-top: 20px;
 }
 
 .prof-posts {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: $primary-blue;
+    color: #ffffff;
+    font-size: 18px;
+
+    div {
+        cursor: pointer;
+        margin: 8px;
+    }
+}
+
+.prof-requests {
     display: flex;
     flex-direction: column;
     margin: 30px;

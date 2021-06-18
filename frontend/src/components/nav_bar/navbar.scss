@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+$pt-sans: 'PT Sans', sans-serif;
 $primary-blue: rgb(56, 179, 253);
+// $primary-gray: #8080801c;
 
 .nav-bar { 
   display: flex;
@@ -101,11 +104,12 @@ $primary-blue: rgb(56, 179, 253);
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
   padding: 12px 16px;
   z-index: 1;
-}
-
-.logo-home-link > img {
   
 }
+
+// .logo-home-link > img {
+  
+// }
 
 // .user-session-container:hover .user-session-content {
 //   display: block;

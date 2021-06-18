@@ -37,7 +37,7 @@ class PostShow extends React.Component {
     } else {
       setTimeout(()=> this.setState({showFeedback: false}), 3000);
       return(
-        <div>
+        <div className="post-show-popup">
           <h3>Ride Requested!</h3>
         </div>
       )

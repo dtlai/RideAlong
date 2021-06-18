@@ -124,13 +124,20 @@ bold {
   }
 }
 
-.post-show-map {
-
-}
-
 .post-show-marker-box {
   font-size: 0.5em;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
+ .post-show-popup {
+   background-color: $primary-pink;
+   color: white;
+   font-size: 0.5em;
+   & > h3 {
+     letter-spacing: 0.1em;
+     text-align: center;
+     padding-bottom: 1em;
+   }
+ }

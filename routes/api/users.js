@@ -30,6 +30,7 @@ router.get("/:userId", (req, res) => {
     findOne({"_id" : mongoose.Types.ObjectId(req.params.userId)}).
     populate("posts").
     populate("requests").
+    populate("user").
     exec(function (err, user) {
       if (err) return res.status(400).json({"error": "Oops an error has occurred"});
       return res.json(user);

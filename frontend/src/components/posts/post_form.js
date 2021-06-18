@@ -62,7 +62,7 @@ class PostForm extends React.Component {
       <div className="post-page">
         < NavBarContainer />
         <div className="create-post-container">
-          <span className="side-img"><h3>Create a Trip!</h3></span>
+          <span className="side-img"><h3>Plan a Trip!</h3></span>
           <div>
             <form onSubmit={this.handleSubmit}>
               <div>

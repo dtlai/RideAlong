@@ -27,3 +27,6 @@ export const addRequest = postId => {
 export const removeRequest = postId => {
   return axios.put(`/api/posts/${postId}/cancel`)
 };
+export const searchPosts = (data) => {
+  return axios.get(`/api/posts/search?startLocation=${data.startLocation}&endLocation=${data.endLocation}`)
+}

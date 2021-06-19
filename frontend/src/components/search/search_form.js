@@ -1,0 +1,49 @@
+import React from 'react';
+import { withRouter } from 'react-router-dom'
+import './search_form.scss';
+
+class SearchBar extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      startLocation: '',
+      endLocation: ''
+    }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(this.state)
+    this.props.history.push(`/posts?startLocation=${this.state.startLocation}&endLocation=${this.state.endLocation}`);
+  }
+
+  handleChange(field) {
+    return e => (
+      this.setState({[field]: e.currentTarget.value})
+    )
+  }
+
+  render () {
+    return (
+      <div className="search-form-container">
+        <form className="search-form" onSubmit={this.handleSubmit}>
+          <input type="text"
+            value={this.state.startLocation}
+            placeholder="Start Location"
+            onChange={this.handleChange('startLocation')}
+          />
+          <input type="text"
+            value={this.state.endLocation}
+            placeholder="Destination"
+            onChange={this.handleChange('endLocation')}
+          />
+          <input type="submit" value="Search" />
+        </form>
+      </div>
+    )
+  }
+}
+
+export default withRouter(SearchBar);

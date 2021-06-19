@@ -121,6 +121,23 @@ router.put("/:postId/cancel",
       );
 });
 
+router.get("/search", (req, res) => {
+  const start = new RegExp(req.query.startLocation, "i")
+  const end = new RegExp(req.query.endLocation, "i")
+  console.log(start, end)
+  console.log(req.query)
+  Post.find({startLocation: start, endLocation: end}, function (err, docs) {
+      if (err){
+          console.log(err);
+      }
+      else {
+          console.log("Second function call : ", docs);
+      }
+  })
+  .then((posts) => res.json(posts));
+  
+});
+
 // protected route to make posts
 router.post(
   "/create",

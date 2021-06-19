@@ -3,8 +3,8 @@ import {withRouter} from 'react-router-dom';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import PostBox from './post_box';
 import './posts_index.scss';
-import CurrentMap from '../google_maps/post_index_map';
-
+import GoogleMaps from '../google_maps/map';
+import queryString from 'query-string';
 
 class Posts extends React.Component {
   constructor(props) {
@@ -16,7 +16,16 @@ class Posts extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts();
+    const query = queryString.parse(this.props.location.search);
+    if (query) {
+      const search = {
+        startLocation: query.startLocation,
+        endLocation: query.endLocation
+      }
+      this.props.queryPosts(search);
+    } else {
+      this.props.fetchPosts();
+    }
   }
 
   componentWillReceiveProps(newState) {
@@ -24,12 +33,9 @@ class Posts extends React.Component {
   }
 
   // componentDidUpdate(prevProps, prevState) {
-    // console.log(prevState.posts)
-    // console.log(this.state.posts)
-    // if(JSON.stringify(prevState.posts) !== JSON.stringify(this.state.posts)) {
-    //   this.props.fetchPosts();
-
-    // }
+  //   if(JSON.stringify(prevState.posts) !== JSON.stringify(this.state.posts)) {
+  //     this.props.fetchPosts();
+  //   }
   // }
 
   handleClick(postId){
@@ -53,38 +59,27 @@ class Posts extends React.Component {
       )
     } else {
       return (
-        <div className="posts-container">
-          <NavBarContainer />
+        <div>
+          <NavBarContainer/>
+          <h2>All Posts</h2>
+          <button onClick={(e) => this.goToCreate()}>Create a Post</button>
           <div className="post-index-main-content">
             <div className="posts-index-container">
-              <div className="posts-info-container">
-                <h2>All Trips</h2>
-                <h3>Looking to become a driver?</h3>
-                <button id='create-post-button' onClick={(e) => this.goToCreate()}>Plan a Trip</button>
-              </div>
-              <div className="post-all-container">
-                {this.state.posts.map((post) => (
-                  <div className="post-container">
-                    <PostBox key={post.id} post={post} />
-                    <button
-                      disabled={
-                        (!this.props.currentUser) || (this.props.currentUser.id !== post.user._id)
-                      }
-                      onClick={() => this.handleClick(post._id)}
-                      className="delete-button"
-                    >
-                      Delete Post
-                    </button>
-                  </div>
-                ))}
-              </div>
+              {this.state.posts.map(post => (
+                <div>
+                  <PostBox key={post.id} post={post} />
+                  <button 
+                  onClick={() => this.handleClick(post._id)}
+                  >Delete Post</button>
+                </div>
+              ))}
             </div>
             <div className="maps-container">
-              <CurrentMap posts={this.state.posts} />
+              <GoogleMaps posts={this.state.posts} />
             </div>
           </div>
         </div>
-      );
+      )
     }
   }
 }

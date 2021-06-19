@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import {queryPosts} from '../../actions/post_actions';
+import { withRouter } from 'react-router-dom'
 import './search_form.scss';
 
 class SearchBar extends React.Component {
@@ -16,13 +15,14 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.queryPosts(this.state)
+    console.log(this.state)
+    this.props.history.push(`/posts?startLocation=${this.state.startLocation}&endLocation=${this.state.endLocation}`);
   }
 
   handleChange(field) {
-    return e => {
-      this.setState({field: e.currentTarget.value})
-    }
+    return e => (
+      this.setState({[field]: e.currentTarget.value})
+    )
   }
 
   render () {
@@ -30,20 +30,20 @@ class SearchBar extends React.Component {
       <div className="search-form-container">
         <form className="search-form" onSubmit={this.handleSubmit}>
           <input type="text"
-            value={this.state.title}
+            value={this.state.startLocation}
             placeholder="Start Location"
-            onChange={e => this.handleChange('startLocation')}
+            onChange={this.handleChange('startLocation')}
           />
           <input type="text"
-            value={this.state.title}
+            value={this.state.endLocation}
             placeholder="Destination"
-            onChange={e => this.handleChange('endLocation')}
+            onChange={this.handleChange('endLocation')}
           />
-          <input type="button" value="Search"/>
+          <input type="submit" value="Search" />
         </form>
       </div>
     )
   }
 }
 
-export default connect(null, {queryPosts})(SearchBar);
+export default withRouter(SearchBar);

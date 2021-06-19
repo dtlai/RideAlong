@@ -15,11 +15,15 @@ router.get("/", (req, res) => {
 });
 
 router.get("/search", (req, res) => {
-  Post.find(req.query, function (err, docs) {
+  const start = new RegExp(req.query.startLocation, "i")
+  const end = new RegExp(req.query.endLocation, "i")
+  console.log(start, end)
+  console.log(req.query)
+  Post.find({startLocation: start, endLocation: end}, function (err, docs) {
       if (err){
           console.log(err);
       }
-      else{
+      else {
           console.log("Second function call : ", docs);
       }
   })

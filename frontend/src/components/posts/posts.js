@@ -4,7 +4,7 @@ import NavBarContainer from '../nav_bar/nav_bar_container';
 import PostBox from './post_box';
 import './posts_index.scss';
 import GoogleMaps from '../google_maps/map';
-
+import queryString from 'query-string';
 
 class Posts extends React.Component {
   constructor(props) {
@@ -16,18 +16,27 @@ class Posts extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts();
+    const query = queryString.parse(this.props.location.search);
+    if (query) {
+      const search = {
+        startLocation: query.startLocation,
+        endLocation: query.endLocation
+      }
+      this.props.queryPosts(search);
+    } else {
+      this.props.fetchPosts();
+    }
   }
 
   componentWillReceiveProps(newState) {
     this.setState({ posts: newState.posts })
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if(JSON.stringify(prevState.posts) !== JSON.stringify(this.state.posts)) {
-      this.props.fetchPosts();
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if(JSON.stringify(prevState.posts) !== JSON.stringify(this.state.posts)) {
+  //     this.props.fetchPosts();
+  //   }
+  // }
 
   handleClick(postId){
     this.props.deletePost(postId)

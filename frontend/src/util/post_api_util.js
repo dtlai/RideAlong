@@ -17,5 +17,5 @@ export const deleteCurrentPost = (postId) => {
 }
 
 export const searchPosts = (data) => {
-  return axios.get('/api/posts/search', data)
+  return axios.get(`/api/posts/search?startLocation=${data.startLocation}&endLocation=${data.endLocation}`)
 }

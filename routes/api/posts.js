@@ -45,7 +45,7 @@ router.put("/edit",
   }
 );
 
-// Updates the post's array of passengers and the user's array of requests
+// Adds user to the post's array of passengers and adds post to the user's array of requests
 router.put("/:postId/request", 
   passport.authenticate("jwt", { session: false }), 
   (req, res) => {
@@ -70,6 +70,46 @@ router.put("/:postId/request",
         }
         savedPost.passengers.push(user);
         return savedPost.save();
+      })
+      .then(post => {
+        let allowed = ["firstName", "lastName"];
+        post.user = _.pick(post.user, allowed);
+        return res.json({post: post, user: savedUser})
+      })
+      .catch(err => {
+        res.status(400).end()}
+      );
+});
+
+// Removes user from the post's array of passengers and removes post from the user's array of requests
+router.put("/:postId/cancel", 
+  passport.authenticate("jwt", { session: false }), 
+  (req, res) => {
+    let savedPost = null;
+    let savedUser = null;
+    Post
+      .findOne({"_id" : mongoose.Types.ObjectId(req.params.postId)})
+      .populate("user")
+      .exec()
+      .then(post => {
+        savedPost = post;
+        let idx = post.passengers.indexOf(req.user._id);
+        if (idx === -1) {
+          return req.user;
+        } else {
+          req.user.requests.splice(idx, 1);
+          return req.user.save();
+        }
+      })
+      .then(user => {
+        savedUser = user;
+        let idx = savedPost.passengers.indexOf(req.user._id);
+        if (idx === -1) {
+          return savedPost;
+        } else {
+          savedPost.passengers.splice(idx, 1);
+          return savedPost.save();
+        }
       })
       .then(post => {
         let allowed = ["firstName", "lastName"];

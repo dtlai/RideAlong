@@ -1,4 +1,4 @@
-import { getPost, getPosts, submitPost, deleteCurrentPost, addRequest, editPost } from '../util/post_api_util';
+import { getPost, getPosts, submitPost, deleteCurrentPost, addRequest, editPost, removeRequest } from '../util/post_api_util';
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_REQUEST = "RECEIVE_REQUEST";
@@ -67,4 +67,12 @@ export const makeRequest = postId => dispatch => (
     .then(payload => dispatch(receiveRequest(payload.data)))
     .catch(err => console.log(err))
 );
+
+export const cancelRequest = postId => dispatch => (
+  removeRequest(postId)
+    .then(payload => dispatch(receiveRequest(payload.data)))
+    .catch(err => console.log(err))
+);
+
+
 

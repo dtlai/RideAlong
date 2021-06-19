@@ -23,3 +23,7 @@ export const deleteCurrentPost = (postId) => {
 export const addRequest = postId => {
   return axios.put(`/api/posts/${postId}/request`)
 };
+
+export const removeRequest = postId => {
+  return axios.put(`/api/posts/${postId}/cancel`)
+};

@@ -144,6 +144,21 @@ export class CurrentMap extends Component {
         containerStyle={containerStyle}
         initialCenter={{lat: 37.7529, lng: -122.4474}}
         onDblclick={this.recenterMap}
+        // onLoad={marker => {
+        //     const customIcon = (opts) => Object.assign({
+        //       path: 'M12.75 0l-2.25 2.25 2.25 2.25-5.25 6h-5.25l4.125 4.125-6.375 8.452v0.923h0.923l8.452-6.375 4.125 4.125v-5.25l6-5.25 2.25 2.25 2.25-2.25-11.25-11.25zM10.5 12.75l-1.5-1.5 5.25-5.25 1.5 1.5-5.25 5.25z',
+        //       fillColor: '#34495e',
+        //       fillOpacity: 1,
+        //       strokeColor: '#000',
+        //       strokeWeight: 1,
+        //       scale: 1,
+        //     }, opts);
+
+        //     marker.setIcon(customIcon({
+        //       fillColor: 'green',
+        //       strokeColor: 'white'
+        //     }));
+        //   }}
         >
         { this.state.markers.map((markerInfo, idx) => <Marker position={markerInfo.location.coords} key={`marker-${idx}`} info={markerInfo} onClick={this.onMarkerClick}/>)}
           <InfoWindow
@@ -153,7 +168,7 @@ export class CurrentMap extends Component {
           >
           <a href={`/#/posts/${this.state.selectedPlace.info.id}`}>
             <h4>Driver: {this.state.selectedPlace.info.driver}</h4>
-            <h4>Seats Available: {this.state.selectedPlace.info.seats}</h4>
+            <h4>Seats Available: {this.state.selectedPlace.info.seats === 0 ? "FULL" : this.state.selectedPlace.info.seats}</h4>
             <h4>Pickup: {this.state.selectedPlace.info.location.pickup}</h4>
             <h4>Dropoff: {this.state.selectedPlace.info.location.dropoff}</h4>
           </a>

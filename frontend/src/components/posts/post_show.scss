@@ -130,10 +130,13 @@ bold {
 }
 
 .post-show-marker-box {
-  font-size: 0.5em;
+  font-size: 0.7em;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  line-height: 0.8em;
+  margin-top: -1em;
+  margin-bottom: 1em;
 }
 
  .post-show-popup {

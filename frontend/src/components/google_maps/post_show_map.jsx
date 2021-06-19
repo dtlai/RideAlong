@@ -166,7 +166,7 @@ export class ShowMap extends Component {
         >
           <div className="post-show-marker-box">
             <h4>Driver: {this.state.selectedPlace.info.driver} {this.state.selectedPlace.info.driver.last_name}</h4>
-            <h4>Seats Available: {this.state.selectedPlace.info.seats}</h4>
+            <h4>Seats Available: {this.state.selectedPlace.info.seats === 0 ? "FULL" : this.state.selectedPlace.info.seats}</h4>
             <h4>Pickup: {this.state.selectedPlace.info.location.pickup}</h4>
             <h4>Dropoff: {this.state.selectedPlace.info.location.dropoff}</h4>
           </div>

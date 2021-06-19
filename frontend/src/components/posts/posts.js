@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import PostBox from './post_box';
 import './posts_index.scss';
-import GoogleMaps from '../google_maps/map';
+import GoogleMaps from '../google_maps/post_index_map';
 import queryString from 'query-string';
 
 class Posts extends React.Component {

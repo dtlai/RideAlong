@@ -142,7 +142,9 @@ class PostShow extends React.Component {
                 </li>
                 <li className="post-show-detail-item">
                   Seats Available 
-                  <bold>{capacity-numPassengers} of {capacity}</bold>
+                  { this.alreadyFull() ? <bold>FULL</bold> :
+                    <bold>{capacity-numPassengers} of {capacity}</bold>
+                  }
                 </li>
                 <li className="post-show-detail-item">
                   Cost per Passenger

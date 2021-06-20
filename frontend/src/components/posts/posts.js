@@ -4,6 +4,7 @@ import NavBarContainer from '../nav_bar/nav_bar_container';
 import PostBox from './post_box';
 import './posts_index.scss';
 import CurrentMap from '../google_maps/post_index_map';
+import queryString from 'query-string';
 
 
 class Posts extends React.Component {
@@ -16,7 +17,16 @@ class Posts extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts();
+    const query = queryString.parse(this.props.location.search);
+    if (query) {
+      const search = {
+        startLocation: query.startLocation,
+        endLocation: query.endLocation
+      }
+      this.props.queryPosts(search);
+    } else {
+      this.props.fetchPosts();
+    }
   }
 
   componentWillReceiveProps(newState) {

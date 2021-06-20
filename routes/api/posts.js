@@ -134,8 +134,9 @@ router.get("/search", (req, res) => {
           console.log("Second function call : ", docs);
       }
   })
+  .populate("user")
+  .exec()
   .then((posts) => res.json(posts));
-  
 });
 
 // protected route to make posts

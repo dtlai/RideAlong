@@ -7,11 +7,12 @@ $primary-pink: #f39e9e;
 .about-us-page {
     background: rgb(243,158,158);
     background: linear-gradient(90deg, rgba(243,158,158,1) 36%, rgba(56,179,253,1) 97%);
-    padding-bottom: 50px;
+    padding-bottom: 100px;
     h1 {
         text-align: center;
-        font-size: 30px;
-        padding-top: 15px;
+        font-size: 40px;
+        padding-top: 80px;
+        padding-bottom: 20px;
         color: white;
     }
 }
@@ -75,6 +76,7 @@ $primary-pink: #f39e9e;
     width: 500px;
     height: 200px;
     display: flex;
+    margin-bottom: 10px;
     img {
         border-style: none;
         border-radius: 8px 0 0 8px;
@@ -89,6 +91,7 @@ $primary-pink: #f39e9e;
             justify-content: center;
             font-size: 26px;
             margin-top: 2px;
+            margin-bottom: 10px;
         }
         p {
             font-size: 16px;
@@ -98,6 +101,9 @@ $primary-pink: #f39e9e;
             display: flex;
             justify-content: flex-end;
             width: 100%;
+            * {
+              margin-bottom: 5px;
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ class Posts extends React.Component {
 
   componentDidMount() {
     const query = queryString.parse(this.props.location.search);
-    if (query) {
+    if (query.startLocation) {
       const search = {
         startLocation: query.startLocation,
         endLocation: query.endLocation
@@ -76,15 +76,14 @@ class Posts extends React.Component {
                 {this.state.posts.map((post) => (
                   <div className="post-container">
                     <PostBox key={post.id} post={post} />
-                    <button
-                      disabled={
-                        (!this.props.currentUser) || (this.props.currentUser.id !== post.user._id)
-                      }
-                      onClick={() => this.handleClick(post._id)}
-                      className="delete-button"
-                    >
-                      Delete Post
-                    </button>
+                    { (!this.props.currentUser || (this.props.currentUser.id !== post.user._id)) ? "" :
+                      (<button
+                        onClick={() => this.handleClick(post._id)}
+                        className="delete-button"
+                      >
+                        Delete Post
+                      </button>)
+                    }
                   </div>
                 ))}
               </div>

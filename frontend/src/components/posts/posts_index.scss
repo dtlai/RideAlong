@@ -14,10 +14,9 @@ $primary-pink: #f39e9e;
   height: 90vh;
 }
 
-
-
 .posts-container {
   background-color: $primary-gray;
+  letter-spacing: 0.02em;
 }
 
 .posts-info-container {
@@ -32,21 +31,26 @@ $primary-pink: #f39e9e;
   h2 {
     display: inline-block;
     font-size: 30px;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.05em;
   }
   h3 {
     display: inline-block;
     font-weight: 300;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.05em;
   } 
   button {
     width: 100%;
     background-color: rgb(15, 15, 92);
+    letter-spacing: 0.1em;
   }
 }
 
 #create-post-button {
   display: inline-block;
   border: 0.1em solid $primary-gray;
-  background-color: $primary-pink;
+  background-color: rgb(247, 0, 0);
   margin: 0 0.3em 0.3em 0;
   border-radius: 0.12em;
   box-sizing: border-box;
@@ -85,20 +89,23 @@ $primary-pink: #f39e9e;
 }
 
 .delete-button {
-    display: inline-block;
-    background-color: rgb(247, 0, 0);
-    box-sizing: border-box;
-    text-decoration: none;
-    color: #FFFFFF;
-    text-align: center;
-    transition: all 0.2s;
-    padding: 10px 10px;
-    // box-shadow: 0 10px 10px rgba(56, 179, 253, 0.1);
-    cursor: pointer;
-    width: 30%;
-    font-weight: bold;
-    font-size: 18px;
-    border: 1px solid black;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  background-color: $primary-pink;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #FFFFFF;
+  text-align: center;
+  transition: all 0.2s;
+  padding: 8px;
+  cursor: pointer;
+  width: 30%;
+  font-weight: bold;
+  font-size: 15px;
+  border: 1px solid gray;
+  border-radius: 0.5em;
+  margin-right: 0;
+  margin-left: auto;
 }
 
 .delete-button:hover {

@@ -89,7 +89,10 @@ $primary-blue: rgb(56, 179, 253);
     max-height: 60px;
     cursor: pointer;
     border-radius: 10px;
-    border: 1px solid #bbbac0;
+    border: 1px solid #dfdee2;
+    &:hover {
+      border: 1px solid $primary-blue;
+    }
   }
 }
 

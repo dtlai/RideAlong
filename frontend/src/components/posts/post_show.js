@@ -159,7 +159,10 @@ class PostShow extends React.Component {
                 <li>From {startLocation} to {endLocation}</li>
                 <li></li>
                 <li><bold>{capacity-numPassengers}</bold> of <bold>{capacity}</bold> seats available</li>
-                <button disabled={this.alreadyFull() && !this.alreadyRequested()} onClick={this.alreadyRequested() ? this.cancelRide : this.requestRide}>{this.alreadyRequested() ? "Cancel Ride" : (this.alreadyFull() ? "Full" : "Join Ride")}</button>
+                <button disabled={this.alreadyFull() && !this.alreadyRequested()} onClick={this.alreadyRequested() ? 
+                  this.cancelRide : this.requestRide}>{this.alreadyRequested() ? "Cancel Ride" : 
+                  (this.alreadyFull() ? "Full" : "Join Ride")}
+                </button>
               </ul>
             </div>
           </div>

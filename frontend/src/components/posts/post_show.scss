@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 $pt-sans: 'PT Sans', sans-serif;
+$primary-gray: #8080801c;
 $primary-blue: rgb(56, 179, 253);
 $primary-pink: #f39e9e;
 
@@ -61,20 +62,24 @@ bold {
       position: sticky;
       top: 1em;
       button {
+        text-decoration: none;
+        color: #FFFFFF;
         font-size: 0.7em;
         font-weight: bold;
-        background: linear-gradient(#ffbdbd, $primary-pink);
+        background: $primary-pink;
         margin-top: 2em;
         padding: 0.6em;
-        border: 1px solid gray;
-        box-shadow: 0.1em 0.1em 0.1em lightgray;
+        border: 0.1em solid $primary-gray;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
         border-radius: 0.5em;
+        transition: all 0.2s;
         &:hover {
           cursor: pointer;
-          background: linear-gradient($primary-pink, #f08d8d);
+          color: #000000;
+          background-color: #FFFFFF;
         }
         &:active {
-          box-shadow: 0.1em 0.1em 0.1em gray inset;
+          box-shadow: 0.1em 0.1em 0.1em lightgray inset;
         }
       }
     }

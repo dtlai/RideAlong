@@ -21,12 +21,12 @@ class AboutUs extends React.Component {
                     <a
                       href="https://www.linkedin.com/in/davidlai9/"
                     >
-                      <FaLinkedin size={40} />
+                      <FaLinkedin className="about-us-icon" size={40} />
                     </a>
                   </div>
                   <div className="about-links">
                     <a href="https://github.com/dtlai">
-                      <FaGithub size={40} />
+                      <FaGithub className="about-us-icon" size={40} />
                     </a>
                   </div>
                 </div>
@@ -41,12 +41,12 @@ class AboutUs extends React.Component {
                     <a
                       href="https://www.linkedin.com/in/nathan-luu/"
                     >
-                      <FaLinkedin size={40} />
+                      <FaLinkedin className="about-us-icon" size={40} />
                     </a>
                   </div>
                   <div className="about-links">
                     <a href="https://github.com/nateluu28" >
-                      <FaGithub size={40} />
+                      <FaGithub className="about-us-icon" size={40} />
                     </a>
                   </div>
                 </div>
@@ -61,12 +61,12 @@ class AboutUs extends React.Component {
                     <a
                       href="https://www.linkedin.com/in/lindaxiao/"
                     >
-                      <FaLinkedin size={40} />
+                      <FaLinkedin className="about-us-icon" size={40} />
                     </a>
                   </div>
                   <div className="about-links">
                     <a href="https://github.com/Lindax28">
-                      <FaGithub size={40} />
+                      <FaGithub className="about-us-icon" size={40} />
                     </a>
                   </div>
                 </div>
@@ -81,12 +81,12 @@ class AboutUs extends React.Component {
                     <a
                       href="https://www.linkedin.com/in/michael-lau-38407119b/"
                     >
-                      <FaLinkedin size={40} />
+                      <FaLinkedin className="about-us-icon" size={40} />
                     </a>
                   </div>
                   <div className="about-links">
                     <a href="https://github.com/michaellau4" >
-                      <FaGithub size={40} />
+                      <FaGithub className="about-us-icon" size={40} />
                     </a>
                   </div>
                 </div>

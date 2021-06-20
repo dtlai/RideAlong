@@ -27,11 +27,21 @@ router.get(
 
 router.get("/:userId", (req, res) => {
   User.
-    findOne({"_id" : mongoose.Types.ObjectId(req.params.userId)}).
-    populate("posts").
-    populate("requests").
-    populate("user").
-    exec(function (err, user) {
+    findOne({"_id" : mongoose.Types.ObjectId(req.params.userId)})
+    .populate({
+      path: "posts",
+      populate: {
+        path: "user"
+      }
+    })
+    .populate({
+      path: "requests",
+      populate: {
+        path: "user"
+      }
+    })
+    .populate("user")
+    .exec(function (err, user) {
       if (err) return res.status(400).json({"error": "Oops an error has occurred"});
       return res.json(user);
     })

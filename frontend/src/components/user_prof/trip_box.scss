@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+$pt-sans: 'PT Sans',sans-serif;
+$primary-blue: rgb(56, 179, 253);
+
+.trip-box {
+  width: 400px;
+}
+
+.trip-locations-container {
+  text-align: center;
+  border-top: 1px dashed white;
+  border-bottom: 1px dashed white;
+}
+
+.trip-title {
+  font-weight: 700;
+  font-size: 20px;
+}

@@ -65,6 +65,9 @@ $primary-pink: #f39e9e;
 
   font-weight: bold;
   font-size: 18px;
+  &:active {
+    box-shadow: 0.1em 0.1em 0.1em lightgray inset;
+  }
 }
 
 #create-post-button:hover {
@@ -106,6 +109,9 @@ $primary-pink: #f39e9e;
   border-radius: 0.5em;
   margin-right: 0;
   margin-left: auto;
+  &:active {
+    box-shadow: 0.1em 0.1em 0.1em lightgray inset;
+  }
 }
 
 .delete-button:hover {

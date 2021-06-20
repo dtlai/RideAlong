@@ -143,7 +143,7 @@ class PostForm extends React.Component {
                 </select>
               </div>
               <div>
-                How much for Gas?
+                How much for gas per passenger?
                 <input type="number"
                   value={this.state.price}
                   onChange={this.update('price')}

@@ -19,6 +19,7 @@ class Posts extends React.Component {
   componentDidMount() {
     const query = queryString.parse(this.props.location.search);
     if (query.startLocation) {
+      console.log(query)
       const search = {
         startLocation: query.startLocation,
         endLocation: query.endLocation

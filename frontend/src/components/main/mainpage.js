@@ -5,6 +5,8 @@ import {withRouter} from 'react-router-dom';
 import './mainpage.scss';
 import Postcard from '../posts/post_card';
 import SearchBar from '../search/search_form';
+import { AiFillCar } from "react-icons/ai";
+
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -53,7 +55,7 @@ class MainPage extends React.Component {
             </div>
           </div>
         </div>
-        <div>Check Out Some Current Trips</div>
+        <div className="card-header">Take a look at some current trips <AiFillCar className="card-header-car"/></div>
         <div className="post-cards-container">
           {this.state.posts.map(post => (
             <Postcard key={post.id} post={post}/>

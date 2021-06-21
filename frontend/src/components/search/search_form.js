@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 import './search_form.scss';
+import { BiSearchAlt } from "react-icons/bi";
 
 class SearchBar extends React.Component {
   constructor(props){
@@ -31,7 +32,7 @@ class SearchBar extends React.Component {
         <form className="search-form" onSubmit={this.handleSubmit}>
           <input type="text"
             value={this.state.startLocation}
-            placeholder="Start Location"
+            placeholder="Starting Location"
             onChange={this.handleChange('startLocation')}
           />
           <input type="text"
@@ -39,7 +40,8 @@ class SearchBar extends React.Component {
             placeholder="Destination"
             onChange={this.handleChange('endLocation')}
           />
-          <input type="submit" value="Search" />
+          
+          <input className="search-submit" type="submit" value="Search"/>
         </form>
       </div>
     )

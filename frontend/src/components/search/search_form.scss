@@ -11,10 +11,22 @@ $primary-blue: rgb(56, 179, 253);
 .search-form {
   display: flex;
   flex-direction: column;
+  margin-top: 12px;
   input {
     margin: 10px;
     padding: 8px 16px;
     border: 1px solid #bbbac0;
     border-radius: 8px;
   }
+}
+
+.search-submit {
+  background-color: $primary-blue;
+  padding: 10px;
+  color: #fff;
+  
+}
+
+.search-submit:hover {
+  cursor: pointer;
 }

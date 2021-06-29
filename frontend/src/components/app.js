@@ -18,8 +18,6 @@ const App = () => (
   <div>
     <Route path="/" component={NavBarContainer}></Route>
     <Switch>
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/profile" component={UserProfContainer} />
       <Route exact path="/posts" component={PostsContainer} />
       <Route exact path="/about" component={AboutUs} />
@@ -31,7 +29,11 @@ const App = () => (
       />
       <Route exact path="/posts/:postId" component={PostShowContainer} />
     </Switch>
-    <Route path="/" component={Footer}></Route>
+    <Switch>
+      <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Route path="/" component={Footer}></Route>
+    </Switch>
   </div>
 );
 

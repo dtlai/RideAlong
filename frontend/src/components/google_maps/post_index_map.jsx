@@ -85,7 +85,6 @@ export class CurrentMap extends Component {
   });
 
   onClose = props => {
-    console.log(this.state)
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,

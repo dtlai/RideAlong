@@ -43,6 +43,7 @@ class Posts extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     if (!this.state.posts) return null;
     if (this.state.posts.length === 0) {
       return (
@@ -69,8 +70,8 @@ class Posts extends React.Component {
               <div className="post-all-container">
                 {this.state.posts.map((post) => (
                   <div className="post-container">
-                    <PostBox key={post.id} post={post} fetchPosts={this.props.fetchPosts}/>
-                    { (!this.props.currentUser || (this.props.currentUser.id !== post.user._id)) ? "" :
+                    <PostBox key={post.id} currentUser={this.props.currentUser} post={post}/>
+                    { (!this.props.currentUser || (this.props.currentUser.id !== post.user._id && this.props.currentUser.id !== post.user)) ? "" :
                       (<button
                         onClick={() => this.handleClick(post._id)}
                         className="delete-button"

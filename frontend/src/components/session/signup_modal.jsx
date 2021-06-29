@@ -19,7 +19,7 @@ export default function TransitionsModal() {
 
   return (
     <div>
-      <button className="session-button signup-button" onClick={handleOpen}>
+      <button className="navbar-session-button" onClick={handleOpen}>
         Signup
       </button>
       <Modal

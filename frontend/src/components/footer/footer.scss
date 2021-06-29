@@ -1,0 +1,42 @@
+$primary-blue: rgb(56, 179, 253);
+
+.footer-container {
+  background-color: rgb(27, 30, 30);
+  color: #FFFFFF;
+  height: 250px;
+}
+
+.footer-items-container {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 32px 0;
+  height: 100%;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    p {
+      color: #6d6d78;
+    }
+
+    a:hover {
+      color: $primary-blue;
+    }
+  }
+}
+
+.menu-container {
+  height: 100%;
+}
+
+.follow-container {
+  height: 100%;
+}
+
+.get-started-container {
+  height: 100%;
+}

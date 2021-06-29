@@ -5,7 +5,7 @@ import './mainpage.scss';
 import Postcard from '../posts/post_card';
 import SearchBar from '../search/search_form';
 import { AiFillCar } from "react-icons/ai";
-import { Link } from 'react-router-dom';
+import Footer from '../footer/footer';
 
 
 class MainPage extends React.Component {
@@ -74,30 +74,7 @@ class MainPage extends React.Component {
             </button>
           </div>
         </div>
-        <footer>
-          <>
-            <div className="copyright">Copyright &copy; 2021 RideAlong</div>
-            <div className="menu-container">
-              <p>Menu</p>
-              <Link to="/profile">Profile</Link>
-              <Link to="/posts">Posts</Link>
-
-              <Link to="/posts/create">Create Post</Link>
-              <Link to="/">Home</Link>
-            </div>
-
-            <div className="follow-container">
-              <p>Follow</p>
-              <Link to="/about">About Us</Link>
-            </div>
-
-            <div className="get-started-container">
-              <p>Get Started</p>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>
-            </div>
-          </>
-        </footer>
+        <Footer/>
       </div>
     );
   }

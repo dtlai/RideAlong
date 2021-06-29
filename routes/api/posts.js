@@ -124,8 +124,6 @@ router.put("/:postId/cancel",
 router.get("/search", (req, res) => {
   const start = new RegExp(req.query.startLocation, "i")
   const end = new RegExp(req.query.endLocation, "i")
-  console.log(start, end)
-  console.log(req.query)
   Post.find({startLocation: start, endLocation: end}, function (err, docs) {
       if (err){
           console.log(err);
@@ -175,6 +173,7 @@ router.post(
   }
 );
 
+// Gets the post details by postId only extracting specific data
 router.get("/:postId", (req, res) => {
   Post.
     findOne({"_id" : mongoose.Types.ObjectId(req.params.postId)}).
@@ -191,7 +190,6 @@ router.get("/:postId", (req, res) => {
 });
 
 router.delete('/:postId', function (req, res) {
-  console.log(req.params);
   Post.deleteOne({"_id": (req.params.postId)})
     .then(deletedDocument => {
       if(deletedDocument) {

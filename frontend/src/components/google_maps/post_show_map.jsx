@@ -15,42 +15,6 @@ const containerStyle = {
   background: 'gray'
 };
 
-// const markerInfo = [
-//   {
-//     driver: {
-//       first_name: "David",
-//       last_name: "Lai"
-//     },
-//     seats: 4,
-//     location: { 
-//       pickup: "Little Tokyo",
-//       dropoff: "Santa Monica"
-//     }
-//    },
-//    {
-//     driver: {
-//       first_name: "Nathan",
-//       last_name: "Luu"
-//     },
-//     seats: 2,
-//     location: { 
-//       pickup: "Hollywood",
-//       dropoff: "San Francisco"
-//     }
-//    },
-//    {
-//     driver: {
-//       first_name: "Michael",
-//       last_name: "Lau"
-//     },
-//     seats: 1,
-//     location: { 
-//       pickup : "Koreatown",
-//       dropoff: "Disneyland"
-//     }
-//    }
-// ];
-
 Geocode.setApiKey(googleMapsAPI);
 
 export class ShowMap extends Component {
@@ -79,10 +43,6 @@ export class ShowMap extends Component {
   }
 
   componentDidMount() {
-    // const locate = pos => {
-    //   this.setState({center: {lat: pos.coords.latitude, lng: pos.coords.longitude}})
-    // }
-    // navigator.geolocation.getCurrentPosition(pos => locate(pos))
     const post = this.props.post;
     let markerInfo = {
     driver: post.user.firstName + " " + post.user.lastName,

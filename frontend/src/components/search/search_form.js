@@ -16,7 +16,6 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state)
     this.props.history.push(`/posts?startLocation=${this.state.startLocation}&endLocation=${this.state.endLocation}`);
   }
 

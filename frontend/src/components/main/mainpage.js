@@ -1,5 +1,4 @@
 import React from 'react';
-// import { FaGithub } from "react-icons/fa";
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import {withRouter} from 'react-router-dom';
 import './mainpage.scss';

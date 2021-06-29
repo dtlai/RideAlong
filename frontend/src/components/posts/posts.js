@@ -19,7 +19,6 @@ class Posts extends React.Component {
   componentDidMount() {
     const query = queryString.parse(this.props.location.search);
     if (query.startLocation) {
-      console.log(query)
       const search = {
         startLocation: query.startLocation,
         endLocation: query.endLocation
@@ -33,15 +32,6 @@ class Posts extends React.Component {
   componentWillReceiveProps(newState) {
     this.setState({ posts: newState.posts })
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-    // console.log(prevState.posts)
-    // console.log(this.state.posts)
-    // if(JSON.stringify(prevState.posts) !== JSON.stringify(this.state.posts)) {
-    //   this.props.fetchPosts();
-
-    // }
-  // }
 
   handleClick(postId){
     this.props.deletePost(postId)

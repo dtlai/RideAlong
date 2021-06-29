@@ -5,80 +5,80 @@ $primary-gray: #8080801c;
 $primary-pink: #f39e9e;
 
 .prof-page-container {
-    display: flex;
-    flex-direction: column;
-    background-color: #F5F5F5;
-    align-items: center;
-    padding-bottom: 50px;
-    h1 {
-        font-size: 50px;
-    }
+  display: flex;
+  flex-direction: column;
+  background-color: #F5F5F5;
+  align-items: center;
+  padding-bottom: 50px;
+  h1 {
+      font-size: 50px;
+  }
 }
 .user-info {
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 0.5em;
-    padding: 2px 80px 10px 10px;
-    width: 60%;
-    margin: 25px;
-    background-color: $primary-pink;
-    line-height: 1.5em;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5em;
+  padding: 2px 80px 10px 10px;
+  width: 60%;
+  margin: 25px;
+  background-color: $primary-pink;
+  line-height: 1.5em;
 }
 
 .prof-user-info {
-    display: flex;
-    padding: 5px;
-    font-size: 20px;
-    margin-left: 5%;
-    margin-top: 10px;
+  display: flex;
+  padding: 5px;
+  font-size: 20px;
+  margin-left: 5%;
+  margin-top: 10px;
 
 }
 .more-prof-user-info {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    font-size: 20px;
-    margin-left: 5%;
-    margin-top: 10px;
-    p {
-        margin-right: 5px;
-    }
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  font-size: 20px;
+  margin-left: 5%;
+  margin-top: 10px;
+  p {
+      margin-right: 5px;
+  }
 }
 
 .prof-posts-container {
-    font-size: 20px;
-    margin-left: 5%;
-    margin-top: 20px;
+  font-size: 20px;
+  margin-left: 5%;
+  margin-top: 20px;
 }
 .prof-requests-container {
-    font-size: 20px;
-    margin: 10px;
+  font-size: 20px;
+  margin: 10px;
 }
 
 .prof-posts {
-    display: flex;
-    flex-direction: column;
-    margin: 30px;
-    padding: 10px;
-    padding-right: 30px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    background-color: $primary-blue;
-    color: #ffffff;
-    font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  padding: 10px;
+  padding-right: 30px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: $primary-blue;
+  color: #ffffff;
+  font-size: 18px;
 
-    div {
-        cursor: pointer;
-        margin: 8px;
-    }
+  div {
+      cursor: pointer;
+      margin: 8px;
+  }
 
-    &:hover {
+  &:hover {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       cursor: pointer;
-    }
+  }
 }
 
 .prof-requests {
@@ -98,40 +98,40 @@ $primary-pink: #f39e9e;
   }
 
   &:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    cursor: pointer;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      cursor: pointer;
   }
 }
 
 .user-rides {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    height: 55vh;
-    h1 {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 55vh;
+  h1 {
       position: fixed;
-    }
+  }
 }
 
 .user-requests {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    height: 55vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 55vh;
 }
 
 .ride-container {
-    display: flex;
-    margin-top: 30px;
-    margin-right: 50px;
+  display: flex;
+  margin-top: 30px;
+  margin-right: 50px;
 }
 
 .profile-col {
   display: flex;
   flex-direction: column;
   h1 {
-    text-align: center;
-    margin-bottom: 5px;
-    font-size: 2em;
+      text-align: center;
+      margin-bottom: 5px;
+      font-size: 2em;
   }
 }

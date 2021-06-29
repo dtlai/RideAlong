@@ -3,6 +3,10 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import "./about_us.scss";
 
 class AboutUs extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+  
   render() {
     return (
       <>

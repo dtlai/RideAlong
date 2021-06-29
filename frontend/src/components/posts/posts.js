@@ -29,6 +29,19 @@ class Posts extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    const query = queryString.parse(this.props.location.search);
+    if (query.startLocation) {
+      const search = {
+        startLocation: query.startLocation,
+        endLocation: query.endLocation
+      }
+      this.props.queryPosts(search);
+    } else {
+      this.props.fetchPosts();
+    }
+  }
+
   componentWillReceiveProps(newState) {
     this.setState({ posts: newState.posts })
   }

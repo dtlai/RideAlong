@@ -128,9 +128,6 @@ router.get("/search", (req, res) => {
       if (err){
           console.log(err);
       }
-      else {
-          console.log("Second function call : ", docs);
-      }
   })
   .populate("user")
   .exec()

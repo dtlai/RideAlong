@@ -43,7 +43,6 @@ class Posts extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     if (!this.state.posts) return null;
     if (this.state.posts.length === 0) {
       return (

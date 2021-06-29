@@ -37,7 +37,10 @@ class NavBar extends React.Component {
       <div>
         <div className="user-session-container">
           <button onClick={this.setDropdown} className="dropbtn">
-            <img src="https://i.imgur.com/8Zs3Vg4.jpg" alt="noimage" />
+            <img
+              src="https://imgur.com/157c431e-f996-4db7-999a-7210a1645655"
+              alt="noimage"
+            />
           </button>
           {this.state.dropdown ? (
             <div className="user-session-content">

@@ -73,8 +73,7 @@ export class CurrentMap extends Component {
     }, 
     (error) => {
       console.error(error);
-    }
-);
+    });
   }
 
   onMarkerClick = (props, marker, e) =>

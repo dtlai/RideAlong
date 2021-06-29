@@ -1,12 +1,9 @@
 import React from 'react';
-import NavBarContainer from '../nav_bar/nav_bar_container';
 import {withRouter} from 'react-router-dom';
 import './mainpage.scss';
 import Postcard from '../posts/post_card';
 import SearchBar from '../search/search_form';
 import { AiFillCar } from "react-icons/ai";
-import Footer from '../footer/footer';
-
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -42,7 +39,6 @@ class MainPage extends React.Component {
     return (
       <div className="parent-main">
         <div className="main-splash">
-          <NavBarContainer />
           <div className="title-container">
             <div className="title-splash">
               <h3>Find a Trip</h3>
@@ -74,7 +70,6 @@ class MainPage extends React.Component {
             </button>
           </div>
         </div>
-        <Footer/>
       </div>
     );
   }

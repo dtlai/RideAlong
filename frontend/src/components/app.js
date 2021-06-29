@@ -11,9 +11,12 @@ import PostFormContainer from './posts/post_form_container';
 import PostShowContainer from './posts/post_show_container';
 import AboutUs from './about_us/about_us';
 import UserProfContainer from './user_prof/user_prof_container'
+import Footer from './footer/footer';
+import NavBarContainer from './nav_bar/nav_bar_container';
 
 const App = () => (
   <div>
+    <Route path="/" component={NavBarContainer}></Route>
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
@@ -28,6 +31,7 @@ const App = () => (
       />
       <Route exact path="/posts/:postId" component={PostShowContainer} />
     </Switch>
+    <Route path="/" component={Footer}></Route>
   </div>
 );
 

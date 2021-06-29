@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import NavBarContainer from "../nav_bar/nav_bar_container";
 import TripBox from "./trip_box";
 import './user_prof.scss'
 
@@ -31,7 +30,6 @@ class UserProf extends React.Component {
     
     return (
       <>
-        <NavBarContainer />
         <div className="prof-page-container">
           <div className="user-info">
             <div className="prof-user-info">

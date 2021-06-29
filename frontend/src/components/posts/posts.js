@@ -1,6 +1,5 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import NavBarContainer from '../nav_bar/nav_bar_container';
 import PostBox from './post_box';
 import './posts_index.scss';
 import CurrentMap from '../google_maps/post_index_map';
@@ -60,7 +59,6 @@ class Posts extends React.Component {
     if (this.state.posts.length === 0) {
       return (
         <div>
-          <NavBarContainer/>
           <div className="no-posts-container">
             <h3 className="no-posts">There are currently no posts.</h3>
             <h2>Be the first!</h2>
@@ -71,7 +69,6 @@ class Posts extends React.Component {
     } else {
       return (
         <div className="posts-container">
-          <NavBarContainer />
           <div className="post-index-main-content">
             <div className="posts-index-container">
               <div className="posts-info-container">

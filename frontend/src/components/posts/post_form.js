@@ -1,6 +1,5 @@
 import React from 'react';
 import './post_form.scss';
-import NavBarContainer from '../nav_bar/nav_bar_container';
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -76,7 +75,6 @@ class PostForm extends React.Component {
   render() {
     return (
       <>
-        < NavBarContainer />
       <div className="post-page">
         <div className="create-post-container">
           <span className="side-img"><h3>Plan a Trip!</h3></span>

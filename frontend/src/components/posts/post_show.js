@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBarContainer from '../nav_bar/nav_bar_container';
 import ShowMap from '../google_maps/post_show_map';
 import './post_show.scss';
 import { CgProfile } from 'react-icons/cg';
@@ -113,7 +112,6 @@ class PostShow extends React.Component {
       const { firstName, lastName, username } = this.props.post.user;
       return(
         <div className="post-show">
-          <NavBarContainer/>
           {this.showPopup()}
           <h2>{title}</h2>
           <div className="post-show-info">

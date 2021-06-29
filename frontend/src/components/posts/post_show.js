@@ -116,45 +116,47 @@ class PostShow extends React.Component {
           <h2>{title}</h2>
           <div className="post-show-info">
             <div>
-              <div className="post-show-description">
-                <h3>{startLocation} &nbsp; <ImArrowRight fill="lightskyblue" stroke="gray" strokeWidth="1px"/> &nbsp; {endLocation}</h3>
-                <h4>{this.formatDate(leaveDate)} ~ {this.formatTime(leaveDate)}</h4>
-                <p>{description}</p>
+              <div className="post-show-top">
+                <div className="post-show-description">
+                  <h3>{startLocation} &nbsp; <ImArrowRight fill="lightskyblue" stroke="gray" strokeWidth="1px"/> &nbsp; {endLocation}</h3>
+                  <h4>{this.formatDate(leaveDate)} ~ {this.formatTime(leaveDate)}</h4>
+                  <p>{description}</p>
+                  <div className="post-show-driver">
+                    Your driver is <bold>{firstName} {lastName}</bold> 
+                    <span className="post-show-driver-profile"><CgProfile size="2em" background-color="white" color="rgb(56, 179, 253)"/> {username}</span>
+                  </div>
+                  <ul className="post-show-details">
+                    <li className="post-show-detail-item">
+                      You will be riding in a 
+                      <bold>{carMake}</bold>
+                    </li>
+                    <li className="post-show-detail-item">
+                      Seats Available 
+                      { this.alreadyFull() ? <bold>FULL</bold> :
+                        <bold>{capacity-numPassengers} of {capacity}</bold>
+                      }
+                    </li>
+                    <li className="post-show-detail-item">
+                      Cost per Passenger
+                      <bold>${price.toFixed(2)}</bold>
+                    </li>
+                    <li>This trip was posted on {this.formatDate(createdAt)} at {this.formatTime(createdAt)}</li>
+                  </ul>
+                </div>
+                <div>
+                <ul className="post-show-box">
+                  <li><bold>${price.toFixed(2)}</bold> / passenger</li>
+                  <li>From {startLocation} to {endLocation}</li>
+                  <li></li>
+                  <li><bold>{capacity-numPassengers}</bold> of <bold>{capacity}</bold> seats available</li>
+                  <button disabled={this.alreadyFull() && !this.alreadyRequested()} onClick={this.alreadyRequested() ? 
+                    this.cancelRide : this.requestRide}>{this.alreadyRequested() ? "Cancel Ride" : 
+                    (this.alreadyFull() ? "Full" : "Join Ride")}
+                  </button>
+                </ul>
               </div>
-              <div className="post-show-driver">
-                Your driver is <bold>{firstName} {lastName}</bold> 
-                <span className="post-show-driver-profile"><CgProfile size="2em" background-color="white" color="rgb(56, 179, 253)"/> {username}</span>
-              </div>
-              <ul className="post-show-details">
-                <li className="post-show-detail-item">
-                  You will be riding in a 
-                  <bold>{carMake}</bold>
-                </li>
-                <li className="post-show-detail-item">
-                  Seats Available 
-                  { this.alreadyFull() ? <bold>FULL</bold> :
-                    <bold>{capacity-numPassengers} of {capacity}</bold>
-                  }
-                </li>
-                <li className="post-show-detail-item">
-                  Cost per Passenger
-                  <bold>${price.toFixed(2)}</bold>
-                </li>
-                <li>This trip was posted on {this.formatDate(createdAt)} at {this.formatTime(createdAt)}</li>
-              </ul>
-              <ShowMap post={this.props.post} key={this.props.post}/>
             </div>
-            <div>
-              <ul className="post-show-box">
-                <li><bold>${price.toFixed(2)}</bold> / passenger</li>
-                <li>From {startLocation} to {endLocation}</li>
-                <li></li>
-                <li><bold>{capacity-numPassengers}</bold> of <bold>{capacity}</bold> seats available</li>
-                <button disabled={this.alreadyFull() && !this.alreadyRequested()} onClick={this.alreadyRequested() ? 
-                  this.cancelRide : this.requestRide}>{this.alreadyRequested() ? "Cancel Ride" : 
-                  (this.alreadyFull() ? "Full" : "Join Ride")}
-                </button>
-              </ul>
+              <ShowMap post={this.props.post} key={this.props.post}/>
             </div>
           </div>
         </div>

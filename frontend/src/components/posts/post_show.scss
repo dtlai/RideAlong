@@ -42,7 +42,6 @@ bold {
       margin-left: 5em;
       width: 80%;
       border-top: 2px solid $primary-blue;
-      border-bottom: 2px solid $primary-blue;
     }
     .post-show-box {
       background-color: white;
@@ -87,7 +86,14 @@ bold {
   }
 }
 
+.post-show-top {
+  display: flex;
+  flex-direction: row;
+}
+
 .post-show-driver {
+  border-top: 2px solid $primary-blue;
+  padding-top: 100px;
   text-align: center;
   font-size: 1.5em;
   .post-show-driver-profile {

@@ -113,7 +113,7 @@ class LoginForm extends React.Component {
               className="password-input"
             />
             {/* </div> */}
-            <button className="session-button">Submit</button>
+            <button className="session-button top-session-button">Submit</button>
           </div>
         </form>
         <div className="demo-button-container">

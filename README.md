@@ -59,11 +59,12 @@ RideAlong is a ride-sharing app that allows drivers to connect with passengers l
 
 * Setting up user authentication
 * Allow for trip creation, joining a trip, and deleting a trip
+* Creating a search that filters trips based on input successfully
+
+<img src="https://i.imgur.com/rdn6BJQ.png" width="600">
 
 # Frontend Technical Challenges
 * Creating user authentication forms
 * Creating trip creation forms
 * Creating a user profile 
-* Creating a search that filters trips based on input successfully
 
-<img src="https://i.imgur.com/rdn6BJQ.png" width="600">

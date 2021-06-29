@@ -141,7 +141,7 @@ class SignupForm extends React.Component {
               onChange={this.update("password2")}
               placeholder="Confirm Password"
             />
-            <button className="session-button">Sign Up</button>
+            <button className="session-button top-session-button">Sign Up</button>
           </div>
         </form>
       </div>

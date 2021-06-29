@@ -14,10 +14,10 @@ $primary-blue: rgb(56, 179, 253);
 
 .nav-links {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   list-style: none;
   align-items: center;
-  width: 500px;
+  width: 700px;
 
   a {
     font-weight: 600;
@@ -41,6 +41,10 @@ $primary-blue: rgb(56, 179, 253);
 
 .modals {
   display: flex;
+  width: 150px;
+  div {
+    margin: 10px;
+  }
 }
 
 .demo-button-container {

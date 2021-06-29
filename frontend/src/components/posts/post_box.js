@@ -9,10 +9,6 @@ class PostBox extends React.Component {
     return new Date(dateString).toLocaleDateString(undefined, options)
   }
 
-  componentDidMount() {
-    this.props.fetchPosts();
-  }
-
   render() {
     let {post} = this.props
     let startDate = post.createdAt.slice(0, 10);
@@ -32,7 +28,7 @@ class PostBox extends React.Component {
           </span>
         </div>
         <div className="post-user-container">
-          Driver: {post.user.firstName} {post.user.lastName}
+          Driver: {this.props.currentUser.firstName} {this.props.currentUser.lastName}
         </div>
         <div className="post-locations-container">
           <span>Leaving {post.startLocation} to {post.endLocation} on {this.formatDate(dateLeave)}</span>

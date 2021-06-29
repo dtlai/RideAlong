@@ -90,7 +90,6 @@ $primary-gray: #8080801c;
   display: inline-block;
   border: 0.1em solid white;
   background-color: $primary-blue;
-  margin: 0px;
   border-radius: 0.12em;
   box-sizing: border-box;
   text-decoration: none;
@@ -103,7 +102,7 @@ $primary-gray: #8080801c;
   cursor: pointer;
   font-weight: bold;
   font-size: 18px;
-  width: 100%;
+  width: 100px;
 }
 
 .demo-button-container {

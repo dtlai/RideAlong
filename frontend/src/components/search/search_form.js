@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 import './search_form.scss';
-import { BiSearchAlt } from "react-icons/bi";
 
 class SearchBar extends React.Component {
   constructor(props){

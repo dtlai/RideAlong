@@ -11,22 +11,6 @@ RideAlong is a ride-sharing app that allows drivers to connect with passengers l
 * Michael Lau
 * David Lai
 
-# Functionality and MVP
-* Live on Heroku
-* User authorization
-* Trips (create, join, delete)
-* Search/Filter Trips
-* User Profile
-* Google Maps API, GeoCoding API 
-
-# Technologies
-* React
-* Redux
-* MongoDB
-* Express
-* Google Maps API
-* GeoCoding API
-
 # Features
 * Create an account to make posts about their trips
 
@@ -56,6 +40,23 @@ RideAlong is a ride-sharing app that allows drivers to connect with passengers l
 
 * View catalog of all the trips posted
 
+![trip_index](https://i.imgur.com/DDfc7Xd.png)
+
+# Functionality and MVP
+* Live on Heroku
+* User authorization
+* Trips (create, join, delete)
+* Search/Filter Trips
+* User Profile
+* Google Maps API, GeoCoding API 
+
+# Technologies
+* React
+* Redux
+* MongoDB
+* Express
+* Google Maps API
+* GeoCoding API
 
 # Backend Technical Challenges
 * Integrating Google Maps API and GeoCoding API into our features

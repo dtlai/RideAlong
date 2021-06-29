@@ -1,12 +1,13 @@
 # RideAlong
-![](https://i.imgur.com/vscAchT.png)
+
+![ridealong_logo](https://i.imgur.com/vscAchT.png)
 
 [Live Site](https://ridealong-app.herokuapp.com/#/)
 
 RideAlong is a ride-sharing app that allows drivers to connect with passengers looking for rides to the same destinations. RideAlong is primarily built with the MERN stack, a combination of the four following technologies: MongoDB, Express, React, and Node.
 
 # Group Members
-* Nathan Luu
+* Nathan Luu 
 * Linda Xiao
 * Michael Lau
 * David Lai
@@ -14,12 +15,9 @@ RideAlong is a ride-sharing app that allows drivers to connect with passengers l
 # Features
 * Create an account to make posts about their trips
 
-![create_account](https://i.imgur.com/iGqkE0T.png)
-
 * Post a trip to allow for carpoolers
 
-![plan_trip](https://i.imgur.com/Dy92Jg5.png)
-
+* View catalog of all the trips posted
 
 * Select start destinations based on map location
 
@@ -37,10 +35,6 @@ RideAlong is a ride-sharing app that allows drivers to connect with passengers l
 
 ![user_prof](https://media.giphy.com/media/IAi8uuDVMFoqGUxmyd/giphy.gif)
 
-
-* View catalog of all the trips posted
-
-![trip_index](https://i.imgur.com/DDfc7Xd.png)
 
 # Functionality and MVP
 * Live on Heroku
@@ -68,3 +62,4 @@ RideAlong is a ride-sharing app that allows drivers to connect with passengers l
 * Creating trip creation forms
 * Creating a user profile 
 * Creating a search that filters trips based on input successfully
+<img src="https://i.imgur.com/5GxD6s9.png" width="600">

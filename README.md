@@ -1,7 +1,9 @@
-# Background/Overview
-RideAlong is a ride-sharing app that allows drivers to connect with passengers looking for rides to the same destinations. RideAlong is primarily built with the MERN stack, a combination of the four following technologies: MongoDB, Express, React, and Node.
+# RideAlong
+![](https://i.imgur.com/vscAchT.png)
 
 [Live Site](https://ridealong-app.herokuapp.com/#/)
+
+RideAlong is a ride-sharing app that allows drivers to connect with passengers looking for rides to the same destinations. RideAlong is primarily built with the MERN stack, a combination of the four following technologies: MongoDB, Express, React, and Node.
 
 # Group Members
 * Nathan Luu

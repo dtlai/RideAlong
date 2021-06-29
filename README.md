@@ -8,9 +8,9 @@ RideAlong is a ride-sharing app that allows drivers to connect with passengers l
 * Users can sign in, sign up, and log out
 * Users can use demo login button
 * Users can't access certain certain features without logging in
-* * Can't create a post 
-* * Can't view profile 
-* * Can't request to join a trip
+  * Can't create a post 
+  * Can't view profile 
+  * Can't request to join a trip
 
 ## Home Page
 * Splash page that has filter form for our trip posts
@@ -36,7 +36,7 @@ RideAlong is a ride-sharing app that allows drivers to connect with passengers l
 
 ## Bonus - Requests - trip approval
 * Show all requests for passengers
-* * Button for yes/no 
+  * Button for yes/no 
 
 ## Bonus -Profiles
 

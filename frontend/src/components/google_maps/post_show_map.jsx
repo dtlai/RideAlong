@@ -8,48 +8,12 @@ const mapStyles = {
   height: '100%'
 };
 const containerStyle = {
-  position: 'absolute', 
-  width: '65%', 
-  height:'50%',
+  position: 'relative', 
+  width: '70rem', 
+  height:'30rem',
   marginLeft: '20rem',
   background: 'gray'
 };
-
-// const markerInfo = [
-//   {
-//     driver: {
-//       first_name: "David",
-//       last_name: "Lai"
-//     },
-//     seats: 4,
-//     location: { 
-//       pickup: "Little Tokyo",
-//       dropoff: "Santa Monica"
-//     }
-//    },
-//    {
-//     driver: {
-//       first_name: "Nathan",
-//       last_name: "Luu"
-//     },
-//     seats: 2,
-//     location: { 
-//       pickup: "Hollywood",
-//       dropoff: "San Francisco"
-//     }
-//    },
-//    {
-//     driver: {
-//       first_name: "Michael",
-//       last_name: "Lau"
-//     },
-//     seats: 1,
-//     location: { 
-//       pickup : "Koreatown",
-//       dropoff: "Disneyland"
-//     }
-//    }
-// ];
 
 Geocode.setApiKey(googleMapsAPI);
 

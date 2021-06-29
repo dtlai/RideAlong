@@ -13,7 +13,7 @@ bold {
   display: flex;
   flex-direction: column;
   font-family: $pt-sans;
-  padding-bottom: 33em;
+  padding-bottom: 10em;
   h2, h3, h4 {
     font-size: 3em;
     text-align: center;
@@ -36,6 +36,7 @@ bold {
   }
   .post-show-info {
     display: flex;
+    justify-content: center;
     .post-show-description {
       margin: 5em;
       margin-left: 5em;
@@ -101,13 +102,6 @@ bold {
     margin: 1em auto;
     padding: 0.2em;
     box-shadow: 0.1em 0.1em 0.1em lightgray;
-    &:hover {
-      cursor: pointer;
-      background-color: #edf9ff;
-    }
-    &:active {
-      box-shadow: 0.1em 0.1em 0.1em lightgray inset;
-    }
   }
 }
 
@@ -124,8 +118,7 @@ bold {
     font-size: 1.3em;
   }
   & > li {
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin: 1em;
   }
   .post-show-detail-item {
     display: flex;

@@ -19,14 +19,14 @@ RideAlong is a ride-sharing app that allows drivers to connect with passengers l
 
 ## Post index page
 * Integrate Google maps API onto the screen for the route the trip is taking.
-* * Pins of all starting locations
+  * Pins of all starting locations
 * Lists all posts with brief description
 
 ## Post trip details 
 * Lists all details on the posts
 * Has request to join ride button
 * Integrate Google maps API onto the screen for the route the trip is taking.
-* * Map of route (if possible) or pins for start and end
+  * Map of route (if possible) or pins for start and end
 
 ## Post form page
 * Posts data to server 

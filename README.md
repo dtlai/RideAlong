@@ -31,6 +31,7 @@ RideAlong is a ride-sharing app that allows drivers to connect with passengers l
 * Create an account to make posts about their trips
 * Post a trip to allow for carpoolers
 * Select start destinations based on map location
+![join_a_ride](https://media3.giphy.com/media/CIc6NECkQ0GsVg5YCt/giphy.gif)
 * Search for trips based on start destination
 * Trip page showing details about the trip
 * View catalog of all the trips posted

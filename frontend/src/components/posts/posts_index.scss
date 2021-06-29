@@ -1,6 +1,8 @@
 $primary-gray: #8080801c;
 $primary-blue: rgb(56, 179, 253);
 $primary-pink: #f39e9e;
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+$pt-sans: 'PT Sans', sans-serif;
 
 .post-index-main-content {
   display: flex;
@@ -131,4 +133,32 @@ $primary-pink: #f39e9e;
 .post-all-container {
   display: flex;
   flex-direction: column-reverse;
+}
+
+.no-posts-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 350px;
+  height: 250px;
+  font-family: $pt-sans;
+  font-size: 24px;
+  font-weight: 700;
+  justify-content: space-evenly;
+
+}
+
+.create-post-button {
+  padding: 10px;
+  font-family: $pt-sans;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: $primary-blue;
+  border-radius: 3px;
+  border-style: none;
+  color: #FFFFFF;
+}
+
+.create-post-button:hover {
+  cursor: pointer;
 }

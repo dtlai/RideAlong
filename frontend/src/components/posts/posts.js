@@ -58,8 +58,11 @@ class Posts extends React.Component {
       return (
         <div>
           <NavBarContainer/>
-          <h3>There are currently no posts.</h3>
-          <button onClick={(e) => this.goToCreate()}>Create a Post</button>
+          <div className="no-posts-container">
+            <h3 className="no-posts">There are currently no posts.</h3>
+            <h2>Be the first!</h2>
+            <button className="create-post-button" onClick={(e) => this.goToCreate()}>Create a Post</button>
+          </div>
         </div>
       )
     } else {

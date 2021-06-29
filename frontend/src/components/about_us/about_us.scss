@@ -5,66 +5,66 @@ $primary-gray: #8080801c;
 $primary-pink: #f39e9e;
 
 .about-us-page {
-    background: rgb(243,158,158);
-    background: linear-gradient(90deg, rgba(243,158,158,1) 36%, rgba(56,179,253,1) 97%);
-    padding-bottom: 100px;
-    h1 {
-        text-align: center;
-        font-size: 40px;
-        padding-top: 80px;
-        padding-bottom: 20px;
-        color: white;
-    }
+  background: rgb(243,158,158);
+  background: linear-gradient(90deg, rgba(243,158,158,1) 36%, rgba(56,179,253,1) 97%);
+  padding-bottom: 100px;
+  h1 {
+    text-align: center;
+    font-size: 40px;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    color: white;
+  }
 }
 
 .slide-in {
-    margin-right: 300px;
-    position: relative;
-    -webkit-animation: slideIn 1.75s forwards;
-    -moz-animation: slideIn 1.75s forwards;
-    animation: slideIn 1.75s forwards;
+  margin-right: 300px;
+  position: relative;
+  -webkit-animation: slideIn 1.75s forwards;
+  -moz-animation: slideIn 1.75s forwards;
+  animation: slideIn 1.75s forwards;
 }
 
 
 @-webkit-keyframes slideIn {
-    0% {
-        transform: translateX(-1000px);
-    }
-    100% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(-1000px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @-moz-keyframes slideIn {
-    0% {
-        transform: translateX(-1000px);
-    }
-    100% {
-        transform: translateX(0);
-    }
+  0% {
+      transform: translateX(-1000px);
+  }
+  100% {
+      transform: translateX(0);
+  }
 }
 
 @keyframes slideIn {
-    0% {
-        transform: translateX(-1000px);
-    }
-    100% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(-1000px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .about-us-container {
-    display: grid;
-    width: 60%;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-column-gap: 35px;
-    column-gap: 35px;
-    grid-row-gap: 35px;
-    row-gap: 35px;
-    margin: 35px;
-    margin-left: auto;
-    margin-right: auto;
+  display: grid;
+  width: 60%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 35px;
+  column-gap: 35px;
+  grid-row-gap: 35px;
+  row-gap: 35px;
+  margin: 35px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-us-icon:hover {
@@ -72,44 +72,44 @@ $primary-pink: #f39e9e;
 }
 
 .about-member-container {
-    background-color: $primary-blue;
+  background-color: $primary-blue;
+  border-style: none;
+  box-shadow: 0.1em 0.1em 2em gray;
+  border-radius: 8px;
+  font-family: $pt-sans;
+  color: #fff;
+  width: 500px;
+  height: 200px;
+  display: flex;
+  margin-bottom: 10px;
+  img {
     border-style: none;
-    box-shadow: 0.1em 0.1em 2em gray;
-    border-radius: 8px;
-    font-family: $pt-sans;
-    color: #fff;
-    width: 500px;
+    border-radius: 8px 0 0 8px;
+    width: 200px;
     height: 200px;
-    display: flex;
-    margin-bottom: 10px;
-    img {
-        border-style: none;
-        border-radius: 8px 0 0 8px;
-        width: 200px;
-        height: 200px;
+  }
+  .about-member{
+    padding: 10px;
+    width: 100%;
+    h3 {
+        display: flex;
+        justify-content: center;
+        font-size: 26px;
+        margin-top: 2px;
+        margin-bottom: 10px;
     }
-    .about-member{
-        padding: 10px;
+    p {
+        font-size: 16px;
+        padding: 5px;
+    }
+    .about-links {
+        display: flex;
+        justify-content: flex-end;
         width: 100%;
-        h3 {
-            display: flex;
-            justify-content: center;
-            font-size: 26px;
-            margin-top: 2px;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 16px;
-            padding: 5px;
-        }
-        .about-links {
-            display: flex;
-            justify-content: flex-end;
-            width: 100%;
-            * {
-              margin-bottom: 5px;
-            }
+        * {
+          margin-bottom: 5px;
         }
     }
+  }
 }
 

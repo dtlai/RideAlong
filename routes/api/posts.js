@@ -175,6 +175,7 @@ router.post(
   }
 );
 
+// Gets the post details by postId only extracting specific data
 router.get("/:postId", (req, res) => {
   Post.
     findOne({"_id" : mongoose.Types.ObjectId(req.params.postId)}).

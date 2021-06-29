@@ -1,29 +1,6 @@
 import React from 'react';
 import './post_card.scss';
-import {withRouter} from 'react-router-dom'
-
-// const Postcard = ({post}) => {
-//   return (
-//     <div>
-//       <div className="postcard-box">
-//         <div className="card-img">
-
-//         </div>
-//         <div className="card-content">
-//           <div>
-//             {post.title}
-//           </div>
-//           <div className="postcard-description">
-//             {post.description}
-//           </div>
-//           <div>
-
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
+import {withRouter} from 'react-router-dom';
 
 class Postcard extends React.Component {
   constructor(props) {

@@ -14,42 +14,6 @@ const containerStyle = {
   marginRight: '40px'
 };
 
-// const markerInfo = [
-//   {
-//     driver: {
-//       first_name: "David",
-//       last_name: "Lai"
-//     },
-//     seats: 4,
-//     location: { 
-//       pickup: "Little Tokyo",
-//       dropoff: "Santa Monica"
-//     }
-//    },
-//    {
-//     driver: {
-//       first_name: "Nathan",
-//       last_name: "Luu"
-//     },
-//     seats: 2,
-//     location: { 
-//       pickup: "Hollywood",
-//       dropoff: "San Francisco"
-//     }
-//    },
-//    {
-//     driver: {
-//       first_name: "Michael",
-//       last_name: "Lau"
-//     },
-//     seats: 1,
-//     location: { 
-//       pickup : "Koreatown",
-//       dropoff: "Disneyland"
-//     }
-//    }
-// ];
-
 Geocode.setApiKey(googleMapsAPI);
 
 export class CurrentMap extends Component {
@@ -143,21 +107,6 @@ export class CurrentMap extends Component {
         containerStyle={containerStyle}
         initialCenter={{lat: 37.7529, lng: -122.4474}}
         onDblclick={this.recenterMap}
-        // onLoad={marker => {
-        //     const customIcon = (opts) => Object.assign({
-        //       path: 'M12.75 0l-2.25 2.25 2.25 2.25-5.25 6h-5.25l4.125 4.125-6.375 8.452v0.923h0.923l8.452-6.375 4.125 4.125v-5.25l6-5.25 2.25 2.25 2.25-2.25-11.25-11.25zM10.5 12.75l-1.5-1.5 5.25-5.25 1.5 1.5-5.25 5.25z',
-        //       fillColor: '#34495e',
-        //       fillOpacity: 1,
-        //       strokeColor: '#000',
-        //       strokeWeight: 1,
-        //       scale: 1,
-        //     }, opts);
-
-        //     marker.setIcon(customIcon({
-        //       fillColor: 'green',
-        //       strokeColor: 'white'
-        //     }));
-        //   }}
         >
         { this.state.markers.map((markerInfo, idx) => <Marker position={markerInfo.location.coords} key={`marker-${idx}`} info={markerInfo} onClick={this.onMarkerClick}/>)}
           <InfoWindow

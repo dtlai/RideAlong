@@ -23,15 +23,6 @@ class PostShow extends React.Component {
     this.props.fetchPost(this.props.postId).then(()=>window.scrollTo(0, 0));
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if(this.props.match.params.postId !== nextProps.match.params.postId) {
-  //       this.props.fetchPost(nextProps.match.params.postId);
-  //   }
-  //   if (nextProps.post) {
-  //       this.props.fetchUser(nextProps.post.user);
-  //   }
-  // }
-
   showPopup() {
     if (!this.state.showFeedback) {
       return null;

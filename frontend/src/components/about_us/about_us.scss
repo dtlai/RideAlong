@@ -59,16 +59,18 @@ $primary-pink: #f39e9e;
 
 .about-us-container {
   display: grid;
-  width: 60%;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-column-gap: 35px;
   column-gap: 35px;
-  grid-row-gap: 35px;
   row-gap: 35px;
+  grid-row-gap: 35px;
   margin: 35px;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
+
+  justify-items: center;
   grid-template-areas: 
   "header header";
 }

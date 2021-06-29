@@ -69,7 +69,7 @@ class Posts extends React.Component {
               <div className="post-all-container">
                 {this.state.posts.map((post) => (
                   <div className="post-container">
-                    <PostBox key={post.id} post={post} />
+                    <PostBox key={post.id} post={post} fetchPosts={this.props.fetchPosts}/>
                     { (!this.props.currentUser || (this.props.currentUser.id !== post.user._id)) ? "" :
                       (<button
                         onClick={() => this.handleClick(post._id)}

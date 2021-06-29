@@ -9,6 +9,10 @@ class PostBox extends React.Component {
     return new Date(dateString).toLocaleDateString(undefined, options)
   }
 
+  componentDidMount() {
+    this.props.fetchPosts();
+  }
+
   render() {
     let {post} = this.props
     let startDate = post.createdAt.slice(0, 10);

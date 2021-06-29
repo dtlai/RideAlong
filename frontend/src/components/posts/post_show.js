@@ -20,7 +20,8 @@ class PostShow extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchPost(this.props.postId).then(()=>window.scrollTo(0, 0));
+    this.props.fetchPost(this.props.postId)
+    .then(()=>window.scrollTo(0, 0));
   }
 
   showPopup() {

@@ -16,7 +16,7 @@ https://ridealong-app.herokuapp.com/#/
 * Trips (create, join, delete)
 * Search/Filter Trips
 * User Profile
-* Google Maps API 
+* Google Maps API, GeoCoding API 
 
 # Technologies and Technical Challenges
 

@@ -5,7 +5,7 @@ import SignupModal from "../session/signup_modal";
 import { Link } from 'react-router-dom';
 import { MdGroup, MdHome } from "react-icons/md";
 import { FaCarSide } from "react-icons/fa";
-
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -87,6 +87,13 @@ class NavBar extends React.Component {
         </ul>
 
         <div className="nav-links">
+          <li>
+            <div className="nav-bar-item">
+              <a href="https://github.com/dtlai/RideAlong">
+                <FaGithub className="about-us-icon" size={40} />
+              </a>
+            </div>
+          </li>
           <li>
             <Link to="/">
               <div className="nav-bar-item">

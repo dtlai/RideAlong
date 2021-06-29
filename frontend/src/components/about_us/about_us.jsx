@@ -7,13 +7,14 @@ class AboutUs extends React.Component {
     return (
       <>
         <div className="about-us-page">
-          <h1>Meet the Team</h1>
           <div className="slide-in">
             <div className="about-us-container">
+              <h1 className="about-us-item-a">Meet the Team</h1>
               <div className="about-member-container">
                 <img src="https://i.imgur.com/eERTURq.jpg" alt="nopic" />
                 <div className="about-member">
-                  <h3>David Lai</h3>                  <p>Likes: Debugging</p>
+                  <h3>David Lai</h3>                  
+                  <p>Likes: Debugging</p>
                   <p>Dislikes: Bugs</p>
                   <div className="about-links">
                     <a

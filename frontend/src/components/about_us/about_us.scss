@@ -14,6 +14,7 @@ $primary-pink: #f39e9e;
     padding-top: 80px;
     padding-bottom: 20px;
     color: white;
+    display: block;
   }
 }
 
@@ -52,6 +53,10 @@ $primary-pink: #f39e9e;
   }
 }
 
+.about-us-item-a {
+  grid-area: header;
+}
+
 .about-us-container {
   display: grid;
   width: 60%;
@@ -64,6 +69,8 @@ $primary-pink: #f39e9e;
   margin: 35px;
   margin-left: auto;
   margin-right: auto;
+  grid-template-areas: 
+  "header header";
 }
 
 .about-us-icon:hover {

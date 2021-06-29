@@ -19,13 +19,12 @@ class AboutUs extends React.Component {
                   <p>Dislikes: Bugs</p>
                   <div className="about-links">
                     <a
-                      href="https://www.linkedin.com/in/davidlai9/"
-                    >
+                      href="https://www.linkedin.com/in/davidlai9/" target = "_blank" rel="noreferrer">
                       <FaLinkedin className="about-us-icon" size={40} />
                     </a>
                   </div>
                   <div className="about-links">
-                    <a href="https://github.com/dtlai">
+                    <a href="https://github.com/dtlai" target = "_blank" rel="noreferrer">
                       <FaGithub className="about-us-icon" size={40} />
                     </a>
                   </div>
@@ -38,14 +37,12 @@ class AboutUs extends React.Component {
                   <p>Likes: Korean BBQ</p>
                   <p>Dislikes: Ahgassi Gopchang</p>
                   <div className="about-links">
-                    <a
-                      href="https://www.linkedin.com/in/nathan-luu/"
-                    >
+                    <a href="https://www.linkedin.com/in/nathan-luu/" target = "_blank" rel="noreferrer">
                       <FaLinkedin className="about-us-icon" size={40} />
                     </a>
                   </div>
                   <div className="about-links">
-                    <a href="https://github.com/nateluu28" >
+                    <a href="https://github.com/nateluu28" target = "_blank" rel="noreferrer">
                       <FaGithub className="about-us-icon" size={40} />
                     </a>
                   </div>
@@ -59,13 +56,12 @@ class AboutUs extends React.Component {
                   <p>Dislikes: Dogs who wake up early</p>
                   <div className="about-links">
                     <a
-                      href="https://www.linkedin.com/in/lindaxiao/"
-                    >
+                      href="https://www.linkedin.com/in/lindaxiao/" target = "_blank" rel="noreferrer">
                       <FaLinkedin className="about-us-icon" size={40} />
                     </a>
                   </div>
                   <div className="about-links">
-                    <a href="https://github.com/Lindax28">
+                    <a href="https://github.com/Lindax28" target = "_blank" rel="noreferrer">
                       <FaGithub className="about-us-icon" size={40} />
                     </a>
                   </div>
@@ -79,13 +75,12 @@ class AboutUs extends React.Component {
                   <p>Dislikes: Old Valorant skins</p>
                   <div className="about-links">
                     <a
-                      href="https://www.linkedin.com/in/michael-lau-38407119b/"
-                    >
+                      href="https://www.linkedin.com/in/michael-lau-38407119b/" target = "_blank" rel="noreferrer">
                       <FaLinkedin className="about-us-icon" size={40} />
                     </a>
                   </div>
                   <div className="about-links">
-                    <a href="https://github.com/michaellau4" >
+                    <a href="https://github.com/michaellau4" target = "_blank" rel="noreferrer">
                       <FaGithub className="about-us-icon" size={40} />
                     </a>
                   </div>

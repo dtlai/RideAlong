@@ -143,6 +143,7 @@ class PostShow extends React.Component {
                 </li>
                 <li>This trip was posted on {this.formatDate(createdAt)} at {this.formatTime(createdAt)}</li>
               </ul>
+              <ShowMap post={this.props.post} key={this.props.post}/>
             </div>
             <div>
               <ul className="post-show-box">
@@ -157,7 +158,6 @@ class PostShow extends React.Component {
               </ul>
             </div>
           </div>
-          <ShowMap className="post-show-map" post={this.props.post} key={this.props.post}/>
         </div>
       )
     } else {

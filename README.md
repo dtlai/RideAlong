@@ -29,16 +29,33 @@ RideAlong is a ride-sharing app that allows drivers to connect with passengers l
 
 # Features
 * Create an account to make posts about their trips
+
+![create_account](https://i.imgur.com/iGqkE0T.png)
+
 * Post a trip to allow for carpoolers
+
+![plan_trip](https://i.imgur.com/Dy92Jg5.png)
+
+
 * Select start destinations based on map location
-![join_a_ride](https://media3.giphy.com/media/CIc6NECkQ0GsVg5YCt/giphy.gif | width=100)
+
+![map_location](https://media.giphy.com/media/QaZXYVPwOaI8S4UVcE/giphy.gif)
 
 * Search for trips based on start destination
-![search_trip](https://media.giphy.com/media/Qwz1nZxHmP8emkLCNU/giphy.gif | width=100)
+
+![search_trip](https://media.giphy.com/media/Qwz1nZxHmP8emkLCNU/giphy.gif)
 
 * Trip page showing details about the trip
-* View catalog of all the trips posted
+
+![join_a_ride](https://media3.giphy.com/media/CIc6NECkQ0GsVg5YCt/giphy.gif)
+
 * Display all trips requested and posted on user profile
+
+![user_prof](https://media.giphy.com/media/IAi8uuDVMFoqGUxmyd/giphy.gif)
+
+
+* View catalog of all the trips posted
+
 
 # Backend Technical Challenges
 * Integrating Google Maps API and GeoCoding API into our features

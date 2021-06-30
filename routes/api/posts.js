@@ -93,10 +93,11 @@ router.put("/:postId/cancel",
       .exec()
       .then(post => {
         savedPost = post;
-        let idx = post.passengers.indexOf(req.user._id);
+        let idx = savedPost.passengers.indexOf(req.user._id)
         if (idx === -1) {
           return req.user;
         } else {
+          idx = req.user.requests.indexOf(idx);
           req.user.requests.splice(idx, 1);
           return req.user.save();
         }

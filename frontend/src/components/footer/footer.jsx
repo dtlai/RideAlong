@@ -9,7 +9,7 @@ class Footer extends React.Component {
       <footer className="footer-container">
         <div className="footer-items-container">
           <div className="menu-container">
-            <p>Menu</p>
+            <p>MENU</p>
             <Link to="/">Home</Link>
             <Link to="/profile">Profile</Link>
             <Link to="/posts">Posts</Link>
@@ -17,7 +17,7 @@ class Footer extends React.Component {
           </div>
 
           <div className="follow-container">
-            <p>Follow</p>
+            <p>FOLLOW</p>
             <a href = "https://github.com/dtlai/RideAlong"
               target = "_blank" 
               rel="noreferrer"><FaGithub size="1.2em" />&nbsp;Github</a>
@@ -25,7 +25,7 @@ class Footer extends React.Component {
           </div>
 
           <div className="get-started-container">
-            <p>Get Started</p>
+            <p>GET STARTED</p>
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
           </div>

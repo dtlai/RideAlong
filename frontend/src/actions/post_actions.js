@@ -5,6 +5,12 @@ export const RECEIVE_REQUEST = "RECEIVE_REQUEST";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_NEW_POST = "RECEIVE_NEW_POST";
+export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
+
+export const receivePostErrors = errors => ({
+  type: RECEIVE_POST_ERRORS,
+  errors
+})
 
 export const receivePosts = posts => ({
   type: RECEIVE_POSTS,
@@ -47,7 +53,7 @@ export const fetchPost = postId => dispatch => (
 export const createPost = data => dispatch => (
   submitPost(data)
     .then(post => dispatch(receiveNewPost(post)))
-    .catch(err => console.log(err))
+    .catch(err => dispatch(receivePostErrors(err.response.data)))
 );
 
 export const updatePost = (post) => dispatch => (

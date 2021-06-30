@@ -29,6 +29,11 @@ class LoginForm extends React.Component {
       this.props.history.push("/posts");
     }
 
+    if (nextProps.match.isExact !== this.props.match.isExact){
+      console.log('change')
+      this.props.handleClose();
+    }
+
     // Set or clear errors
     this.setState({ errors: nextProps.errors });
   }
@@ -78,7 +83,7 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="login-form-container">
           <div className="login-form">
             <div className="logo-home-link-container">
-              <Link to="/" className="logo-home-link">
+              <Link to="/" className="logo-home-link" >
                 <img
                   src="https://i.imgur.com/vscAchT.png"
                   alt="Ride Along Logo"
@@ -86,7 +91,7 @@ class LoginForm extends React.Component {
               </Link>
             </div>
             <span className="login-header">
-              <h3>Log in to RideAlong</h3>
+              <h3 >Log in to RideAlong</h3>
               <p>
                 New to RideAlong?{" "}
                 <Link to="/signup" style={{ color: "blue" }}>

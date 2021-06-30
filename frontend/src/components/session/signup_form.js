@@ -23,6 +23,10 @@ class SignupForm extends React.Component {
       this.props.history.push("/login");
     }
 
+    if (nextProps.match.isExact !== this.props.match.isExact) {
+      this.props.handleClose();
+    }
+
     this.setState({ errors: nextProps.errors });
   }
 
@@ -103,7 +107,7 @@ class SignupForm extends React.Component {
                 value={this.state.firstName}
                 onChange={this.update("firstName")}
                 placeholder="First Name"
-                className="first-name-input"
+                className="name-input"
               />
               <input
                 required
@@ -111,6 +115,7 @@ class SignupForm extends React.Component {
                 value={this.state.lastName}
                 onChange={this.update("lastName")}
                 placeholder="Last Name"
+                className="name-input"
               />
             </div>
             <input

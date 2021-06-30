@@ -61,6 +61,7 @@ $primary-gray: #8080801c;
   padding-left: 50px;
   padding-right: 50px;
   text-align: center;
+  width: 300px;
   div {
     input {
       margin-top: 5px;
@@ -188,8 +189,14 @@ $primary-gray: #8080801c;
     border: 1px solid #bbbac0;
     border-radius: 6px;
   }
+  .name-input {
+    width: 122px;
+  }
 }
 
-.first-name-input {
-  margin-right: 8px;
+.name-container {
+  display: flex;
+  justify-content: space-between;
 }
+
+

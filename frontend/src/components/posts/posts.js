@@ -58,9 +58,9 @@ class Posts extends React.Component {
     if (!this.state.posts) return null;
     if (this.state.posts.length === 0) {
       return (
-        <div>
+        <div className="no-posts-page-container">
           <div className="no-posts-container">
-            <h3 className="no-posts">There are currently no posts.</h3>
+            <h3 className="no-posts">There are currently no posts that match your search.</h3>
             <h2>Be the first!</h2>
             <button className="create-post-button" onClick={(e) => this.goToCreate()}>Create a Post</button>
           </div>

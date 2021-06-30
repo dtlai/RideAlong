@@ -144,3 +144,10 @@ a:-webkit-any-link {
   cursor: pointer;
   text-decoration: none;
 }
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}

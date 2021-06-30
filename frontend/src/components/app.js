@@ -15,7 +15,7 @@ import Footer from './footer/footer';
 import NavBarContainer from './nav_bar/nav_bar_container';
 
 const App = () => (
-  <div>
+  <div className="page-container">
     <Route path="/" component={NavBarContainer}></Route>
     <Switch>
       <ProtectedRoute exact path="/profile" component={UserProfContainer} />

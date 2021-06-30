@@ -145,7 +145,6 @@ $pt-sans: 'PT Sans', sans-serif;
   font-size: 24px;
   font-weight: 700;
   justify-content: space-evenly;
-
 }
 
 .create-post-button {
@@ -161,4 +160,9 @@ $pt-sans: 'PT Sans', sans-serif;
 
 .create-post-button:hover {
   cursor: pointer;
+}
+
+.no-posts-page-container {
+  background-color: #cccccc;
+  height: 100%;
 }

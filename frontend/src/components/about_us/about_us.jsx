@@ -78,7 +78,7 @@ class AboutUs extends React.Component {
                   <p>Dislikes: Old Valorant skins</p>
                   <div className="about-links">
                     <a
-                      href="https://www.linkedin.com/in/michael-lau-38407119b/" target = "_blank" rel="noreferrer">
+                      href="https://www.linkedin.com/in/michaelslau" target = "_blank" rel="noreferrer">
                       <FaLinkedin className="about-us-icon" size={40} />
                     </a>
                   </div>

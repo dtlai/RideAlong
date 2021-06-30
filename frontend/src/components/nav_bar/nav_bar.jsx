@@ -23,7 +23,8 @@ class NavBar extends React.Component {
     e.preventDefault();
     this.props.logout();
   }
-  setDropdown () {
+  setDropdown(e) {
+    e.stopPropagation();
     this.setState({
       dropdown: !this.state.dropdown
     })
@@ -36,7 +37,7 @@ class NavBar extends React.Component {
     return (
       <div>
         <div className="user-session-container">
-          <button onClick={this.setDropdown} className="dropbtn">
+          <button onClick={e => this.setDropdown(e)} className="dropbtn">
             <img src="https://i.imgur.com/eHreOGm.jpg" alt="noimage" />
           </button>
           {this.state.dropdown ? (

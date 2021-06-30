@@ -4,7 +4,7 @@ $primary-gray: #8080801c;
 $primary-blue: rgb(56, 179, 253);
 $primary-pink: #f39e9e;
 
-bold {
+.bold {
   font-weight: bold;
 }
 
@@ -67,7 +67,7 @@ bold {
         color: #FFFFFF;
         font-size: 0.7em;
         font-weight: bold;
-        background: #f70000;
+        background: #69cc6c;
         margin-top: 2em;
         padding: 0.6em;
         border: 0.1em solid $primary-gray;
@@ -82,6 +82,9 @@ bold {
         &:active {
           box-shadow: 0.1em 0.1em 0.1em lightgray inset;
         }
+      }
+      .cancel-button {
+        background: #f70000;
       }
     }
   }
@@ -121,7 +124,7 @@ bold {
   flex-wrap: wrap;
   margin-left: 5em;
   font-size: 1.3em;
-  bold {
+  .bold {
     font-size: 1.3em;
   }
   & > li {

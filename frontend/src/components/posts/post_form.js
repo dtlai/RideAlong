@@ -78,9 +78,9 @@ class PostForm extends React.Component {
       <div className="post-page">
         <div className="create-post-container">
           <span className="side-img"><h3>Plan a Trip!</h3></span>
-          <div>
+          <div className="form-spacing">
             <form onSubmit={this.handleSubmit}>
-              <div>
+              <div className="form-spacing">
                 <input type="text"
                   value={this.state.title}
                   onChange={this.update('title')}  
@@ -88,7 +88,7 @@ class PostForm extends React.Component {
                   required
                 />
               </div>
-              <div>
+              <div className="form-spacing">
                 <input type="textarea"
                   value={this.state.description}
                   onChange={this.update('description')}  
@@ -96,7 +96,7 @@ class PostForm extends React.Component {
                   required
                 />
               </div>
-              <div>
+              <div className="form-spacing">
                 <input type="text"
                   value={this.state.carMake}
                   onChange={this.update('carMake')}
@@ -104,7 +104,7 @@ class PostForm extends React.Component {
                   required 
                 />
               </div>
-              <div>
+              <div className="form-spacing">
                 <input type="text"
                   value={this.state.startLocation}
                   onChange={this.update('startLocation')} 
@@ -112,7 +112,7 @@ class PostForm extends React.Component {
                   required
                 />
               </div>
-              <div>
+              <div className="form-spacing">
                 <input type="text"
                   value={this.state.endLocation}
                   onChange={this.update('endLocation')}
@@ -120,7 +120,7 @@ class PostForm extends React.Component {
                   required
                 />
               </div>
-              <div className="capacity-container">
+              <div className="capacity-container form-spacing">
                 Capacity
                 <select onChange={this.update('capacity')} required className="capacity-input">
                   <option value="1">1</option>
@@ -130,7 +130,7 @@ class PostForm extends React.Component {
                   <option value="5">5</option>
                   <option value="6">6</option>
                 </select>
-                Passengers
+                Seats Taken
                 <select onChange={this.update('numPassengers')} required className="passenger-input">
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -140,22 +140,25 @@ class PostForm extends React.Component {
                   <option value="6">6</option>
                 </select>
               </div>
-              <div>
+              <div className="form-spacing">
                 How much for gas per passenger?
-                <input type="number"
-                  value={this.state.price}
-                  onChange={this.update('price')}
-                  required
-                />
+                <div className="currency-input">
+                  <span>$&nbsp;</span>
+                  <input type="number"
+                    value={this.state.price}
+                    onChange={this.update('price')}
+                    required
+                  />
+                </div>
               </div>
-              <div>When are you leaving?
+              <div className="form-spacing">When are you leaving?
                 <input type="datetime-local"
                   className="date-input"
                   onChange={this.update('leaveDate')}
                   value={this.state.leaveDate}
                   required/>
               </div>
-              <div>
+              <div className="form-spacing">
                 <input className="post-submit-button" type="submit" value="Submit Post"></input>
               </div>
             </form>

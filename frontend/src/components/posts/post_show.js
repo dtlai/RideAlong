@@ -122,34 +122,34 @@ class PostShow extends React.Component {
                   <h4>{this.formatDate(leaveDate)} ~ {this.formatTime(leaveDate)}</h4>
                   <p>{description}</p>
                   <div className="post-show-driver">
-                    Your driver is <bold>{firstName} {lastName}</bold> 
+                    Your driver is <span className="bold">{firstName} {lastName}</span> 
                     <span className="post-show-driver-profile"><CgProfile size="2em" background-color="white" color="rgb(56, 179, 253)"/> {username}</span>
                   </div>
                   <ul className="post-show-details">
                     <li className="post-show-detail-item">
                       You will be riding in a 
-                      <bold>{carMake}</bold>
+                      <span className="bold">{carMake}</span>
                     </li>
                     <li className="post-show-detail-item">
                       Seats Available 
-                      { this.alreadyFull() ? <bold>FULL</bold> :
-                        <bold>{capacity-numPassengers} of {capacity}</bold>
+                      { this.alreadyFull() ? <span className="bold">FULL</span> :
+                        <span className="bold">{capacity-numPassengers} of {capacity}</span>
                       }
                     </li>
                     <li className="post-show-detail-item">
                       Cost per Passenger
-                      <bold>${price.toFixed(2)}</bold>
+                      <span className="bold">${price.toFixed(2)}</span>
                     </li>
                     <li>This trip was posted on {this.formatDate(createdAt)} at {this.formatTime(createdAt)}</li>
                   </ul>
                 </div>
                 <div>
                 <ul className="post-show-box">
-                  <li><bold>${price.toFixed(2)}</bold> / passenger</li>
+                  <li><span className="bold">${price.toFixed(2)}</span> / passenger</li>
                   <li>From {startLocation} to {endLocation}</li>
                   <li></li>
-                  <li><bold>{capacity-numPassengers}</bold> of <bold>{capacity}</bold> seats available</li>
-                  <button disabled={this.alreadyFull() && !this.alreadyRequested()} onClick={this.alreadyRequested() ? 
+                  <li><span className="bold">{capacity-numPassengers}</span> of <span className="bold">{capacity}</span> seats available</li>
+                  <button className={this.alreadyRequested() ? "cancel-button" : ""} disabled={this.alreadyFull() && !this.alreadyRequested()} onClick={this.alreadyRequested() ? 
                     this.cancelRide : this.requestRide}>{this.alreadyRequested() ? "Cancel Ride" : 
                     (this.alreadyFull() ? "Full" : "Join Ride")}
                   </button>

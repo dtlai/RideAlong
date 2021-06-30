@@ -46,7 +46,7 @@ class MainPage extends React.Component {
               <span>Discover and plan trips for your next adventure.</span>
               <SearchBar />
             </div>
-            <div className="title-splash">
+            <div className="get-started-splash">
               <h3>Start your journey!</h3>
               <button
                 className="get-started-button"

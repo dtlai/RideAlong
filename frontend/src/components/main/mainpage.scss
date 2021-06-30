@@ -21,13 +21,29 @@ $primary-gray: #8080801c;
 
 .title-splash{
   color: black;
-  padding: 25px;
+  padding: 40px;
   background-color: white;
   display: inline-block;
   border-radius: 30px;
   box-shadow: 11px 20px 20px 0px #353535, 0 6px 20px 0 rgb(0, 0, 0 / 10%);
   h3 {
-    font-size: 24px;
+    font-size: 28px;
+    font-family: $pt-sans;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+}
+
+.get-started-splash{
+  color: black;
+  padding: 26px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  box-shadow: 11px 20px 20px 0px #353535, 0 6px 20px 0 rgb(0, 0, 0 / 10%);
+  h3 {
+    font-size: 20px;
     font-family: $pt-sans;
     font-weight: 700;
     margin-bottom: 8px;
@@ -41,9 +57,9 @@ $primary-gray: #8080801c;
   align-items: flex-end;
   box-sizing: border-box;
   justify-content: space-evenly;
-  width: 60%;
-  height: 80%;
-  margin: 0 auto;
+  width: 50%;
+  height: 100%;
+  margin: auto;
 }
 
 .get-started-button {

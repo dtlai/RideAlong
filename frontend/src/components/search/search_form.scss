@@ -24,7 +24,15 @@ $primary-blue: rgb(56, 179, 253);
   background-color: $primary-blue;
   padding: 10px;
   color: #fff;
-  
+  font-family: $pt-sans;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  padding: 12px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .search-submit:hover {

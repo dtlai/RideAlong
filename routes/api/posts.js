@@ -189,20 +189,18 @@ router.get("/:postId", (req, res) => {
 
 router.delete('/:postId', function (req, res) {
   Post.deleteOne({"_id": (req.params.postId)})
-    .then(deletedDocument => {
-      if(deletedDocument) {
-        console.log(`Successfully deleted document that had the form: ${deletedDocument}.`);
-      } else {
-        console.log("No document matches the provided query.");
-      }
-      return deletedDocument;
-    })  
-    .catch(err => console.error(`Failed to find and delete document: ${err}`))
+    .then(() => Post.findOne({"_id" : mongoose.Types.ObjectId(req.params.postId)}))
+    .then(post => {
+      post.passengers.forEach(passenger => {
+        let user = User.findOne({"_id" : passenger});
+        if (user) {
+          user.requests.splice(req.params.postId, 1);
+          req.user.save();
+        }
+      })
+    })
   }
 );
-
-
-
 
 module.exports = router;
 

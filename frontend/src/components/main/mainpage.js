@@ -49,7 +49,7 @@ class MainPage extends React.Component {
             <div className="get-started-splash">
               <h3>Start your journey!</h3>
               <button
-                className="get-started-button"
+                className="splash-button"
                 onClick={() => this.onSubmit()}
               >
                 Create a Trip
@@ -66,7 +66,7 @@ class MainPage extends React.Component {
             .map((post) => <Postcard key={post.id} post={post} />)
             .slice(0, 6)}
           <div>
-            <button onClick={this.sendToPosts} className="view-more-button">
+            <button onClick={this.sendToPosts} className="splash-button">
               View more trips
             </button>
           </div>

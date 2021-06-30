@@ -19,23 +19,23 @@ module.exports = function validatePostInput(data) {
   }
 
   if (!Validator.isLength(data.description, { min: 5, max: 75 })) {
-    errors.title = "Description must be between 5 and 75 characters";
+    errors.description = "Description must be between 5 and 75 characters";
   }
 
   if (Validator.isEmpty(data.description)) {
-    errors.title = "Description field is required";
+    errors.description = "Description field is required";
   }
 
   if (Validator.isEmpty(data.carMake)) {
-    errors.title = "Car Make field is required";
+    errors.carMake = "Car Make field is required";
   }
 
   if (Validator.isEmpty(data.startLocation)) {
-    errors.title = "Start location field is required";
+    errors.startLocation = "Start location field is required";
   }
 
   if (Validator.isEmpty(data.endLocation)) {
-    errors.title = "End location field is required";
+    errors.endLocation = "End location field is required";
   }
   
   return {

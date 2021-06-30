@@ -14,6 +14,7 @@ class NavBar extends React.Component {
     this.loginContainer = this.loginContainer.bind(this);
     this.logoutContainer = this.logoutContainer.bind(this);
     this.setDropdown = this.setDropdown.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.state = {
       dropdown: false
     };
@@ -30,14 +31,35 @@ class NavBar extends React.Component {
     })
   }
 
+  container = React.createRef();
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+
+  handleClickOutside = (e) => {
+    if (
+      this.container.current && 
+      !this.container.current.contains(e.target)
+    ) {
+      this.setState({
+        dropdown: false,
+      })
+    }
+  }
+
   loginContainer () {
     let firstName = this.props.currentUser.firstName;
     let lastName = this.props.currentUser.lastName;
     
     return (
       <div>
-        <div className="user-session-container">
-          <button onClick={e => this.setDropdown(e)} className="dropbtn">
+        <div className="user-session-container" ref={this.container}>
+          <button onClick={(e) => this.setDropdown(e)} className="dropbtn">
             <img src="https://i.imgur.com/eHreOGm.jpg" alt="noimage" />
           </button>
           {this.state.dropdown ? (
@@ -46,7 +68,9 @@ class NavBar extends React.Component {
                 {firstName}&nbsp;{lastName}
               </div>
               <div className="profile-link-container">
-                <Link to="/profile">My Profile</Link>
+                <Link to="/profile" onClick={(e) => this.setDropdown(e)}>
+                  My Profile
+                </Link>
               </div>
               <div>
                 <button className="session-button" onClick={this.logoutUser}>

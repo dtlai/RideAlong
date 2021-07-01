@@ -64,7 +64,6 @@ $pt-sans: 'PT Sans', sans-serif;
   border-radius: 5px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-
   font-weight: bold;
   font-size: 18px;
   &:active {
@@ -138,7 +137,7 @@ $pt-sans: 'PT Sans', sans-serif;
 .no-posts-container {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 5em auto;
   width: 350px;
   height: 250px;
   font-family: $pt-sans;
@@ -163,6 +162,6 @@ $pt-sans: 'PT Sans', sans-serif;
 }
 
 .no-posts-page-container {
-  background-color: #cccccc;
+  background-color: #8080801c;
   height: 100%;
 }

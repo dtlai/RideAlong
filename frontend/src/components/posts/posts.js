@@ -62,7 +62,7 @@ class Posts extends React.Component {
           <div className="no-posts-container">
             <h3 className="no-posts">There are currently no posts that match your search.</h3>
             <h2>Be the first!</h2>
-            <button className="create-post-button" onClick={(e) => this.goToCreate()}>Create a Post</button>
+            <button id="create-post-button" onClick={(e) => this.goToCreate()}>Plan a Trip</button>
           </div>
         </div>
       )

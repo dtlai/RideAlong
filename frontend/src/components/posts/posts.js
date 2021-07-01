@@ -28,16 +28,18 @@ class Posts extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    const query = queryString.parse(this.props.location.search);
-    if (query.startLocation) {
-      const search = {
-        startLocation: query.startLocation,
-        endLocation: query.endLocation
+  componentDidUpdate(prevProps) {
+    if (JSON.stringify(prevProps.posts) !== JSON.stringify(this.props.posts)) {
+      const query = queryString.parse(this.props.location.search);
+      if (query.startLocation) {
+        const search = {
+          startLocation: query.startLocation,
+          endLocation: query.endLocation
+        }
+        this.props.queryPosts(search);
+      } else {
+        this.props.fetchPosts();
       }
-      this.props.queryPosts(search);
-    } else {
-      this.props.fetchPosts();
     }
   }
 

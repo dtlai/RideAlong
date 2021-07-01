@@ -139,11 +139,10 @@ class PostForm extends React.Component {
               </div>
               <div className="form-spacing">When are you leaving?
                 <input type="datetime-local"
-                  className="date-input"
+                  className={"date-input"}
                   onChange={this.update('leaveDate')}
                   value={this.state.leaveDate}
                   required
-                  className={errors.leaveDate ? "invalidInput" : ""}
                   />
               </div>
               <div className="form-spacing">

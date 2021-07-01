@@ -23,16 +23,15 @@ class PostForm extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props !== prevProps) {
-      this.setState({errors: prevProps.errors})
+      this.setState({errors: this.props.errors})
     }
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPost(this.state)
-    if (!this.state.errors) {
-      this.props.history.push("/posts")
-    }
+    this.props
+      .createPost(this.state)
+      .then(() => this.props.history.push("/posts"), () => null);  
   }
 
   update(field) {

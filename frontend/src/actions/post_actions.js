@@ -50,10 +50,15 @@ export const fetchPost = postId => dispatch => (
     .catch(err => console.log(err))
 );
 
-export const createPost = data => dispatch => (
+export const createPost = (data) => (dispatch) => (
   submitPost(data)
-    .then(post => dispatch(receiveNewPost(post)))
-    .catch(err => dispatch(receivePostErrors(err.response.data)))
+    .then(
+      (post) => dispatch(receiveNewPost(post)),
+      (err) => {
+        dispatch(receivePostErrors(err.response.data))
+        throw new Error("Invalid post")
+      }
+    )
 );
 
 export const updatePost = (post) => dispatch => (

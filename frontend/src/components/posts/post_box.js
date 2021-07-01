@@ -11,20 +11,17 @@ class PostBox extends React.Component {
 
   render() {
     let {post} = this.props
-    let startDate = post.createdAt.slice(0, 10);
-    let dateLeave = post.leaveDate.slice(0, 10);
+    let postDate = this.formatDate(post.createdAt.slice(0, 10));
+    let dateLeave = this.formatDate(post.leaveDate.slice(0, 10));
+    let seatsRemaining = parseInt(post.capacity) - parseInt(post.numPassengers);
+    let seatCapacity = parseInt(post.capacity);
     return (
       <div onClick={() => this.props.history.push(`/posts/${post._id}`)} >
         <div className="post-title-container">
           <span className="post-title">{post.title}</span>
-          <span>{this.formatDate(startDate)}</span>
-        </div>
-        <div className="post-capacity-container">
-          <span>Total Seats: {post.capacity} </span>
-          <span>Seats left: &nbsp;
-            {parseInt(post.capacity) - parseInt(post.numPassengers) === 0 ? "FULL" :
-              parseInt(post.capacity) - parseInt(post.numPassengers)
-            }
+          <span>
+            {dateLeave}<br></br><br></br>
+            Seats left: {seatsRemaining === 0 ? "FULL" : `${seatsRemaining} of ${seatCapacity}`}
           </span>
         </div>
         <div className="post-user-container">
@@ -34,9 +31,10 @@ class PostBox extends React.Component {
           }
         </div>
         <div className="post-locations-container">
-          <span>Leaving {post.startLocation} to {post.endLocation} on {this.formatDate(dateLeave)}</span>
+          <span>Trip: {post.startLocation} to {post.endLocation}</span>
         </div>
         <div>Price/passenger: ${post.price}</div>
+        <div>Posted: {postDate}</div>
       </div>
     )
   }

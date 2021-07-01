@@ -11,7 +11,7 @@ class PostForm extends React.Component {
       carMake: "",
       startLocation: "",
       endLocation: "",
-      capacity: 0,
+      capacity: 1,
       numPassengers: 1,
       price: 0,
       leaveDate: "",

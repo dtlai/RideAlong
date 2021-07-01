@@ -42,13 +42,14 @@ $primary-blue: rgb(56, 179, 253);
   }
   .form-spacing {
     margin: 10px;
+    padding-top: 3px;
   }
   .post-submit-button {
     background-color: $primary-blue;
     color: #fff;
     font-size: 18px;
     font-weight: 700;
-    width: 100%;
+    width: 98.6%;
   }
 }
 
@@ -56,6 +57,7 @@ $primary-blue: rgb(56, 179, 253);
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 98.3%;
 }
 
 .side-img {
@@ -89,7 +91,7 @@ $primary-blue: rgb(56, 179, 253);
 
 .capacity-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .capacity-input {

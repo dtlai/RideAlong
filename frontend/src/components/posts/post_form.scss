@@ -14,11 +14,17 @@ $primary-blue: rgb(56, 179, 253);
   div {
     height: 80%;
     input {
+      text-indent: 10px;
       padding: 10px;
       width: 95%;
       border-radius: 4px;
       border: 1px solid #bbbac0;
+      padding-inline-start: 1px;
     }
+    .invalidInput {
+      border-color: red;
+    }
+    
     input[type=number], input[type=datetime-local] {
       margin-top: 5px;
     }
@@ -27,8 +33,22 @@ $primary-blue: rgb(56, 179, 253);
     display: flex;
     justify-content: center;
   }
+  p {
+    font-size: 12px;
+    display: block;
+    color: red;
+    margin-left: 10px;
+    font-weight: lighter;
+  }
   .form-spacing {
-    margin: 20px;
+    margin: 10px;
+  }
+  .post-submit-button {
+    background-color: $primary-blue;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
   }
 }
 
@@ -65,12 +85,7 @@ $primary-blue: rgb(56, 179, 253);
   cursor: pointer;
 }
 
-.post-submit-button {
-  background-color: $primary-blue;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-}
+
 
 .capacity-container {
   display: flex;

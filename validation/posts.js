@@ -37,6 +37,10 @@ module.exports = function validatePostInput(data) {
   if (Validator.isEmpty(data.endLocation)) {
     errors.endLocation = "End location field is required";
   }
+
+  if (/^\+?\d+$/.test(data.price) === false){
+    errors.price = "Price must be higher than 0."
+  }
   
   return {
     errors,

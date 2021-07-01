@@ -41,39 +41,43 @@ class PostForm extends React.Component {
     });
   }
 
-  renderErrors() {
-    return (
-      <ul className="errors"> 
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
-      </ul>
-    );
-  }
+  // renderErrors() {
+  //   return (
+  //     <ul className="errors"> 
+  //       {Object.keys(this.state.errors).map((error, i) => (
+  //         <li key={`error-${i}`}>{this.state.errors[error]}</li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   render() {
+    let errors = this.state.errors;
     return (
       <>
       <div className="post-page">
         <div className="create-post-container">
           <span className="side-img"><h3>Plan a Trip!</h3></span>
           <div className="form-spacing">
-            {this.renderErrors()}
             <form onSubmit={this.handleSubmit}>
+              {errors.title ? <p>{errors.title}</p> : null}
               <div className="form-spacing">
                 <input type="text"
                   value={this.state.title}
                   onChange={this.update('title')}  
                   placeholder="Title (Must be between 5 and 50 characters)"
                   required
+                  className={errors.title ? "invalidInput" : ""}
                 />
               </div>
+              {errors.description ? <p>{errors.description}</p> : null}
               <div className="form-spacing">
                 <input type="textarea"
                   value={this.state.description}
                   onChange={this.update('description')}  
                   placeholder="Description here..."
                   required
+                  className={errors.description ? "invalidInput" : ""}
                 />
               </div>
               <div className="form-spacing">
@@ -120,6 +124,7 @@ class PostForm extends React.Component {
                   <option value="6">6</option>
                 </select>
               </div>
+              {errors.price ? <p>{errors.price}</p> : null}
               <div className="form-spacing">
                 How much for gas per passenger?
                 <div className="currency-input">
@@ -128,6 +133,7 @@ class PostForm extends React.Component {
                     value={this.state.price}
                     onChange={this.update('price')}
                     required
+                    className={errors.price ? "invalidInput" : ""}
                   />
                 </div>
               </div>
@@ -136,7 +142,9 @@ class PostForm extends React.Component {
                   className="date-input"
                   onChange={this.update('leaveDate')}
                   value={this.state.leaveDate}
-                  required/>
+                  required
+                  className={errors.leaveDate ? "invalidInput" : ""}
+                  />
               </div>
               <div className="form-spacing">
                 <input className="post-submit-button" type="submit" value="Submit Post"></input>

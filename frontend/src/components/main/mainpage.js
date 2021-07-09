@@ -63,7 +63,7 @@ class MainPage extends React.Component {
         </div>
         <div className="post-cards-container">
           {this.state.posts
-            .map((post) => <Postcard key={post.id} post={post} />)
+            .map((post, index) => <Postcard key={post.id} post={post} index={index} />)
             .slice(0, 6)}
           <div>
             <button onClick={this.sendToPosts} className="splash-button">

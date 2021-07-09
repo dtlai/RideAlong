@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
-$pt-sans: 'PT Sans', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
+$pt-sans: "PT Sans", sans-serif;
 $primary-blue: rgb(56, 179, 253);
 
 .postcard-box {
@@ -20,8 +20,53 @@ $primary-blue: rgb(56, 179, 253);
   margin: 12px;
 }
 
-.card-img {
-  background: url(https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80) no-repeat;
+.card-img0 {
+  background: url(https://assets.simpleviewcms.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/lasvegas/strip_b86ddbea-3add-4995-b449-ac85d700b027.jpg)
+    no-repeat;
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-img1 {
+  background: url(https://images-ext-1.discordapp.net/external/vL7ed0GXtwUNCPEkKbEbq3iMDy780Z_Rzk0ouQQe6w4/https/i.imgur.com/itEKOPv.jpg)
+    no-repeat;
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-img2 {
+  background: url(https://images.musement.com/cover/0002/42/view-on-manhattan-at-night-new-york-usa-jpg_header-141511.jpeg?w=1200&h=630&q=95&fit=crop)
+    no-repeat;
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-img3 {
+  background: url(https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80)
+    no-repeat;
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-img4 {
+  background: url(https://i.imgur.com/DN4y4j0.jpg) no-repeat;
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-img5 {
+  background: url(https://onthegomoving.com/wp-content/uploads/2020/07/what-is-seattle-known-for.jpg)
+    no-repeat;
   width: 100%;
   height: 100px;
   background-size: cover;

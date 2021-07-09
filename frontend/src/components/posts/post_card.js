@@ -17,7 +17,7 @@ class Postcard extends React.Component {
     return (
       <div>
         <div onClick={this.sendToPost} className="postcard-box">
-          <div className="card-img">
+          <div className={`card-img${this.props.index}`}>
 
           </div>
           <div className="card-content">

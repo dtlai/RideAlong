@@ -25,7 +25,7 @@ RideAlong is a ride-sharing app that allows drivers to connect with passengers l
 
 * Search for trips based on start destination
 
-![search_trip](https://media.giphy.com/media/Qwz1nZxHmP8emkLCNU/giphy.gif)
+![search_trip](https://media.giphy.com/media/bYH0KFq11f9ZaWHzO8/giphy.gif)
 
 * Trip page showing details about the trip
 

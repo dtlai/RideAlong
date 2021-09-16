@@ -15,6 +15,7 @@ const containerStyle = {
 };
 
 Geocode.setApiKey(googleMapsAPI);
+// changed keys
 
 export class CurrentMap extends Component {
   constructor(props) {

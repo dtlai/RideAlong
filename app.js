@@ -3,9 +3,8 @@ const mongoose = require("mongoose");
 const db = require('./config/keys').mongoURI;
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
-app.set("port", PORT)
 
 // importing routes
 const users = require("./routes/api/users");
@@ -45,4 +44,4 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/posts", posts);
 
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+app.listen(port, () => console.log(`Server is running on port ${port}`));

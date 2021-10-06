@@ -3,7 +3,7 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import "./about_us.scss";
 
 class AboutUs extends React.Component {
-  // updated mongo key
+  // updated mongo key again
   componentDidMount() {
     window.scrollTo(0, 0)
   }
